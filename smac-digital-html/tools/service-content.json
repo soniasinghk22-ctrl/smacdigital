@@ -1,0 +1,206 @@
+[
+  {
+    "slug": "search-engine-optimization",
+    "title": "Search Engine Optimization",
+    "image": "assets/services/seo.jpg",
+    "lede": "SEO is the collection of tools and best practices that will help a website to rank higher in the search engine. A proper SEO collection will help to drive more traffic and ultimately more business for your clients.",
+    "intro": [
+      "SEO is the collection of tools and best practices that will help a website to rank higher in the search engine. A proper SEO collection will help to drive more traffic and ultimately more business for your clients.",
+      "SMAC Digital is a pioneer digital marketing agency which provides the best SEO services to its clients, following their needs and goal. The company has a proven track record in search engine optimization where it has provided its services to both national and international clients."
+    ],
+    "sections": [
+      {
+        "heading": "Onsite SEO",
+        "paragraphs": [
+          "The basics of search engine optimization starts with the website itself where link building in an effective manner takes place. There are some of the basic factors to be considered as follows –"
+        ],
+        "bullets": [
+          "Title tag: Gives an idea to the search engine as to what page is all about. It should be less than 70 characters in length. It should include the name of your brand and the keyword about specific pages. This tag is placed near the HTML code.",
+          "Meta Description: The meta description provides an idea of what exactly the page is all about. Meta description helps in keyword ranking on Google. When a user searches for these keywords, Google provides a search result where it shows the keywords in bold, both for title and Meta description.",
+          "Internal links: Link building is not all about just external link building, but it is also about the internal linking of your website content. Internal linking is one of the major factors when it comes to SEO optimization.",
+          "Header tags: Generally, there are three different types of HTML tags being used, which helps to break the content in a manner to make it more accessible. The H1 tags surround the title page. While the H2 tag is about the subheading on the page and so on H3 tag is also about the subheading. Header tag helps in breaking the content in a manner that will be more searchable.",
+          "Image Name and Alt tags: When images are used on the website, they should be taken care for keywords and alt tags. While linking image, the title should be incorporated so that it will provide maximum search results.",
+          "Bolded text: Though is not directly linked with the linking of data but bolding the text will help to get highlighted in the search option."
+        ]
+      },
+      {
+        "heading": "Offsite SEO optimization",
+        "paragraphs": [
+          "Link building is one of the main tasks in SEO optimization. The main aim of link building is to link your website with others. When your link is keyword anchored, it will help you to rank specifically for the particular keyword."
+        ],
+        "bullets": [
+          "Organic Link: Organic links are the best links for SEO optimization. If it is a high authority link it will provide more quality traffic to your website.",
+          "White hat: This all refers to the good links, always try to collect good links for better SEO optimization.",
+          "Black hat: These mainly spam low-quality links which basically should be avoided for a better result of SEO optimization."
+        ]
+      }
+    ],
+    "whyTitle": "How SMAC Digital will help you with your SEO needs",
+    "why": [
+      { "title": "We create an SEO strategy", "text": "SEO is just not about applying the techniques to bring a client's website on the first page. Even a black hat SEO could give you such a result. But in the long term, your business will be heavily affected by the ultimate consequences. Therefore we create a proper SEO strategy for each business considering its long term and short term goals." },
+      { "title": "Every client has a different need", "text": "When it comes to SEO, every client has different goals and needs. We listen and care about their needs and also provide proper assistance in setting their SEO goals. Our expert assistance will help to understand the requirements of SEO for your organization." },
+      { "title": "National & International SEO are different", "text": "SEO strategy depends upon the geographical location selected. The techniques and implementation for the international SEO pages are different from the national one. We help the client to make a detailed business plan so that they can know their target audience, both for short and long term perspective, and optimization is done accordingly." },
+      { "title": "A strong foundation is key for best result", "text": "SEO is just not all about placing your website on the first page of Google search. Strong backlinks, blog posts, and organic traffic will help to provide a strong foundation for your webpage and SEO." },
+      { "title": "Quality traffic is the key", "text": "It's just not about the traffic on the webpage. If those visitors don't get converted into quality leads, then it is of no use. Therefore, we make sure that your webpage receives quality traffic through SEO of the page so that the traffic boosts your business by getting converted into leads." },
+      { "title": "SEO dynamics keep on changing", "text": "SEO dynamics is based upon the Google algorithm and it keeps on changing with time. Therefore it is needed to keep you updated with the changing Google algorithm so that a better result could be achieved with SEO in the long run." },
+      { "title": "We are professionals", "text": "Overall while delivering any service we keep the professional standards so that quality of work never gets compromised. Therefore, if you are looking for the best SEO services for boosting your webpage and converting visitors into quality leads, contact us today." }
+    ],
+    "pillars": [
+      { "k": "01", "t": "Onsite SEO", "d": "Titles, meta, headers, internal links, and image alt work on the page itself." },
+      { "k": "02", "t": "Offsite SEO", "d": "Organic, white-hat link building that earns authority — not spam." },
+      { "k": "03", "t": "Local & global", "d": "National and international plans shaped by geography and audience." },
+      { "k": "04", "t": "Quality traffic", "d": "Rankings that turn into leads — not empty visits." }
+    ],
+    "process": [
+      { "t": "Audit", "d": "Review the site, keywords, technical health, and competitor landscape." },
+      { "t": "Strategy", "d": "Set short- and long-term SEO goals around your real business outcomes." },
+      { "t": "Optimize", "d": "Ship onsite fixes, content, and white-hat offsite links." },
+      { "t": "Measure", "d": "Track rankings, organic traffic quality, and lead conversion over time." }
+    ],
+    "ctaTitle": "We work with you to improve your business's bottom line and generate positive ROI so that you can scale it up.",
+    "ctaText": "Therefore, if you are looking for the best SEO services for boosting your webpage on the internet world and converting those visitors into the quality leads for your business, contact us today.",
+    "related": [
+      { "slug": "content-marketing", "title": "Content Marketing", "short": "Give the brand something worth finding." },
+      { "slug": "lead-generation", "title": "Lead Generation", "short": "Campaigns judged by inquiries." },
+      { "slug": "social-media-marketing", "title": "Social Media Marketing", "short": "Show up where audiences spend time." }
+    ]
+  },
+  {
+    "slug": "social-media-marketing",
+    "title": "Social Media Marketing",
+    "image": "assets/services/social.jpg",
+    "lede": "Social media marketing is the use of social media platforms in a manner so that audiences are created for brand awareness, increase in sales, and to boost web traffic.",
+    "intro": [
+      "Social media marketing is the use of social media platforms in a manner so that audiences are created for brand awareness; increase in sales, and to boost web traffic.",
+      "At the very first stage, there is a need to understand the strategy to be followed for future growth. The very first thing you need to understand is your business goal, and how social media is helping you to achieve that goal."
+    ],
+    "sections": [
+      {
+        "heading": "Strategy first",
+        "paragraphs": ["Like some of the businesses require social media only for brand awareness while others request it for driving website traffic. It would help if you focused on the following points –"],
+        "bullets": [
+          "Which social media platform you want to focus on, and why?",
+          "What type of content do you want to share on social media?",
+          "What are your Social Media strategy and social media marketing plan?"
+        ]
+      },
+      {
+        "heading": "Planning & Publishing",
+        "paragraphs": [
+          "Social media marketing, in the case of small business, begins with the presence on social media, and the same should be consistent throughout the year. Though it sounds easy, publishing on social media could be a tricky task. There is a need for proper content planning with publishing the content and reviewing the result of the same. Here an expert will help you to gain the best from the use of social media."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Audience Engagement",
+        "paragraphs": [
+          "With the growth of businesses and social media, there will begin a conversation on your pages made on social media. Your audience engagement is one of the underlying phenomena of social media marketing, which will decide the success or failure of your planning."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Analytics & Reporting",
+        "paragraphs": [
+          "Analytics will provide you a basic idea on how social media marketing is performing and its performance is impacting the overgrowth of your company. Many analytical tools will give you an insight into your progress on social media. These analyses need to be correctly reported and evaluated at regular intervals."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Advertising",
+        "paragraphs": [
+          "If you invest your funds wisely, you could grow your social media manifolds. The social media advertising platform is immensely powerful and could help you to grow in your business. Here the essential thing needed to understand is the rationality behind spending. Therefore if you are spending a certain amount of money, always go for a cost-benefit analysis to get an overview."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "SMAC Social media metrics",
+        "paragraphs": [
+          "Social Media Metrics is a tool that provides data on the success of your post and how it has impacted the audience and customers. These metrics may consist of data on the level of engagement, like, follow and similar interactions made on the platform. The primary metrics to be tracked is as follows –"
+        ],
+        "bullets": [
+          "Engagement: click, comments, likes, and replies for the social media post — plus saved and pinned actions.",
+          "Followers: number of people following your social media page.",
+          "Impression: number of times the social media page is seen, or members have clicked on it.",
+          "Reach & Video visit: reach of viewers and video visits made by clients.",
+          "Profile visit, reports, tags: how many clients found your profile engaging, and how many tagged your creative."
+        ]
+      }
+    ],
+    "whyTitle": "SMAC Digital will help you with your social media marketing goals",
+    "why": [
+      { "title": "More receptive messaging", "text": "The consumer will be more receptive to your messages when you opt to market it through social media." },
+      { "title": "Brand recognition", "text": "Social Media Marketing helps in creating brand recognition." },
+      { "title": "Inbound traffic", "text": "Social Media Marketing helps to increase inbound traffic." },
+      { "title": "Beyond geography", "text": "Social Media channels help you to reach customers beyond geographical limitations." },
+      { "title": "Targeting & retargeting", "text": "Social Media Advertising helps in targeting and retargeting customers." },
+      { "title": "Search & loyalty", "text": "Social Media Marketing helps in improving search engine ranking and brand loyalty — with high conversion from visitors to leads and customers." }
+    ],
+    "related": [
+      { "slug": "influencer-marketing", "title": "Influencer Marketing", "short": "Partners the audience already trusts." },
+      { "slug": "social-media-analytics", "title": "Social Media Analytics", "short": "See what earns its place." },
+      { "slug": "content-marketing", "title": "Content Marketing", "short": "Something worth finding." }
+    ]
+  },
+  {
+    "slug": "marketing-automation",
+    "title": "Marketing Automation",
+    "image": "assets/services/automation.jpg",
+    "lede": "In digital marketing, software is used for repetitive marketing functions like email marketing and social media marketing. These automation tools make the work easier and provide customised service to the customer.",
+    "intro": [
+      "In digital marketing, much software is used for repetitive marketing functions like email marketing, social media marketing, etc. These automation software not only make the work easier but also provide a customised service to the customer. With a rise in the digital marketing era, investment in marketing automation has been doubled.",
+      "At SMAC Digital we provide marketing automation services, namely email marketing, social media posting, ad campaigns, and many more, in an efficient and customised manner, as per the client's requirements."
+    ],
+    "sections": [
+      {
+        "heading": "What is Marketing Automation?",
+        "paragraphs": [
+          "Marketing automation is the software that helps in the mechanization of the redundant marketing process. Some of the repetitive tasks which are done automated to save time are as follows –"
+        ],
+        "bullets": [
+          "Manual creation of email",
+          "SMS messaging",
+          "Social media post dissemination",
+          "Widget content of the website",
+          "Advertisement placement online",
+          "Data management and analysis"
+        ]
+      },
+      {
+        "heading": "Why is marketing automation essential?",
+        "paragraphs": [
+          "In general, companies that use marketing automation witness more traffic on their website. This traffic brings more buyers and higher retention and loyalty of customers. It will provide a personalized one to one connection, and most of the users have witnessed a sound increase in their sales with it."
+        ],
+        "bullets": [
+          "Time-saving: campaigns could be framed ahead of time and customized posts scheduled for the audience.",
+          "Increase productivity: frees the marketing team from repetitive tasks for more productive work.",
+          "Multi-channel campaign management: keeps track of campaigns across platforms in one channelized form.",
+          "Personalization: personalized services that improve business efficiency.",
+          "Consistent voice tone: unifies the marketing tone of your campaign."
+        ]
+      },
+      {
+        "heading": "Myths about marketing automation",
+        "paragraphs": [
+          "There are a few myths associated with marketing automation due to its fully automated function."
+        ],
+        "bullets": [
+          "Myth #1: Marketing automation is all about bulk email — it also applies to lead generation, social media, and management activities.",
+          "Myth #2: Marketing Automation is all about spam — messages without customization feel like spam; we focus on personalized delivery."
+        ]
+      }
+    ],
+    "whyTitle": "How SMAC DIGITAL will help you with Marketing Automation",
+    "why": [
+      { "title": "Encourage opt-ins", "text": "We help you receive quality traffic from search or social media so that the marketing automation list could be prepared. We provide quality content so visitors get engaged and organic traffic could be fetched." },
+      { "title": "Deliver your opt-in promise", "text": "When the user subscribes, we begin the requisite conversation — e-book, newsletter or other content — so subscribers convert into quality leads." },
+      { "title": "Identify motivated subscribers", "text": "We analyze to identify motivated subscribers, categorize warm and cold leads, and prepare different strategies so warm leads convert into customers." },
+      { "title": "Warm leads to sales", "text": "After segmentation, we provide warm leads to your sales team and notify staff for quick follow up." },
+      { "title": "Warm-up cold leads", "text": "We gradually warm up cold subscribers with a separate strategy so they can be converted into warm leads." }
+    ],
+    "related": [
+      { "slug": "inbound-marketing", "title": "Inbound Marketing", "short": "Attract, engage, delight." },
+      { "slug": "lead-generation", "title": "Lead Generation", "short": "Qualified inquiries." },
+      { "slug": "content-marketing", "title": "Content Marketing", "short": "Fuel for nurture." }
+    ]
+  }
+]

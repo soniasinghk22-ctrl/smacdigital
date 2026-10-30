@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analysis | SMAC Digital</title>
+  <meta name="description" content="Sentiment analysis combines machine learning and natural language processing to read how customers feel about your brand across text, speech, and visuals.">
+  <link rel="icon" href="../assets/brand/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="page-body" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <header class="site-header" data-header>
+    <div class="wrap header-bar">
+      <a class="logo" href="../index.html" aria-label="SMAC Digital, home">
+        <img src="../assets/brand/logo-white.png" width="150" height="43" alt="SMAC Digital">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about-us.html">About</a></li>
+          <li class="has-mega">
+            <button class="nav-parent" type="button" aria-expanded="false" aria-controls="services-menu" data-mega-toggle>Services</button>
+            <div class="mega" id="services-menu">
+              <div class="mega-inner">
+                <aside class="mega-intro">
+                  <p class="mega-intro-kicker">Services</p>
+                  <h3>Pick a lane.<br>We'll map the rest.</h3>
+                  <p>SEO, social, content, and product builds — planned as one growth system.</p>
+                  <a class="mega-all" href="../services.html">
+                    Browse all services
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </aside>
+                <div class="mega-grid">
+                  <div class="mega-col">
+                    <p class="mega-label"><span>01</span> Digital marketing</p>
+                    <a class="mega-item" href="../services/search-engine-optimization.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 16.5 20 20.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Search Engine Optimization</strong><em>Earn a stronger place in search.</em></span></a>
+                    <a class="mega-item" href="../services/social-media-marketing.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="0.8" fill="currentColor"/></svg></span><span><strong>Social Media Marketing</strong><em>Show up where the audience already spends time.</em></span></a>
+                    <a class="mega-item" href="../services/lead-generation.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 16.5 9 11l3 3 8-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Lead Generation</strong><em>Campaigns judged by the inquiries they create.</em></span></a>
+                    <a class="mega-item" href="../services/inbound-marketing.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 11l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Inbound Marketing</strong><em>Bring the right people in.</em></span></a>
+                    <a class="mega-item" href="../services/digital-media-planning.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17M8 5v4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span><span><strong>Digital Media Planning</strong><em>Decide where attention and budget should work.</em></span></a>
+                  </div>
+                  <div class="mega-col">
+                    <p class="mega-label"><span>02</span> Content and reputation</p>
+                    <a class="mega-item" href="../services/content-marketing.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5h9.5L19 8v11.5H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 4.5V8h4M8.5 12h7M8.5 15.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Content Marketing</strong><em>Give the brand something worth finding.</em></span></a>
+                    <a class="mega-item" href="../services/video-marketing.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 10.5 20.5 8v8l-5-2.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><strong>Video Marketing</strong><em>Show the product in motion, then place the films.</em></span></a>
+                    <a class="mega-item" href="../services/influencer-marketing.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 18.5c.8-2.4 2.4-3.5 4.5-3.5s3.7 1.1 4.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="16.5" cy="9.5" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 15c1.6.2 2.8 1 3.5 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Influencer Marketing</strong><em>Put the brand with people the audience already trusts.</em></span></a>
+                    <a class="mega-item" href="../services/online-reputation-management.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.8 14.2 9l5.5.4-4.2 3.5 1.3 5.3L12 15.4 7.2 18.2 8.5 13 4.3 9.4 9.8 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><strong>Online Reputation Management</strong><em>Shape what people find about the brand.</em></span></a>
+                    <a class="mega-item" href="../services/social-media-analytics.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 15v-3M12 15V8M16 15v-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Social Media Analytics</strong><em>See which activity earns its place.</em></span></a>
+                  </div>
+                  <div class="mega-col">
+                    <p class="mega-label"><span>03</span> Websites and products</p>
+                    <a class="mega-item" href="../services/website-design-and-development.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M8 19h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Website Design and Development</strong><em>A site that answers a marketing problem.</em></span></a>
+                    <a class="mega-item" href="../services/mobile-application-development.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="8" y="3.5" width="8" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 18.2h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Mobile Application Development</strong><em>Meet people on the device they already use.</em></span></a>
+                    <a class="mega-item" href="../services/marketing-automation.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 4.5v2.2M12 17.3V19.5M4.5 12h2.2M17.3 12H19.5M6.6 6.6l1.6 1.6M15.8 15.8l1.6 1.6M17.4 6.6l-1.6 1.6M8.2 15.8l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Marketing Automation</strong><em>Let email and social follow-up keep moving.</em></span></a>
+                    <a class="mega-item" href="../services/sentiment-analysis.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 14.2c.9 1.2 2.1 1.8 3.5 1.8s2.6-.6 3.5-1.8M9 10h.1M15 10h.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>Sentiment Analysis</strong><em>Read how people talk about the brand.</em></span></a>
+                    <a class="mega-item" href="../services/devops-services.html"><span class="mega-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 16.5a3.2 3.2 0 0 1 .4-6.3A4.2 4.2 0 0 1 15.6 8 3.4 3.4 0 0 1 18 14.5H7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>DevOps Services</strong><em>Keep the product shipping and stable.</em></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="has-drop">
+            <button class="nav-parent" type="button" aria-expanded="false" aria-controls="portfolio-menu" data-drop-toggle>Portfolio</button>
+            <div class="drop drop-portfolio" id="portfolio-menu">
+              <div class="drop-portfolio-inner">
+                <div class="drop-portfolio-main">
+                  <header class="drop-portfolio-head">
+                    <div>
+                      <h3>Featured Projects</h3>
+                      <p>Explore our portfolio of high-impact digital solutions designed to drive engagement and deliver measurable growth.</p>
+                    </div>
+                    <a class="drop-portfolio-cta" href="../portfolios.html">
+                      Explore Our Portfolio
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </header>
+                  <div class="drop-portfolio-grid">
+                    <a class="drop-card" href="../portfolios.html#shree-rakhi"><img src="../assets/work/shree-rakhi.jpg" alt="" width="480" height="320" loading="lazy"><span>Shree Rakhi</span></a>
+                    <a class="drop-card" href="../portfolios.html#rhl"><img src="../assets/work/rhl-preview.jpg" alt="" width="480" height="320" loading="lazy"><span>Rajasthan Hospital</span></a>
+                    <a class="drop-card" href="../portfolios.html#stone-hub"><img src="../assets/work/stone-hub.jpg" alt="" width="480" height="320" loading="lazy"><span>Stone Hub India</span></a>
+                    <a class="drop-card" href="../portfolios.html#kalavaati"><img src="../assets/work/kalavaati.jpg" alt="" width="480" height="320" loading="lazy"><span>Kalavaati</span></a>
+                  </div>
+                </div>
+                <aside class="drop-portfolio-side">
+                  <p class="drop-side-kicker">Featured Case Studies</p>
+                  <a class="drop-side-card" href="../portfolios.html#cases">
+                    <img src="../assets/cases/case-1.jpg" alt="" width="420" height="260" loading="lazy">
+                    <strong>Don't know what customers want, do you want?</strong>
+                    <span>Read case studies</span>
+                  </a>
+                  <div class="drop-side-links">
+                    <a href="../testimonials.html">Testimonials</a>
+                    <a href="../portfolios.html">All projects</a>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </li>
+          <li><a href="../testimonials.html">Testimonials</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="../contact.html">Let's Talk</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+
+    <section class="hero inner-hero" aria-labelledby="svc-hero-title">
+      <div class="hero-stage" aria-hidden="true">
+        <div class="hero-grid"></div>
+      </div>
+      <div class="wrap hero-copy">
+        <p class="pill">Services</p>
+        <h1 id="svc-hero-title">
+          <span>Sentiment</span><br>
+          <em>Analysis</em>
+        </h1>
+        <p class="lede">Sentiment analysis combines machine learning and natural language processing to read how customers feel about your brand across text, speech, and visuals.</p>
+        <div class="hero-actions">
+          <a class="btn btn-white" href="../contact.html">Make a Call Now</a>
+          <span class="or" aria-hidden="true">or</span>
+          <a class="btn btn-black" href="../contact.html">Get a free consultation</a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="svc-pillars" aria-label="How we work">
+      <div class="svc-pillars-pattern" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="svc-pillars-head">
+          <div>
+            <p class="pill">How we work</p>
+            <h2>Four moves. One outcome.</h2>
+          </div>
+          <p>A tight rhythm from brief to growth — strategy, delivery, proof, and iteration without the fluff.</p>
+        </header>
+        <ul class="svc-pillars-grid" role="list">
+          
+            <li class="svc-pillar">
+              <span class="svc-pillar-num">01</span>
+              <strong>Strategy</strong>
+              <p>Goals first — then tactics that fit the brand.</p>
+            </li>
+            <li class="svc-pillar">
+              <span class="svc-pillar-num">02</span>
+              <strong>Execution</strong>
+              <p>Hands-on delivery across creative, media, and tech.</p>
+            </li>
+            <li class="svc-pillar">
+              <span class="svc-pillar-num">03</span>
+              <strong>Measurement</strong>
+              <p>Clear reporting so you know what moved the needle.</p>
+            </li>
+            <li class="svc-pillar">
+              <span class="svc-pillar-num">04</span>
+              <strong>Growth</strong>
+              <p>Iterate toward quality traffic and real leads.</p>
+            </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="svc-intro-band">
+      <div class="wrap svc-intro-grid">
+        <figure class="svc-intro-media">
+          <img src="../assets/services/topic-engagement.jpg" alt="" width="900" height="1100" loading="lazy">
+          <figcaption>Read the room</figcaption>
+        </figure>
+        <div class="svc-intro-content">
+          <p class="page-eyebrow dark">Overview</p>
+          <h2>What this service covers</h2>
+          <div class="svc-intro-copy"><p>What is sentiment analysis? Sentimental analysis is the combination of a machine learning algorithm with natural language processing.</p><p>In simple terms speech, emoji, text, images or visuals all these qualify for sentimental analysis.</p></div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="svc-long ">
+      <div class="wrap svc-long-inner ">
+        <div class="svc-long-copy">
+          <p class="page-eyebrow dark">01</p>
+          <h2>Sentimental Analysis for Business enterprises</h2>
+          <p>SMAC digital begins its sentiment analysis journey with gathering information on different customer’s journey. This information helps to provide insight through the feedback expressed on different social media platforms like Facebook, Twitter or Instagram. Now the main work begins where we dig all these data, churn them our to get the extract f message conveyed. Mining this myriad of documents to extract the message conveyed through tedious but a very important aspects of the business. It is important to understand the common language used so that most that view of customers could be better understood.</p><p>It a simple support tool to which helps in saving time of the user so that it could streamline its energy more of in strategy making.</p>
+          <ul class="svc-check-list"><li>Analyze and practice on the larger data</li><li>Leverage Human Intelligence</li><li>Flexible workforce</li><li>Scalable Throughput</li><li>Monitor the Brand reputation &amp; Brand Image</li><li>Analyze the social media comments and news articles</li><li>Track customer’s sentiment for the products</li></ul>
+        </div>
+        <div class="svc-long-panel svc-long-panel--media" aria-hidden="true">
+          <img src="../assets/services/topic-analytics.jpg" alt="" width="1200" height="800" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <section class="svc-long svc-long-tint">
+      <div class="wrap svc-long-inner is-flip">
+        <div class="svc-long-copy">
+          <p class="page-eyebrow dark">02</p>
+          <h2>How SMAC DIGITAL perform Sentimental Analysis ?</h2>
+          <p>Sentiment analysis is the contextual mining done for the text messages so that subjective information, like what the client wants to interpret and say and how it's going to impact the future of the product, is obtained. We take an overall approach rather than limiting ourselves to count-based metrics. We do a deep analysis to understand what is going on and how exactly it will impact the product in the future. We work with the following two aspects in mind:</p><p>Key aspects of the brand, product, and services that customers concerned about most.</p><p>User’s underlying reaction and other aspects</p>
+          
+        </div>
+        <div class="svc-long-panel svc-long-panel--media" aria-hidden="true">
+          <img src="../assets/services/topic-dashboard.jpg" alt="" width="1200" height="800" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <section class="svc-long ">
+      <div class="wrap svc-long-inner ">
+        <div class="svc-long-copy">
+          <p class="page-eyebrow dark">03</p>
+          <h2>We follow a good structure process</h2>
+          <p>As sentiment analysis is the most common classification tool implemented, where an incoming message is analyzed whether it is depicting a positive, negative or neutral sentiment. With the help of the information, it is further analyzed that hoe this sentiment is going to impact the product.</p><p>On the next step an intent analysis is performed, in which the user's intent is behind that message is analyzed making a clear demarcation as to whether this information is an opinion, news or any marketing complaint or any kind of suggestion.</p><p>We finally perform, Contextual semantic search to derive a kind of actionable insight. We try to understand the kind of brand and its aspect the user is discussing. To make things simple for you, an e-commerce portal will segregate the information related to late deliveries, billing issues, promotion, and product reviews. We use an algorithm called CSS which take thousand of messages and other input and filter the messages at the first stage. In the second stage, we opt for a manual and more analytical search by the expert so that the best result could be delivered.</p><p>We follow the following process to deliver the best in sentiment analysis:</p><p>Our sentiment analysis service provides the clients with a highly accurate visual representation of customers ' thoughts and sentiments, company's products, and other aspects. We analyze the data from various media like social media, customer reviews, and mass media, like newspapers and television, questionnaire and call center.</p>
+          <ul class="svc-check-list"><li><strong>1. Interaction :</strong> We establish the basic connection between the potential customers and the business team.</li><li><strong>2. Consultation :</strong> The potential customer provides the information and his objective and we put our ideas in front of them.</li><li><strong>3. Evaluation :</strong> Compliance and technical specialist examine and identify the business needs of potential buyers.</li><li><strong>4. Execution :</strong> Potential buyers confirm the compliance details so that the engineering team will start executing the same.</li><li><strong>5. Disposition :</strong> The delivery team is in charge to dispose of the service to ensure the best experience to the customers.</li><li><strong>6. Expectation :</strong> We believe in building a long term relationship with the clients by exceeding their expectations and delivering the best service to them.</li></ul>
+        </div>
+        <div class="svc-long-panel svc-long-panel--media" aria-hidden="true">
+          <img src="../assets/services/topic-engagement.jpg" alt="" width="1200" height="800" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <section class="svc-long svc-long-tint">
+      <div class="wrap svc-long-inner is-flip">
+        <div class="svc-long-copy">
+          <p class="page-eyebrow dark">04</p>
+          <h2>Our service is different</h2>
+          <p>The services are based on artificial intelligence (AI), which can analyse language text on different topics, sentiments, and intentions. These data are classified into three major categories, namely</p><p>Smac Digital offers a unique sentiment analysis service model that guarantees definite clarity of customers' opinions towards any product or service. We gather data from various sources and create extensive possibilities to evaluate customer opinions and emotions. Customer views, comments, and opinions collected via different sources are analysed and categorised as negative, positive, and neutral to calculate the final sentiment score that leads to significant business decision-making.</p><p>Not only do we support capturing the client’s experience, but our insights also allow organisations to assess their performance compared with the sentiment analysis scores of their competitors.</p><p>Though this service is creating ways to develop successful approaches to make customers happy, some businesses are still not exploring such an effective process.</p><p>Sentiment analysis is making its mark in delivering a delightful customer experience, and that’s possible only when you understand your customer better. We are here to fulfil this purpose.</p><p>Are you looking to find out what your customers say about your brand and your competitors? Ask for a demo or a call back from our CX consultant.</p><p>Let's collaborate with SMAC Digital for better brand service for all your products and services. We have a team of experts to provide the best sentiment analysis results to our clients. The age of getting meaningful insight from social media is done with both expertise and advanced technology. We apply advance options in sentiment analysis rather than sticking to years-old count-based metrics only. Our clients have shown a positive result with our services, and we are determined to grow and make ourselves the best in sentiment analysis services with each new product and business. Some come and collaborate with us for the best sentiment analysis services.</p>
+          
+        </div>
+        <div class="svc-long-panel svc-long-panel--media" aria-hidden="true">
+          <img src="../assets/services/topic-metrics.jpg" alt="" width="1200" height="800" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <section class="svc-long ">
+      <div class="wrap svc-long-inner ">
+        <div class="svc-long-copy">
+          <p class="page-eyebrow dark">05</p>
+          <h2>How SMAC digital will help you with Marketing Automation?</h2>
+          <p>SMAC digital is the best digital marketing agency that provides quality marketing services to its clients. We are working with some of the pioneer national and international brands providing quality service to our clients. We will provide you the best marketing automation service and provide a proper strategy to convert these leads into customers. For further information visit the company website and contact us today.</p>
+          <ul class="svc-check-list"><li>1. Encourage readers to opt for your reader's list : We help you to receive quality traffic from search or social media so that the marketing automation list could be prepared. We provide quality content for your website visitors so that they get engaged and organic traffic could be fetched.</li><li><strong>2. Deliver you're an opt-in promise :</strong> When the user subscribes to receive the email we begin the requisite conversation with the clients. We provide the information to the interested subscriber in the form of e-book, newsletter or another form of content so that these subscribers should be converted into quality leads.</li><li><strong>3. Identifying the motivated subscriber :</strong> We know that it is always a good idea to spend more time on motivated subscribers. For doing so we make a proper analysis to identify the motivated subscribers who have the strongest interest in your product and services. For doings we categories the subscriber into warm and cold leads. We prepare a different new strategy for warm leads so that they could get converted into customers.</li><li><strong>4. Providing warm leads to the sales team :</strong> After the automatic segmentation of warm and cold leads with marketing automation tools, we provide the warm leads to your sales team. We have upgraded marketing automation techniques which will notify your sales staff for any new lead so that you could make quick follow up.</li><li><strong>5. Warm-up procedure for cold leads :</strong> The last but not least we gradually warm up the cold subscriber. We make a separate strategy for all the cold leads so that these can be converted in to warm leads.</li></ul>
+        </div>
+        <div class="svc-long-panel svc-long-panel--media" aria-hidden="true">
+          <img src="../assets/services/topic-team.jpg" alt="" width="1200" height="800" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="svc-process">
+      <div class="wrap">
+        <header class="svc-process-head">
+          <p class="page-eyebrow dark">Engagement</p>
+          <h2>A clear path from brief to results</h2>
+          <p class="svc-process-lead">The same disciplined rhythm we use across SMAC Digital engagements — adapted for Sentiment Analysis.</p>
+        </header>
+        <ol class="svc-process-track">
+          
+            <li>
+              <span class="svc-process-step">01</span>
+              <h3>Discover</h3>
+              <p>Audit the current footprint, keywords, and competitors.</p>
+            </li>
+            <li>
+              <span class="svc-process-step">02</span>
+              <h3>Plan</h3>
+              <p>Build a roadmap tied to short- and long-term business goals.</p>
+            </li>
+            <li>
+              <span class="svc-process-step">03</span>
+              <h3>Build</h3>
+              <p>Ship on-page, content, and offsite work with white-hat craft.</p>
+            </li>
+            <li>
+              <span class="svc-process-step">04</span>
+              <h3>Grow</h3>
+              <p>Track rankings, traffic quality, and leads — then refine.</p>
+            </li>
+        </ol>
+      </div>
+    </section>
+
+    
+    <section class="svc-why">
+      <div class="wrap">
+        <p class="page-eyebrow">Why SMAC Digital</p>
+        <h2>Our service is different</h2>
+        <div class="svc-why-grid">
+          
+            <article class="svc-why-card">
+              <span>01</span>
+              <h3>AI-driven clarity</h3>
+              <p>Smac Digital offers a unique sentiment analysis service model that guarantees definite clarity of customers' opinions towards any product or service. We gather data from various sources and create extensive possibilities to evaluate customer opinions and emotions.</p>
+            </article>
+            <article class="svc-why-card">
+              <span>02</span>
+              <h3>Competitive benchmarking</h3>
+              <p>Not only do we support capturing the client's experience, but our insights also allow organisations to assess their performance compared with the sentiment analysis scores of their competitors.</p>
+            </article>
+            <article class="svc-why-card">
+              <span>03</span>
+              <h3>Beyond count-based metrics</h3>
+              <p>We apply advance options in sentiment analysis rather than sticking to years-old count-based metrics only. Our clients have shown a positive result with our services, and we are determined to grow and make ourselves the best in sentiment analysis services with each new product and business.</p>
+            </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-roi-band">
+      <div class="wrap svc-roi-inner">
+        <div>
+          <p class="page-eyebrow">Results</p>
+          <h2>We work with you to improve your business's bottom line and generate positive ROI so that you can scale it up.</h2>
+          <p>Therefore, if you are looking for the best services for boosting your presence online and converting visitors into quality leads, contact us today.</p>
+        </div>
+        <a class="btn btn-white" href="../contact.html">Make a Call Now</a>
+      </div>
+    </section>
+
+        <section class="page-section page-section-tint svc-explore" aria-labelledby="svc-explore-title">
+      <div class="wrap">
+        <header class="svc-explore-head">
+          <p class="page-eyebrow dark">Next step</p>
+          <h2 id="svc-explore-title">Explore more services</h2>
+          <p class="svc-explore-lead">Use sentiment signals to sharpen social, ORM, and content decisions with clearer context.</p>
+        </header>
+        <div class="svc-related">
+          <a href="social-media-analytics.html">
+            <img class="svc-related-media" src="../assets/services/topic-analytics.jpg" alt="" width="720" height="420" loading="lazy">
+            <span class="svc-related-index">01</span>
+            <strong>Social Media Analytics</strong>
+            <span>Broader social measurement.</span>
+            <em class="svc-related-go" aria-hidden="true">→</em>
+          </a>
+          <a href="online-reputation-management.html">
+            <img class="svc-related-media" src="../assets/services/topic-brand.jpg" alt="" width="720" height="420" loading="lazy">
+            <span class="svc-related-index">02</span>
+            <strong>Online Reputation Management</strong>
+            <span>Act on what people say.</span>
+            <em class="svc-related-go" aria-hidden="true">→</em>
+          </a>
+          <a href="marketing-automation.html">
+            <img class="svc-related-media" src="../assets/services/automation.jpg" alt="" width="720" height="420" loading="lazy">
+            <span class="svc-related-index">03</span>
+            <strong>Marketing Automation</strong>
+            <span>Route warm signals to sales.</span>
+            <em class="svc-related-go" aria-hidden="true">→</em>
+          </a>
+        </div>
+      </div>
+    </section>
+  
+    <section class="about-cta about-cta--red" aria-labelledby="sentiment-cta-title">
+      <div class="about-cta-pattern" aria-hidden="true"></div>
+      <div class="wrap about-cta-inner">
+        <div class="about-cta-copy">
+          <p class="pill">Next step</p>
+          <h2 id="sentiment-cta-title">
+            Listen at scale.
+            <em>Act with context.</em>
+          </h2>
+          <p>Understand how audiences feel about your brand and category — then use sentiment insight to guide messaging and response.</p>
+          <div class="about-cta-actions">
+            <a class="btn btn-white" href="../contact.html">Get a free consultation</a>
+            <span class="or" aria-hidden="true">or</span>
+            <a class="btn btn-black" href="../portfolios.html">See the work</a>
+          </div>
+        </div>
+        <aside class="about-cta-panel about-cta-panel--creative">
+          <div class="about-cta-panel-glow" aria-hidden="true"></div>
+          <div class="about-cta-panel-top">
+            <span class="about-cta-live"><i></i> Available now</span>
+            <p class="about-cta-kicker">Prefer a direct call?</p>
+          </div>
+          <div class="about-cta-phones">
+            <a class="about-cta-phone" href="tel:+919582792638">
+              <span class="about-cta-phone-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg></span>
+              <span>
+                <small>Delhi NCR</small>
+                <strong>+91 95827 92638</strong>
+              </span>
+            </a>
+            <a class="about-cta-phone" href="tel:+919829069519">
+              <span class="about-cta-phone-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg></span>
+              <span>
+                <small>Jaipur</small>
+                <strong>+91 98290 69519</strong>
+              </span>
+            </a>
+          </div>
+          <a class="about-cta-wa" href="https://wa.me/919582792638" target="_blank" rel="noopener noreferrer">
+            <span class="about-cta-wa-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.4a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 13.92c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.42-.13-.95-.3-1.64-.59-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.27.64-.4 1.02-.4.12 0 .23 0 .33.01.3.01.45.03.65.5.24.58.82 2 .89 2.15.07.14.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.37-.41.49-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.54.73 1.8.86.27.13.44.2.51.31.06.11.06.64-.18 1.32z"/></svg></span>
+            <span>
+              <strong>WhatsApp the team</strong>
+              <small>Usually replies in minutes</small>
+            </span>
+          </a>
+        </aside>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="wrap footer-grid">
+      <div class="footer-brand footer-area-brand">
+        <a class="logo" href="../index.html" aria-label="SMAC Digital, home">
+          <img src="../assets/brand/logo-white.png" width="180" height="52" alt="SMAC Digital">
+        </a>
+        <p class="footer-mark">Social · Mobile · Analytics · Cloud</p>
+        <p class="footer-blurb">Performance-driven digital marketing across India and the US.</p>
+        <img class="partner-badge" src="../assets/brand/google-partner.png" alt="Google Partner" width="130" height="52">
+      </div>
+      <div class="footer-col footer-area-services">
+        <h2>Our Services</h2>
+        <ul>
+          <li><a href="../services/marketing-automation.html">Marketing Automation</a></li>
+          <li><a href="../services/inbound-marketing.html">Inbound Marketing</a></li>
+          <li><a href="../services/social-media-marketing.html">Social Media Marketing</a></li>
+          <li><a href="../services/search-engine-optimization.html">Search Engine Optimization</a></li>
+          <li><a href="../services/video-marketing.html">Video Marketing</a></li>
+          <li><a href="../services/website-design-and-development.html">Website Design &amp; Development</a></li>
+          <li><a href="../services/mobile-application-development.html">Mobile App Development</a></li>
+          <li><a href="../services/lead-generation.html">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-area-links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="../about-us.html">About</a></li>
+          <li><a href="../portfolios.html">Portfolio</a></li>
+          <li><a href="../testimonials.html">Testimonials</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../events.html">Events</a></li>
+          <li><a href="../career.html">Career</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-subscribe footer-area-subscribe">
+        <h2>Subscription</h2>
+        <p>Get a free digital audit note in your inbox.</p>
+        <form class="footer-sub-form" action="../contact.html" method="get">
+          <label class="visually-hidden" for="footer-email">E-mail</label>
+          <input id="footer-email" name="email" type="email" placeholder="E-mail" autocomplete="email" required>
+          <button type="submit" aria-label="Go to contact">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.3 4.7 15.6 12l-7.3 7.3 1.4 1.4L18.4 12 9.7 3.3z"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="footer-office footer-area-india">
+        <h2><span class="footer-flag" aria-hidden="true"><svg viewBox="0 0 36 24"><rect width="36" height="8" fill="#FF9933"/><rect y="8" width="36" height="8" fill="#fff"/><rect y="16" width="36" height="8" fill="#138808"/><circle cx="18" cy="12" r="2.6" fill="none" stroke="#000080" stroke-width="0.7"/><circle cx="18" cy="12" r="0.55" fill="#000080"/></svg></span> India</h2>
+        <address><strong>Jaipur</strong><span>Anukampa Point, Mansarovar, Jaipur 302020</span><a href="tel:+919829069519">+91 98290 69519</a></address>
+        <address><strong>Kolkata</strong><span>Mukundapur, Kolkata 700099</span><a href="tel:+919831132254">+91 98311 32254</a></address>
+        <address><strong>Pune</strong><a href="tel:+919582792638">+91 95827 92638</a></address>
+      </div>
+      <div class="footer-office footer-area-usa">
+        <h2><span class="footer-flag" aria-hidden="true"><svg viewBox="0 0 36 24"><rect width="36" height="24" fill="#B22234"/><path d="M0 2.77h36M0 5.54h36M0 8.31h36M0 11.08h36M0 13.85h36M0 16.62h36M0 19.38h36" stroke="#fff" stroke-width="1.85"/><rect width="14.4" height="12.92" fill="#3C3B6E"/></svg></span> USA</h2>
+        <address><span>1507 E Flower Street, Gilbert AZ 85298</span></address>
+      </div>
+      <div class="footer-career footer-area-career">
+        <h2>For career-related enquiries, please contact:</h2>
+        <a href="mailto:rahul@smacdigital.com">rahul@smacdigital.com</a>
+        <a href="tel:+919582792638">+91 95827 92638</a>
+        <a class="btn btn-primary" href="../career.html" style="margin-top:1rem;width:fit-content">Open roles</a>
+      </div>
+    </div>
+    <div class="wrap footer-base">
+      <p>© 2026 SMAC Digital. All rights reserved.</p>
+      <nav class="footer-legal" aria-label="Footer links">
+        <a href="../contact.html">Contact</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../portfolios.html">Portfolios</a>
+        <a href="../testimonials.html">Testimonials</a>
+        <a href="https://wa.me/919582792638" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </nav>
+    </div>
+  </footer>
+  <a class="whatsapp" href="https://wa.me/919582792638" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp SMAC Digital">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.4a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 13.92c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.42-.13-.95-.3-1.64-.59-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.27.64-.4 1.02-.4.12 0 .23 0 .33.01.3.01.45.03.65.5.24.58.82 2 .89 2.15.07.14.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.37-.41.49-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.54.73 1.8.86.27.13.44.2.51.31.06.11.06.64-.18 1.32z"/></svg>
+  </a>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2240 @@
+/* 
+   Stone Hub India - Luxury Natural Stone Homepage Stylesheet
+   Designed with Apple/Tesla/Stripe aesthetic
+*/
+
+:root {
+    --primary-font: 'Outfit', sans-serif;
+    --body-font: 'Inter', sans-serif;
+    
+    --obsidian: #0F0F11;
+    --alabaster: #F7F7F9;
+    --bronze-gold: #C5A880;
+    --bronze-gold-hover: #B4956C;
+    --white: #FFFFFF;
+    --dark-charcoal: #151518;
+    --soft-border: rgba(228, 228, 231, 0.15);
+    
+    --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.03);
+    
+    --radius-premium: 16px;
+    --radius-sm: 8px;
+    --radius-lg: 24px;
+}
+
+/* Base Body Modifications for Homepage Redesign */
+.stonehub-body {
+    font-family: var(--body-font) !important;
+    background-color: var(--white);
+    color: var(--obsidian);
+    overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes infiniteScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes pulseGold {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Custom Scroll reveal helpers */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header & Menu Styling Overrides for Homepage */
+.homepage-active .header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, border 0.4s ease !important;
+}
+
+.homepage-active .header.scrolled {
+    background: rgba(15, 15, 17, 0.95) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(197, 168, 128, 0.15) !important;
+}
+
+.homepage-active .header .top-strip {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.homepage-active .header .header-brand-logo {
+    height: 56px;
+}
+
+.homepage-active .header .logo-text {
+    font-family: var(--primary-font) !important;
+    color: var(--white) !important;
+}
+
+.homepage-active .header .logo-tagline {
+    display: none !important;
+}
+
+.homepage-active .header .nav-links {
+    gap: 0.35rem;
+}
+
+.homepage-active .header .nav-links > li > a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-family: var(--primary-font) !important;
+    font-weight: 500 !important;
+    font-size: 0.98rem !important;
+    transition: color 0.3s ease !important;
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+}
+
+.homepage-active .header .nav-links > li > a:hover,
+.homepage-active .header .nav-links > li > a.active {
+    color: var(--bronze-gold) !important;
+}
+
+/* Mobile open menu: dark text on white panel (override homepage white nav links) */
+@media (max-width: 1100px) {
+    .homepage-active .header .nav-links.open > li > a,
+    .homepage-active .header .nav-links.open > li > a.nav-item,
+    .homepage-active .header .nav-links.open .dropdown-menu a {
+        color: #1a1a1e !important;
+    }
+
+    .homepage-active .header .nav-links.open > li > a:hover,
+    .homepage-active .header .nav-links.open > li > a.active {
+        color: var(--bronze-gold, #C5A880) !important;
+    }
+
+    .homepage-active .header .nav-links.open {
+        background-color: #ffffff !important;
+        border-color: rgba(15, 15, 17, 0.08) !important;
+    }
+
+    .homepage-active .header .nav-links.open .dropdown-menu {
+        background: #f7f6f3 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+}
+
+/* Light dropdown: dark readable text (do not inherit white nav color) */
+.homepage-active .header .nav-links .dropdown-menu {
+    background-color: #ffffff !important;
+    border: 1px solid rgba(15, 15, 17, 0.08) !important;
+    box-shadow: 0 14px 36px rgba(15, 15, 17, 0.12) !important;
+}
+
+.homepage-active .header .nav-links .dropdown-menu a {
+    color: #2f2f36 !important;
+    font-weight: 550 !important;
+    font-size: 0.9rem !important;
+    padding: 0.7rem 1.35rem !important;
+}
+
+.homepage-active .header .nav-links .dropdown-menu a:hover,
+.homepage-active .header .nav-links .dropdown-menu a.active {
+    color: var(--bronze-gold) !important;
+    background-color: rgba(197, 168, 128, 0.12) !important;
+}
+
+.homepage-active .header .top-strip-btn {
+    background: linear-gradient(135deg, var(--bronze-gold) 0%, var(--bronze-gold-hover) 100%) !important;
+    color: var(--obsidian) !important;
+    font-family: var(--primary-font) !important;
+    font-weight: 700 !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0.5rem 1.25rem !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.homepage-active .header .top-strip-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 15px rgba(197, 168, 128, 0.3) !important;
+}
+
+.homepage-active .header .mobile-toggle span {
+    background-color: #ffffff !important;
+}
+
+.homepage-active .header .top-strip-phone {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Cinematic Hero Slider */
+.stonehub-hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    color: var(--white);
+}
+
+.stonehub-hero-slider {
+    height: 100%;
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stonehub-hero-slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.stonehub-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.88;
+    transform: scale(1);
+    transition: transform 10s ease;
+}
+
+.stonehub-hero-slide.active .stonehub-hero-image {
+    transform: scale(1.1);
+}
+
+.stonehub-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(11, 11, 12, 0.35) 0%, rgba(15, 15, 17, 0.55) 100%);
+    pointer-events: none;
+}
+
+.stonehub-hero-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.stonehub-hero-content {
+    max-width: 800px;
+    text-align: left;
+}
+
+.stonehub-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(197, 168, 128, 0.1);
+    border: 1px solid rgba(197, 168, 128, 0.25);
+    color: var(--bronze-gold);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.stonehub-hero-title {
+    font-family: var(--primary-font);
+    font-size: 4.2rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    color: #ffffff !important;
+}
+
+.stonehub-hero-subtitle {
+    font-family: var(--body-font);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.stonehub-hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.stonehub-hero-btn {
+    padding: 1rem 2.25rem;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stonehub-hero-btn.primary {
+    background: linear-gradient(135deg, var(--bronze-gold) 0%, var(--bronze-gold-hover) 100%);
+    color: var(--obsidian);
+}
+
+.stonehub-hero-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(197, 168, 128, 0.35);
+}
+
+.stonehub-hero-btn.secondary {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+}
+
+.stonehub-hero-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Slider Controls */
+.stonehub-hero-dots {
+    position: absolute;
+    bottom: 3rem;
+    right: 4%;
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.stonehub-hero-dot {
+    width: 40px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.stonehub-hero-dot.active {
+    background: var(--bronze-gold);
+}
+
+/* Quick Strip Widget */
+.stonehub-quick-strip {
+    background: var(--dark-charcoal);
+    border-top: 1px solid var(--soft-border);
+    border-bottom: 1px solid var(--soft-border);
+    padding: 1.5rem 0;
+}
+
+.stonehub-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.stonehub-quick-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-family: var(--primary-font);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.stonehub-quick-item i {
+    color: var(--bronze-gold);
+    width: 22px;
+    height: 22px;
+}
+
+.stonehub-quick-item:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Section Header */
+.stonehub-section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+}
+
+.stonehub-section-header h2 {
+    font-family: var(--primary-font);
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    color: var(--obsidian);
+    margin-bottom: 1rem;
+}
+
+.stonehub-section-header p {
+    color: #6b6b75;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.stonehub-section-header.dark h2 {
+    color: var(--white) !important;
+}
+
+.stonehub-section-header.dark p {
+    color: #a1a1aa !important;
+}
+
+/* Stone Category Carousel */
+.stonehub-categories {
+    padding: 8rem 0;
+    background: var(--white);
+}
+
+.stonehub-categories-carousel {
+    --cat-gap: 2rem;
+    --cat-visible: 4;
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 3.25rem;
+}
+
+.stonehub-categories-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.stonehub-categories-track {
+    display: flex;
+    gap: var(--cat-gap);
+    width: 100%;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.stonehub-category-card {
+    position: relative;
+    border-radius: var(--radius-premium);
+    overflow: hidden;
+    height: 480px;
+    background: #151518;
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    box-sizing: border-box;
+    flex: 0 0 calc((100% - (var(--cat-visible) - 1) * var(--cat-gap)) / var(--cat-visible));
+    width: calc((100% - (var(--cat-visible) - 1) * var(--cat-gap)) / var(--cat-visible));
+    min-width: 0;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stonehub-cat-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(15, 15, 17, 0.12);
+    background: #ffffff;
+    color: var(--obsidian);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(15, 15, 17, 0.12);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
+
+.stonehub-cat-nav:hover:not(:disabled) {
+    background: var(--bronze-gold);
+    color: var(--obsidian);
+    border-color: transparent;
+}
+
+.stonehub-cat-nav:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.stonehub-cat-prev {
+    left: 0;
+}
+
+.stonehub-cat-next {
+    right: 0;
+}
+
+.stonehub-categories-carousel.is-single .stonehub-cat-nav {
+    display: none;
+}
+
+.stonehub-category-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100% !important;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stonehub-category-card:nth-child(1) img {
+    object-position: center 75%;
+    transform: scale(1.35);
+    transform-origin: center 70%;
+}
+
+.stonehub-category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 20%, rgba(0,0,0,0.78) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    transition: background 0.4s ease, justify-content 0.4s ease;
+}
+
+.stonehub-category-card h3 {
+    font-family: var(--primary-font);
+    font-size: 1.8rem;
+    color: #ffffff !important;
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), margin 0.4s ease;
+}
+
+.stonehub-category-card p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.4s ease, margin 0.4s ease;
+}
+
+.stonehub-category-link {
+    color: var(--bronze-gold);
+    text-decoration: none;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.4s ease;
+}
+
+.stonehub-category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium);
+}
+
+.stonehub-category-card:hover img {
+    transform: scale(1.08);
+}
+
+.stonehub-category-card:nth-child(1):hover img {
+    transform: scale(1.45);
+}
+
+.stonehub-category-card:hover .stonehub-category-overlay {
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.88) 100%);
+}
+
+.stonehub-category-card:hover p,
+.stonehub-category-card:hover .stonehub-category-link {
+    opacity: 1;
+    max-height: 160px;
+    transform: translateY(0);
+}
+
+.stonehub-category-card:hover p {
+    margin-bottom: 1.25rem;
+}
+
+/* About Narrative Section */
+.stonehub-about {
+    padding: 8rem 0;
+    background: var(--alabaster);
+}
+
+.stonehub-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.stonehub-about-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-premium);
+    overflow: hidden;
+    height: 540px;
+    box-shadow: var(--shadow-premium);
+}
+
+.stonehub-about-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stonehub-about-experience-badge {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(15, 15, 17, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(197, 168, 128, 0.25);
+    color: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.stonehub-about-experience-badge span.num {
+    font-family: var(--primary-font);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--bronze-gold);
+    display: block;
+    line-height: 1;
+}
+
+.stonehub-about-experience-badge span.txt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.stonehub-about-subtitle {
+    font-family: var(--primary-font);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bronze-gold);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.stonehub-about-title {
+    font-family: var(--primary-font);
+    font-size: 2.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--obsidian);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.stonehub-about-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4a4a52;
+    margin-bottom: 2.5rem;
+}
+
+.stonehub-about-quote {
+    border-left: 3px solid var(--bronze-gold);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: #6b6b75;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* Stats Counter strip */
+.stonehub-stats-row {
+    display: flex;
+    gap: 3rem;
+}
+
+.stonehub-stat-item h4 {
+    font-family: var(--primary-font);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--bronze-gold);
+    margin-bottom: 0.25rem;
+    line-height: 1;
+}
+
+.stonehub-stat-item p {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #71717a;
+}
+
+/* Slabs Featured Collection */
+.stonehub-slabs-section {
+    background: #000000;
+    padding: 8rem 0;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.stonehub-slabs-section > .stonehub-section-header,
+.stonehub-slabs-section > .stonehub-slabs-carousel {
+    position: relative;
+    z-index: 2;
+}
+
+.stonehub-slabs-carousel {
+    --cat-gap: 1.5rem;
+    --cat-visible: 4;
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 3.25rem;
+}
+
+.stonehub-slabs-track {
+    display: flex;
+    gap: var(--cat-gap);
+    width: 100%;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.stonehub-slab-card {
+    flex: 0 0 calc((100% - (var(--cat-visible) - 1) * var(--cat-gap)) / var(--cat-visible));
+    width: calc((100% - (var(--cat-visible) - 1) * var(--cat-gap)) / var(--cat-visible));
+    min-width: 0;
+    box-sizing: border-box;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-premium);
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.stonehub-slabs-carousel .stonehub-cat-nav {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.stonehub-slabs-carousel .stonehub-cat-nav:hover:not(:disabled) {
+    background: var(--bronze-gold);
+    color: var(--obsidian);
+    border-color: transparent;
+}
+
+.stonehub-slabs-carousel.is-single .stonehub-cat-nav {
+    display: none;
+}
+
+.stonehub-slab-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(197, 168, 128, 0.4);
+}
+
+.stonehub-slab-image {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    background: #000000;
+}
+
+.stonehub-slab-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.stonehub-slab-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stonehub-slab-card:hover .stonehub-slab-image img {
+    transform: scale(1.08);
+}
+
+.stonehub-slab-details {
+    padding: 1.5rem 1.5rem 1.75rem;
+    background: #000000;
+    position: relative;
+    z-index: 2;
+}
+
+.stonehub-slab-details h3 {
+    font-family: var(--primary-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff !important;
+    margin-bottom: 0.65rem;
+}
+
+.stonehub-slab-details p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.15rem;
+    min-height: 4.2rem;
+}
+
+.stonehub-slab-cta {
+    color: var(--bronze-gold);
+    text-decoration: none;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.stonehub-slab-cta:hover {
+    color: var(--white);
+}
+
+/* Shared section background image + dark overlay */
+.stonehub-section-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.stonehub-section-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1.04);
+}
+
+.stonehub-section-bg-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.82) 45%, rgba(0, 0, 0, 0.9) 100%),
+        rgba(0, 0, 0, 0.45);
+}
+
+/* Why Choose Us (Curation Standards) */
+.stonehub-why {
+    background: #0b0b0c;
+    padding: 7rem 0;
+    border-top: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.stonehub-why > .stonehub-section-header,
+.stonehub-why > .stonehub-why-grid {
+    position: relative;
+    z-index: 2;
+}
+
+.stonehub-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.stonehub-why-card {
+    background: rgba(18, 18, 22, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-premium);
+    padding: 2.25rem 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.stonehub-why-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(197, 168, 128, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+    transition: opacity 0.35s ease;
+}
+
+.stonehub-why-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.stonehub-why-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(197, 168, 128, 0.35);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(197, 168, 128, 0.1);
+}
+
+.stonehub-why-card:hover::before {
+    opacity: 1;
+}
+
+.stonehub-why-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(197, 168, 128, 0.15) 0%, rgba(197, 168, 128, 0.05) 100%);
+    border: 1px solid rgba(197, 168, 128, 0.25);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bronze-gold);
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stonehub-why-card:hover .stonehub-why-icon {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.12) 100%);
+}
+
+.stonehub-why-icon i {
+    width: 24px;
+    height: 24px;
+}
+
+.stonehub-why-card h3 {
+    font-family: var(--primary-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stonehub-why-card p {
+    color: #a1a1aa;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Interactive Process Timeline */
+.stonehub-process {
+    padding: 8rem 0;
+    background: var(--white);
+}
+
+.stonehub-process-timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 4%;
+}
+
+.stonehub-process-timeline::before,
+.stonehub-process-timeline-progress {
+    position: absolute;
+    /* Align with the vertical center of the 48px numbered circles */
+    top: calc(2rem + 24px);
+    left: 12.5%;
+    height: 2px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.stonehub-process-timeline::before {
+    content: '';
+    right: 12.5%;
+    background: #e4e4e7;
+    z-index: 1;
+}
+
+.stonehub-process-timeline-progress {
+    width: 0;
+    max-width: 75%;
+    background: var(--bronze-gold);
+    z-index: 2;
+    transition: width 1s ease;
+}
+
+.stonehub-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem 1.75rem;
+    position: relative;
+    z-index: 10;
+}
+
+.stonehub-process-step {
+    text-align: center;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stonehub-process-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid #e4e4e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--primary-font);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #a1a1aa;
+    margin: 0 auto 2rem auto;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 0 0 8px var(--white);
+    flex-shrink: 0;
+    transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.stonehub-process-step.active .stonehub-process-circle {
+    background: var(--bronze-gold);
+    border-color: var(--bronze-gold);
+    color: var(--obsidian);
+}
+
+.stonehub-process-step h3 {
+    font-family: var(--primary-font);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--obsidian);
+    margin: 0 0 0.75rem 0;
+    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 3;
+    background: var(--white);
+    padding: 0 0.15rem;
+}
+
+.stonehub-process-step p {
+    font-size: 0.9rem;
+    color: #71717a;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 220px;
+    position: relative;
+    z-index: 3;
+    background: var(--white);
+}
+
+/* Masterpieces Portfolio (Masonry grid) */
+.stonehub-portfolio {
+    padding: 8rem 0;
+    background: var(--alabaster);
+}
+
+.stonehub-portfolio-grid {
+    columns: 3 320px;
+    column-gap: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.stonehub-portfolio-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-premium);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    background: var(--white);
+}
+
+.stonehub-portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.stonehub-portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Architects & Testimonials Carousel */
+.stonehub-testimonials {
+    padding: 8rem 0;
+    background: var(--white);
+}
+
+.stonehub-testimonial-track {
+    display: flex;
+    gap: 2.5rem;
+    overflow-x: auto;
+    padding: 1rem 4% 3rem 4%;
+    scroll-behavior: smooth;
+}
+
+.stonehub-testimonial-track::-webkit-scrollbar {
+    display: none;
+}
+
+.stonehub-testimonial-card {
+    flex-shrink: 0;
+    width: 420px;
+    background: var(--alabaster);
+    border: 1px solid rgba(228, 228, 231, 0.6);
+    border-radius: var(--radius-premium);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stonehub-testimonial-stars {
+    color: var(--bronze-gold);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.stonehub-testimonial-content {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #3f3f46;
+    font-style: italic;
+}
+
+.stonehub-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(228, 228, 231, 0.6);
+}
+
+.stonehub-testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bronze-gold);
+    color: var(--obsidian);
+    font-family: var(--primary-font);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    overflow: hidden;
+}
+
+.stonehub-testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stonehub-testimonial-info h4 {
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--obsidian);
+    margin: 0;
+}
+
+.stonehub-testimonial-info p {
+    font-size: 0.8rem;
+    color: #71717a;
+    margin: 0;
+}
+
+/* Design Journals & Latest Blogs */
+.stonehub-blogs {
+    padding: 8rem 0;
+    background: var(--alabaster);
+}
+
+.stonehub-blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* Finder */
+.stonehub-finder {
+    padding: 6rem 0;
+    background: var(--alabaster);
+}
+
+.stonehub-finder-inner {
+    max-width: 900px;
+}
+
+.stonehub-finder-card {
+    background: var(--white);
+    border: 1px solid rgba(197, 168, 128, 0.15);
+    border-radius: var(--radius-premium);
+    padding: 3rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.stonehub-finder-head {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.stonehub-finder-head h3 {
+    font-family: var(--primary-font);
+    font-size: clamp(1.45rem, 3vw, 1.8rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--obsidian);
+    margin: 0 0 8px 0;
+}
+
+.stonehub-finder-head p {
+    color: #71717a;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.stonehub-finder-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.stonehub-finder-field label {
+    display: block;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #71717a;
+    margin-bottom: 8px;
+}
+
+.stonehub-finder-field select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #e4e4e7;
+    border-radius: var(--radius-sm);
+    font-family: var(--body-font);
+    color: var(--obsidian);
+    background: var(--alabaster);
+    outline: none;
+}
+
+.stonehub-finder-submit {
+    background: linear-gradient(135deg, var(--bronze-gold) 0%, var(--bronze-gold-hover) 100%);
+    color: var(--obsidian);
+    border: none;
+    padding: 0.95rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--primary-font);
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(197, 168, 128, 0.2);
+    white-space: nowrap;
+}
+
+/* Geological videos */
+.stonehub-videos {
+    padding-bottom: 8rem;
+}
+
+.stonehub-videos > .stonehub-section-header,
+.stonehub-videos > .stonehub-videos-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.stonehub-videos-wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.stonehub-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.stonehub-video-card {
+    text-decoration: none;
+    display: block;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-premium);
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.stonehub-video-card:hover {
+    transform: translateY(-4px);
+}
+
+.stonehub-video-thumb {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: #000000;
+}
+
+.stonehub-video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    display: block;
+}
+
+.stonehub-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.78) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stonehub-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: var(--bronze-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--obsidian);
+    z-index: 2;
+}
+
+.stonehub-video-duration {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    z-index: 2;
+}
+
+.stonehub-video-body {
+    padding: 1.35rem 1.5rem 1.5rem;
+    background: #000000;
+}
+
+.stonehub-video-body h3 {
+    font-family: var(--primary-font);
+    font-size: 1.05rem;
+    color: #ffffff !important;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.stonehub-blog-card {
+    background: var(--white);
+    border-radius: var(--radius-premium);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(228, 228, 231, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.stonehub-blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-premium);
+}
+
+.stonehub-blog-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.stonehub-blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.stonehub-blog-card:hover .stonehub-blog-image img {
+    transform: scale(1.05);
+}
+
+.stonehub-blog-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stonehub-blog-tag {
+    background: rgba(197, 168, 128, 0.1);
+    color: var(--bronze-gold);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+
+.stonehub-blog-title {
+    font-family: var(--primary-font);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--obsidian);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.stonehub-blog-summary {
+    color: #71717a;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.stonehub-blog-link {
+    color: var(--bronze-gold);
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* FAQ Accordion Styling */
+.stonehub-faq {
+    padding: 8rem 0;
+    background: var(--white);
+}
+
+.stonehub-faq-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.stonehub-faq-item {
+    border-bottom: 1px solid #e4e4e7;
+    padding: 1.5rem 0;
+}
+
+.stonehub-faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--primary-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--obsidian);
+    padding: 0;
+}
+
+.stonehub-faq-icon {
+    transition: transform 0.3s ease;
+    color: var(--bronze-gold);
+}
+
+.stonehub-faq-item.active .stonehub-faq-icon {
+    transform: rotate(45deg);
+}
+
+.stonehub-faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.stonehub-faq-content {
+    padding-top: 1rem;
+    color: #52525b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Interactive Before After Slider */
+.stonehub-before-after {
+    padding: 8rem 0;
+    background: var(--white);
+}
+
+.stonehub-slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 560px;
+    margin: 0 auto;
+    border-radius: var(--radius-premium);
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+}
+
+.stonehub-slider-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.stonehub-slider-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.stonehub-slider-before {
+    z-index: 10;
+}
+
+.stonehub-slider-after {
+    z-index: 5;
+    width: 100%;
+}
+
+.stonehub-slider-before {
+    width: 50%;
+    overflow: hidden;
+    border-right: 2px solid var(--bronze-gold);
+}
+
+.stonehub-slider-before img {
+    width: 1000px;
+    max-width: none;
+}
+
+.stonehub-slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: var(--bronze-gold);
+    z-index: 30;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+}
+
+.stonehub-slider-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: var(--white);
+    border: 2px solid var(--bronze-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    pointer-events: none;
+    color: var(--bronze-gold);
+}
+
+.stonehub-slider-label {
+    position: absolute;
+    bottom: 2rem;
+    background: rgba(15, 15, 17, 0.8);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 20;
+}
+
+.stonehub-slider-label.before {
+    left: 2rem;
+}
+
+.stonehub-slider-label.after {
+    right: 2rem;
+}
+
+/* Call to Action */
+.stonehub-cta {
+    padding: 10rem 0;
+    background: #0b0b0c;
+    border-top: 1px solid var(--soft-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.stonehub-cta-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.stonehub-cta-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1.03);
+}
+
+.stonehub-cta-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, rgba(11, 11, 12, 0.72) 0%, rgba(11, 11, 12, 0.58) 45%, rgba(11, 11, 12, 0.78) 100%),
+        radial-gradient(ellipse at center, rgba(11, 11, 12, 0.2) 0%, rgba(11, 11, 12, 0.55) 100%);
+}
+
+.stonehub-cta-container {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 4%;
+    text-align: center;
+}
+
+.stonehub-cta h2 {
+    font-family: var(--primary-font);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.stonehub-cta p {
+    color: #f4f4f5;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.stonehub-cta-form {
+    display: flex;
+    gap: 15px;
+    max-width: 650px;
+    margin: 0 auto;
+    background: rgba(15, 15, 17, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.stonehub-cta-form input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    padding: 1rem 1.5rem;
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: 1rem;
+}
+
+.stonehub-cta-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.stonehub-cta-form input:focus {
+    outline: none;
+}
+
+.stonehub-cta-form button {
+    background: linear-gradient(135deg, var(--bronze-gold) 0%, var(--bronze-gold-hover) 100%);
+    color: var(--obsidian);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.stonehub-cta-form button:hover {
+    transform: scale(1.02);
+}
+
+/* Footer Section Overrides for Homepage */
+.homepage-active .footer {
+    background: #09090b !important;
+    border-top: none !important;
+    padding: 6rem 0 3rem 0 !important;
+    color: #a1a1aa !important;
+}
+
+.homepage-active .footer .footer-grid {
+    border-bottom: none !important;
+    padding-bottom: 2rem !important;
+}
+
+.homepage-active .footer h3,
+.homepage-active .footer h4 {
+    font-family: var(--primary-font) !important;
+    color: var(--white) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.homepage-active .footer p {
+    color: #8a8a93 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
+.homepage-active .footer a {
+    color: #71717a !important;
+    transition: color 0.3s ease !important;
+}
+
+.homepage-active .footer a:hover {
+    color: var(--white) !important;
+}
+
+.homepage-active .footer .social-icon {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    transition: all 0.3s ease !important;
+}
+
+.homepage-active .footer .social-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+.homepage-active .footer .social-icon:hover {
+    background: var(--bronze-gold) !important;
+    color: var(--obsidian) !important;
+    transform: translateY(-2px) !important;
+}
+
+.homepage-active .footer .btn-primary {
+    background: linear-gradient(135deg, var(--bronze-gold) 0%, var(--bronze-gold-hover) 100%) !important;
+    color: var(--obsidian) !important;
+    border: none !important;
+    font-family: var(--primary-font) !important;
+    font-weight: 700 !important;
+    border-radius: 4px !important;
+}
+
+.homepage-active .footer .footer-contact-info i {
+    color: var(--bronze-gold) !important;
+}
+
+/* Responsiveness overrides */
+@media (max-width: 1024px) {
+    .stonehub-hero-title { font-size: 3.2rem; }
+    .stonehub-categories-carousel { --cat-visible: 2; --cat-gap: 1.25rem; }
+    .stonehub-slabs-carousel { --cat-visible: 2; --cat-gap: 1.25rem; }
+    .stonehub-category-card { height: 420px; }
+    .stonehub-about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .stonehub-about-image-wrapper { height: 400px; }
+    .stonehub-why-grid { grid-template-columns: repeat(2, 1fr); }
+    .stonehub-process-timeline::before, .stonehub-process-timeline-progress { display: none; }
+    .stonehub-process-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.5rem; }
+    .stonehub-process-circle { box-shadow: none; margin-bottom: 1.25rem; }
+    .stonehub-process-step p { max-width: none; }
+    .stonehub-footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .stonehub-blogs-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .stonehub-videos-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .stonehub-finder-form { grid-template-columns: 1fr 1fr; }
+    .stonehub-finder-submit { grid-column: 1 / -1; width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .stonehub-header .nav-menu { display: none; }
+    .stonehub-quick-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    .stonehub-hero-title { font-size: clamp(1.7rem, 8vw, 2.5rem); }
+    .stonehub-hero-subtitle { font-size: 1.05rem; }
+    .stonehub-hero-actions { flex-direction: column; align-items: stretch; width: 100%; }
+    .stonehub-hero-actions .btn,
+    .stonehub-hero-actions a { width: 100%; justify-content: center; }
+    .stonehub-section-header h2 { font-size: 2rem; }
+    .stonehub-section-header { padding: 0 5%; }
+    .stonehub-categories-carousel {
+        --cat-visible: 1;
+        --cat-gap: 0px;
+        padding: 0 3rem;
+    }
+    .stonehub-slabs-carousel {
+        --cat-visible: 1;
+        --cat-gap: 0px;
+        padding: 0 3rem;
+    }
+    .stonehub-category-card { height: 420px; }
+    .stonehub-cat-prev { left: 0.25rem; }
+    .stonehub-cat-next { right: 0.25rem; }
+    .stonehub-why-grid { grid-template-columns: 1fr; }
+    .stonehub-process-grid { grid-template-columns: 1fr; }
+    .stonehub-slider-wrapper { height: 350px; }
+    .stonehub-cta h2 { font-size: 2.2rem; }
+    .stonehub-cta {
+        padding: 6.5rem 0;
+    }
+    .stonehub-cta-form { flex-direction: column; background: transparent; border: none; padding: 0; box-shadow: none; backdrop-filter: none; }
+    .stonehub-cta-form input { background: rgba(15, 15, 17, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); margin-bottom: 0.75rem; }
+    .stonehub-cta-form button { width: 100%; }
+    .stonehub-footer-grid { grid-template-columns: 1fr; }
+    .stonehub-footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+
+    .stonehub-finder { padding: 3.5rem 0; }
+    .stonehub-finder-card { padding: 1.5rem 1.25rem; }
+    .stonehub-finder-form { grid-template-columns: 1fr; gap: 1rem; }
+    .stonehub-finder-submit { width: 100%; }
+
+    .stonehub-videos { padding-bottom: 4.5rem; }
+    .stonehub-videos-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .stonehub-video-thumb { height: 210px; }
+
+    .stonehub-blogs { padding: 4.5rem 0; }
+    .stonehub-blogs-grid { grid-template-columns: 1fr; gap: 1.35rem; }
+    .stonehub-blog-title { font-size: 1.15rem; }
+}
+
+@media (max-width: 480px) {
+    .stonehub-quick-grid { grid-template-columns: 1fr; }
+    .homepage-active .header .top-strip-btn {
+        padding: 0.4rem 0.85rem !important;
+        font-size: 0.72rem !important;
+    }
+}
+
+/* Consistent 50px vertical spacing between homepage sections */
+.homepage-active .stonehub-finder,
+.homepage-active .stonehub-categories,
+.homepage-active .stonehub-reels,
+.homepage-active .stonehub-about,
+.homepage-active .stonehub-slabs-section,
+.homepage-active .stonehub-why,
+.homepage-active .stonehub-process,
+.homepage-active .stonehub-before-after,
+.homepage-active .stonehub-testimonials,
+.homepage-active .stonehub-blogs,
+.homepage-active .stonehub-faq,
+.homepage-active .stonehub-cta {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+.homepage-active .stonehub-videos {
+    padding-bottom: 50px !important;
+}
+
+/* Instagram Reels Showcase Section */
+.stonehub-reels {
+    padding: 5rem 0;
+    background: #ffffff;
+    position: relative;
+}
+
+.stonehub-reels-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.stonehub-reels-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.25);
+}
+
+.stonehub-reels-badge svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+}
+
+.stonehub-reels-carousel {
+    --reel-gap: 1.5rem;
+    --reel-visible: 4;
+    position: relative;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 3.25rem;
+}
+
+.stonehub-reels-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.stonehub-reels-track {
+    display: flex;
+    gap: var(--reel-gap);
+    width: 100%;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.stonehub-reel-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 490px;
+    background: #0d0d10;
+    box-shadow: 0 12px 32px rgba(15, 15, 17, 0.12);
+    text-decoration: none;
+    box-sizing: border-box;
+    flex: 0 0 calc((100% - (var(--reel-visible) - 1) * var(--reel-gap)) / var(--reel-visible));
+    width: calc((100% - (var(--reel-visible) - 1) * var(--reel-gap)) / var(--reel-visible));
+    min-width: 0;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.stonehub-reel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(15, 15, 17, 0.22);
+    border-color: rgba(197, 168, 128, 0.6);
+}
+
+.stonehub-reel-card img.stonehub-reel-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stonehub-reel-card:hover img.stonehub-reel-poster {
+    transform: scale(1.06);
+}
+
+.stonehub-reel-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.92) 100%);
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.stonehub-reel-top {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.stonehub-reel-handle-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.stonehub-reel-views-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--bronze-gold, #c5a880);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.stonehub-reel-play-btn {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.stonehub-reel-card:hover .stonehub-reel-play-btn {
+    transform: translate(-50%, -50%) scale(1.12);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(220, 39, 67, 0.45);
+}
+
+.stonehub-reel-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem 1.25rem 1.4rem 1.25rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stonehub-reel-title {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.stonehub-reel-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--bronze-gold, #c5a880);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.stonehub-reel-card:hover .stonehub-reel-action {
+    color: #ffffff;
+}
+
+.stonehub-reels-footer {
+    text-align: center;
+    margin-top: 2.75rem;
+}
+
+.stonehub-reels-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff !important;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(220, 39, 67, 0.28);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stonehub-reels-follow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(220, 39, 67, 0.42);
+}
+
+@media (max-width: 1200px) {
+    .stonehub-reels-carousel { --reel-visible: 3; }
+}
+
+@media (max-width: 900px) {
+    .stonehub-reels-carousel { --reel-visible: 2; --reel-gap: 1rem; padding: 0 2.5rem; }
+    .stonehub-reel-card { height: 440px; }
+}
+
+@media (max-width: 600px) {
+    .stonehub-reels-carousel { --reel-visible: 1.25; --reel-gap: 0.85rem; padding: 0 1rem; }
+    .stonehub-reel-card { height: 400px; }
+    .stonehub-reels-carousel .stonehub-cat-nav { display: none; }
+}
+
+.homepage-active .footer {
+    margin-top: 0 !important;
+    padding-top: 50px !important;
+}
+
+/* Mobile: category cards always show title, content, CTA */
+@media (max-width: 768px) {
+    .stonehub-category-overlay {
+        justify-content: flex-end !important;
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 15%, rgba(0,0,0,0.88) 100%) !important;
+    }
+
+    .stonehub-category-card p,
+    .stonehub-category-card .stonehub-category-link {
+        opacity: 1 !important;
+        max-height: 200px !important;
+        transform: none !important;
+        overflow: visible !important;
+    }
+
+    .stonehub-category-card p {
+        margin-bottom: 1rem !important;
+    }
+}
+
