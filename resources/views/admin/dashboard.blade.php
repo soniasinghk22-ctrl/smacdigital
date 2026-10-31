@@ -1550,7 +1550,7 @@
                         <div class="form-grid">
                             <div class="form-group" style="grid-column: span 2;">
                                 <label for="live_site_url">Live Site Base URL</label>
-                                <input type="text" id="live_site_url" name="live_site_url" class="form-control" value="{{ $site['live_site_url'] ?? 'https://drsumitz.com' }}" placeholder="e.g., https://drsumitz.com">
+                                <input type="text" id="live_site_url" name="live_site_url" class="form-control" value="{{ $site['live_site_url'] ?? 'https://www.smacdigital.com' }}" placeholder="e.g., https://www.smacdigital.com">
                                 <span style="font-size: 0.75rem; color: var(--admin-text-muted); display: block; margin-top: 5px;">
                                     This is the target live domain where data will be pushed. The Sync uses your configured <strong>R2 Secret Access Key</strong> as a secure verification token between your local and live servers.
                                 </span>
@@ -1595,15 +1595,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="smtp_from_address">From Email Address</label>
-                                <input type="email" id="smtp_from_address" name="smtp_from_address" class="form-control" value="{{ $site['smtp_from_address'] ?? 'no-reply@drsumitz.com' }}" placeholder="no-reply@drsumitz.com">
+                                <input type="email" id="smtp_from_address" name="smtp_from_address" class="form-control" value="{{ $site['smtp_from_address'] ?? 'no-reply@smacdigital.com' }}" placeholder="no-reply@smacdigital.com">
                             </div>
                             <div class="form-group">
                                 <label for="smtp_from_name">From Sender Name</label>
-                                <input type="text" id="smtp_from_name" name="smtp_from_name" class="form-control" value="{{ $site['smtp_from_name'] ?? 'SumitZ Clinic Alerts' }}" placeholder="SumitZ Clinic Alerts">
+                                <input type="text" id="smtp_from_name" name="smtp_from_name" class="form-control" value="{{ $site['smtp_from_name'] ?? 'SMAC Digital Alerts' }}" placeholder="SMAC Digital Alerts">
                             </div>
                             <div class="form-group">
                                 <label for="smtp_to_email">Recipient Email Address (Admin Alert)</label>
-                                <input type="email" id="smtp_to_email" name="smtp_to_email" class="form-control" value="{{ $site['smtp_to_email'] ?? 'admin@drsumitz.com' }}" placeholder="admin@drsumitz.com">
+                                <input type="email" id="smtp_to_email" name="smtp_to_email" class="form-control" value="{{ $site['smtp_to_email'] ?? 'Jitendra@smacdigital.com' }}" placeholder="Jitendra@smacdigital.com">
                             </div>
                         </div>
                     </div>

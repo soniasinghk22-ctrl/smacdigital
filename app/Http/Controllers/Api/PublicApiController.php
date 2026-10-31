@@ -220,8 +220,58 @@ class PublicApiController extends Controller
             'message' => $composedMessage,
             'source' => $request->filled('utm_source') ? ('UTM: ' . $request->utm_source) : ($request->filled('landing_url') ? $request->landing_url : 'Website Lead Form'),
             'status' => 'new',
-            'notes' => 'Received from SMAC Digital React frontend'
+            'notes' => 'Received from SMAC Digital website form'
         ]);
+
+        // Send Email Notification to Admin
+        try {
+            $siteSettings = SiteParameter::pluck('value', 'id')->toArray();
+            $toEmail = !empty($siteSettings['smtp_to_email']) 
+                ? $siteSettings['smtp_to_email'] 
+                : (!empty($siteSettings['primary_email']) ? $siteSettings['primary_email'] : 'Jitendra@smacdigital.com');
+            $fromAddress = $siteSettings['smtp_from_address'] ?? 'no-reply@smacdigital.com';
+            $fromName = $siteSettings['smtp_from_name'] ?? 'SMAC Digital Alerts';
+
+            $emailBody = "New Lead Inquiry Received on SMAC Digital Website:\n\n" .
+                         "Name: " . $lead->name . "\n" .
+                         "Email: " . $lead->email . "\n" .
+                         "Phone: " . $lead->phone . "\n" .
+                         (!empty($validated['company']) ? "Company / Website: " . $validated['company'] . "\n" : "") .
+                         (!empty($validated['service']) ? "Services of Interest: " . $validated['service'] . "\n" : "") .
+                         "Source: " . $lead->source . "\n" .
+                         "Submitted At: " . now()->format('d M Y, h:i A') . "\n\n" .
+                         "Requirements / Message:\n" . $validated['message'];
+
+            if (!empty($siteSettings['smtp_host']) && !empty($siteSettings['smtp_username']) && !empty($siteSettings['smtp_password'])) {
+                config([
+                    'mail.mailers.smtp.transport' => 'smtp',
+                    'mail.mailers.smtp.host' => $siteSettings['smtp_host'],
+                    'mail.mailers.smtp.port' => (int)($siteSettings['smtp_port'] ?? 587),
+                    'mail.mailers.smtp.username' => $siteSettings['smtp_username'],
+                    'mail.mailers.smtp.password' => $siteSettings['smtp_password'],
+                    'mail.mailers.smtp.encryption' => ($siteSettings['smtp_encryption'] ?? 'tls') === 'none' ? null : ($siteSettings['smtp_encryption'] ?? 'tls'),
+                    'mail.from.address' => $fromAddress,
+                    'mail.from.name' => $fromName,
+                    'mail.default' => 'smtp',
+                ]);
+                \Illuminate\Support\Facades\Mail::purge('smtp');
+
+                \Illuminate\Support\Facades\Mail::raw($emailBody, function ($m) use ($toEmail, $fromAddress, $fromName, $lead) {
+                    $m->to($toEmail)
+                      ->subject('New Website Lead: ' . $lead->name . (!empty($lead->phone) ? ' (' . $lead->phone . ')' : ''))
+                      ->from($fromAddress, $fromName);
+                });
+            } else {
+                // Fallback to PHP native mail()
+                $subject = 'New Website Lead: ' . $lead->name . (!empty($lead->phone) ? ' (' . $lead->phone . ')' : '');
+                $headers = "From: " . $fromName . " <" . $fromAddress . ">\r\n" .
+                           "Reply-To: " . $lead->email . "\r\n" .
+                           "X-Mailer: PHP/" . phpversion();
+                @mail($toEmail, $subject, $emailBody, $headers);
+            }
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::warning('Lead notification email dispatch error: ' . $e->getMessage());
+        }
 
         return response()->json([
             'success' => true,
