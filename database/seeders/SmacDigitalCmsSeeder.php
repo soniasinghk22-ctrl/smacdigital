@@ -115,11 +115,11 @@ class SmacDigitalCmsSeeder extends Seeder
         }
 
         // 4. Ensure an Admin user exists with SMAC Digital credentials
-        User::firstOrCreate(
+        User::updateOrCreate(
             ['email' => 'admin@smacdigital.com'],
             [
                 'name' => 'SMAC Digital Admin',
-                'password' => Hash::make('Admin@123456'),
+                'password' => Hash::make('Admin@smac22'),
                 'role' => 'superadmin',
                 'permissions' => json_encode(['all'])
             ]

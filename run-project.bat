@@ -15,7 +15,7 @@ echo Website URL:  http://127.0.0.1:8000
 echo               http://localhost:8000
 echo Admin Panel:  http://127.0.0.1:8000/admin/login
 echo Login Email:  admin@smacdigital.com
-echo Password:     Admin@123456
+echo Password:     Admin@smac22
 echo ====================================================
 echo.
 "%PHP_BIN%" artisan serve --host=0.0.0.0 --port=8000
