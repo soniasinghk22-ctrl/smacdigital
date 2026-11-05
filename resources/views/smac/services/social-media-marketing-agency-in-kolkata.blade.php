@@ -26,7 +26,49 @@
       </div>
     </section>
 
-    
+    <section class="seo-lp-intro">
+      <div class="wrap">
+        <p class="page-eyebrow dark">Kolkata · India</p>
+        <h2>SMAC Digital, The Best Social Media Marketing Agency In Kolkata</h2>
+        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing Social Media Marketing Services in Kolkata. Here are some reasons:</p>
+        <div class="seo-lp-reason-grid">
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-experience.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>More Than 7 Years of Experience</h3>
+            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional social media marketing services in Kolkata. We’ve helped businesses of all sizes build brand awareness, grow engaged audiences, and drive real business growth.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-recognised.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>A Recognised Agency</h3>
+            <p>SMAC Digital is a recognized social media marketing agency in Kolkata, known for delivering tailored digital campaigns. Our expert team drives measurable results, ensuring your brand's visibility, engagement, and reach online.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-manager.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Dedicated Project Manager</h3>
+            <p>At SMAC Digital, we assign a dedicated project manager to every client, ensuring personalized attention and seamless communication throughout your campaigns. Your social marketing goals are our priority from start to finish.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-feedback.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Positive Feedback</h3>
+            <p>At SMAC Digital, we take pride in delivering exceptional social media marketing results, and the positive feedback from our clients reflects our commitment to creative excellence and ROI-driven strategies.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-tools.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Professional Tools Utilisation</h3>
+            <p>At SMAC Digital, we leverage cutting-edge analytics, scheduling, and creative tools to deliver measurable results. Our team optimizes campaigns to reach target audiences and increase community engagement effectively.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-support.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>360 Support Services</h3>
+            <p>At SMAC Digital, we offer 360 Support Services to ensure your social media campaigns run seamlessly. From content planning and design to ad management and continuous community monitoring, our expert team is always here.</p>
+          </article>
+        </div>
+        <div class="seo-lp-center-cta">
+          <a class="btn btn-navy" href="{{ url('/contact') }}">Get A Quote</a>
+        </div>
+      </div>
+    </section>
+
     <section class="svc-pillars" aria-label="How we work">
       <div class="svc-pillars-pattern" aria-hidden="true"></div>
       <div class="wrap">
