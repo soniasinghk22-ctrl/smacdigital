@@ -26,7 +26,49 @@
       </div>
     </section>
 
-    
+    <section class="seo-lp-intro">
+      <div class="wrap">
+        <p class="page-eyebrow dark">Pune · India</p>
+        <h2>SMAC Digital, The Best Lead Generation Company In Pune</h2>
+        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing Lead Generation Services in Pune. Here are some reasons:</p>
+        <div class="seo-lp-reason-grid">
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-experience.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>More Than 7 Years of Experience</h3>
+            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional lead generation services in Pune. We’ve helped businesses of all sizes identify quality prospects, accelerate sales pipelines, and drive real business growth.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-recognised.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>A Recognised Company</h3>
+            <p>SMAC Digital is a recognized lead generation company in Pune, known for delivering high-converting B2B and B2C campaigns. Our expert team drives measurable results, connecting your business with verified, sales-ready leads.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-manager.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Dedicated Project Manager</h3>
+            <p>At SMAC Digital, we assign a dedicated project manager to every client, ensuring personalized attention and seamless communication throughout your campaigns. Your acquisition goals are our priority from start to finish.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-feedback.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Positive Feedback</h3>
+            <p>At SMAC Digital, we take pride in delivering qualified, high-intent leads, and the positive feedback from our clients reflects our commitment to conversion excellence and measurable ROI.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-tools.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Professional Tools Utilisation</h3>
+            <p>At SMAC Digital, we leverage industry-leading CRM, analytics, and prospecting tools to capture and validate leads. Our team optimizes multi-channel campaigns to deliver hot prospects directly to your sales funnel.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-support.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>360 Support Services</h3>
+            <p>At SMAC Digital, we offer 360 Support Services to ensure your lead generation campaigns run smoothly. From targeting strategy and creative development to lead validation and CRM handoff, our team is always here.</p>
+          </article>
+        </div>
+        <div class="seo-lp-center-cta">
+          <a class="btn btn-navy" href="{{ url('/contact') }}">Get A Quote</a>
+        </div>
+      </div>
+    </section>
+
     <section class="svc-pillars" aria-label="How we work">
       <div class="svc-pillars-pattern" aria-hidden="true"></div>
       <div class="wrap">
@@ -298,3 +340,4 @@
     </section>
   
 @endsection
+
