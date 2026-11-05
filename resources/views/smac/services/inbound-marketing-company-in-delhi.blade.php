@@ -26,7 +26,49 @@
       </div>
     </section>
 
-    
+    <section class="seo-lp-intro">
+      <div class="wrap">
+        <p class="page-eyebrow dark">Delhi · India</p>
+        <h2>SMAC Digital, The Best Inbound Marketing Company In Delhi</h2>
+        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing Inbound Marketing Services in Delhi. Here are some reasons:</p>
+        <div class="seo-lp-reason-grid">
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-experience.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>More Than 7 Years of Experience</h3>
+            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional inbound marketing services in Delhi. We’ve helped businesses of all sizes attract high-intent visitors, nurture qualified leads, and achieve sustainable organic growth.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-recognised.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>A Recognised Company</h3>
+            <p>SMAC Digital is a recognized inbound marketing company in Delhi, known for delivering tailored multi-channel strategies. Our expert team drives measurable results, building trust and converting audience interest into loyal customers.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-manager.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Dedicated Project Manager</h3>
+            <p>At SMAC Digital, we assign a dedicated project manager to every client, ensuring personalized attention and seamless communication throughout your campaigns. Your inbound marketing goals are our priority from start to finish.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-feedback.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Positive Feedback</h3>
+            <p>At SMAC Digital, we take pride in delivering results-driven inbound marketing campaigns, and the positive feedback from our clients reflects our commitment to content excellence, brand authority, and measurable ROI.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-tools.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Professional Tools Utilisation</h3>
+            <p>At SMAC Digital, we leverage cutting-edge marketing automation, analytics, and content optimization tools to deliver measurable results. Our team optimizes every touchpoint to attract and convert customers effectively.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-support.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>360 Support Services</h3>
+            <p>At SMAC Digital, we offer 360 Support Services to ensure your inbound marketing runs smoothly. From content strategy and SEO to email nurture workflows and continuous conversion optimization, our team is always here.</p>
+          </article>
+        </div>
+        <div class="seo-lp-center-cta">
+          <a class="btn btn-navy" href="{{ url('/contact') }}">Get A Quote</a>
+        </div>
+      </div>
+    </section>
+
     <section class="svc-pillars" aria-label="How we work">
       <div class="svc-pillars-pattern" aria-hidden="true"></div>
       <div class="wrap">
@@ -289,3 +331,4 @@
     </section>
   
 @endsection
+
