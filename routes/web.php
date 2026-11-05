@@ -58,6 +58,21 @@ foreach ($smmLocationPages as $smmCitySlug) {
     Route::redirect('/public/' . $smmCitySlug . '/', '/' . $smmCitySlug . '/', 301);
 }
 
+// Lead Generation Location Landing Pages (Identical content, design, and layout)
+$leadGenLocationPages = [
+    'lead-generation-agency-in-jaipur',
+    'lead-generation-agency-in-delhi',
+    'lead-generation-agency-in-pune',
+    'lead-generation-agency-in-kolkata',
+];
+foreach ($leadGenLocationPages as $lgCitySlug) {
+    Route::get('/' . $lgCitySlug, [SmacController::class, 'leadGenLandingPage'])->defaults('citySlug', $lgCitySlug)->name('leadgen.' . $lgCitySlug);
+    Route::get('/' . $lgCitySlug . '/', [SmacController::class, 'leadGenLandingPage'])->defaults('citySlug', $lgCitySlug);
+    Route::get('/' . $lgCitySlug . '.html', [SmacController::class, 'leadGenLandingPage'])->defaults('citySlug', $lgCitySlug);
+    Route::redirect('/public/' . $lgCitySlug, '/' . $lgCitySlug . '/', 301);
+    Route::redirect('/public/' . $lgCitySlug . '/', '/' . $lgCitySlug . '/', 301);
+}
+
 Route::get('/portfolios', [SmacController::class, 'portfolios'])->name('portfolios');
 Route::get('/portfolios.html', [SmacController::class, 'portfolios']);
 
