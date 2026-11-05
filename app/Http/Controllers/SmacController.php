@@ -166,6 +166,32 @@ class SmacController extends Controller
         return view('smac.services.lead-generation', array_merge($common, compact('cleanSlug', 'page')));
     }
 
+    public function inboundLandingPage($citySlug)
+    {
+        $validSlugs = [
+            'inbound-marketing-company-in-jaipur',
+            'inbound-marketing-company-in-delhi',
+            'inbound-marketing-company-in-pune',
+            'inbound-marketing-company-in-kolkata',
+        ];
+
+        $cleanSlug = trim(preg_replace('/\.html$/', '', (string)$citySlug), '/');
+        if (!in_array($cleanSlug, $validSlugs)) {
+            abort(404, 'Page not found');
+        }
+
+        $common = $this->getCommonData();
+        $page = CmsPage::where('slug', $cleanSlug)
+            ->orWhere('slug', "services/{$cleanSlug}")
+            ->first();
+
+        if (view()->exists("smac.services.{$cleanSlug}")) {
+            return view("smac.services.{$cleanSlug}", array_merge($common, compact('cleanSlug', 'page')));
+        }
+
+        return view('smac.services.inbound-marketing', array_merge($common, compact('cleanSlug', 'page')));
+    }
+
     public function portfolios()
     {
         $common = $this->getCommonData();
