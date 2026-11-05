@@ -28,9 +28,9 @@
 
     <section class="seo-lp-intro">
       <div class="wrap">
-        <p class="page-eyebrow dark">Jaipur · Rajasthan</p>
-        <h2>SMAC Digital, The Best SEO Company In Jaipur ( Rajasthan )</h2>
-        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing SEO Services in Jaipur and across Rajasthan. Here are some reasons:</p>
+        <p class="page-eyebrow dark">Jaipur · India</p>
+        <h2>SMAC Digital, The Best SEO Company In Jaipur</h2>
+        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing SEO Services in Jaipur. Here are some reasons:</p>
         <div class="seo-lp-reason-grid">
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-experience.svg" alt="" width="52" height="52" loading="lazy">
@@ -97,7 +97,7 @@
           </article>
         </div>
         <div class="seo-lp-copy-block">
-          <p>In the era of the fast-paced digital world, every business requires online visibility to outshine the market. Whether you’re a service provider or an e-commerce company, you need to work with the best SEO services company in Jaipur. There are many best SEO companies for small businesses, For instance, SMAC Digital. Do you want to use effective SEO tactics to get your company in front of the right audience? If so, partnering with the best SEO company in Jaipur ( Rajasthan ) can help you accomplish your marketing goals by improving your search engine ranking on major platforms like Google! We create a wide range of well-crafted, goal-oriented SEO solutions tailored to your company's requirements.</p>
+          <p>In the era of the fast-paced digital world, every business requires online visibility to outshine the market. Whether you’re a service provider or an e-commerce company, you need to work with the best SEO services company in Jaipur. There are many best SEO companies for small businesses, For instance, SMAC Digital. Do you want to use effective SEO tactics to get your company in front of the right audience? If so, partnering with the best SEO company in Jaipur can help you accomplish your marketing goals by improving your search engine ranking on major platforms like Google! We create a wide range of well-crafted, goal-oriented SEO solutions tailored to your company's requirements.</p>
           <p>You can stay ahead of the game with the help of our creative and well-researched on-page, off-page, and technological optimisation tactics as well as our ongoing analysis, reporting, and modification. With a track record of success, SMAC Digital, the best SEO agency in Jaipur, is staffed by highly skilled and knowledgeable professionals from the sector.</p>
           <a class="btn btn-primary" href="{{ url('/contact') }}">Book A Call</a>
         </div>
@@ -160,7 +160,7 @@
       <div class="wrap seo-lp-roi-grid">
         <div class="seo-lp-roi-copy">
           <h2>Maximize ROI with Our Proven Digital Marketing Tactics</h2>
-          <p>Our team of SEO specialists has extensive experience and offers the best SEO services in Jaipur and across Rajasthan. We use extensive SEO techniques, such as keyword research and analysis, on-page SEO, off-page SEO, local SEO, technical SEO, content strategy, analytics, and reporting, to help your website rank on Google.</p>
+          <p>Our team of SEO specialists has extensive experience and offers the best SEO services in Jaipur. We use extensive SEO techniques, such as keyword research and analysis, on-page SEO, off-page SEO, local SEO, technical SEO, content strategy, analytics, and reporting, to help your website rank on Google.</p>
           <p>To maintain your website at the top, we constantly assess and modify our techniques depending on the most recent trends and Google algorithm changes. We guarantee long-term and sustainable growth for your website. These figures demonstrate our breadth of experience—250+ satisfied clients, 4.5+ ratings, 320+ completed projects, and more than 7 years in the digital marketing agency. At SMAC Digital, we concentrate on white hat (or ethical) SEO techniques.</p>
           <p>SMAC defined as S-Social, M-Mobile, A-Analytics and C-Cloud are four elements changing the digital world. We chose this name to lead the way as the digital marketing sector expanded.</p>
           <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
@@ -208,7 +208,7 @@
       <div class="seo-lp-steps-pattern" aria-hidden="true"></div>
       <div class="wrap">
         <h2>Let’s Talk And Unlock Business Growth</h2>
-        <p class="seo-lp-lead">Unlock Your Website's Potential with result-driven SEO Company in Jaipur ( Rajasthan ).</p>
+        <p class="seo-lp-lead">Unlock Your Website's Potential with result-driven SEO Company in Jaipur.</p>
         <div class="seo-lp-steps-grid">
           <article class="seo-lp-step">
             <img src="/assets/seo-landing/call.png" alt="" width="88" height="88" loading="lazy">
@@ -354,7 +354,7 @@
 
     <section class="seo-lp-why">
       <div class="wrap">
-        <h2>Why You Should Choose SMAC Digital As The Best SEO Company In Jaipur ( Rajasthan )?</h2>
+        <h2>Why You Should Choose SMAC Digital As The Best SEO Company In Jaipur?</h2>
         <p class="seo-lp-lead">Our SEO service in Jaipur is combined with the essential components to generate results, whether it is finding pertinent keywords to optimise product pages or utilising the knowledge of leading SEO businesses in Jaipur. Our solutions, which prioritise the user's experience, are made to assist you in connecting with your audience and accomplishing your business objectives:</p>
         <div class="seo-lp-why-grid">
           <article class="seo-lp-card">
@@ -400,7 +400,7 @@
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-local.svg" alt="" width="48" height="48" loading="lazy">
             <h3>Local SEO Proficiency</h3>
-            <p>SMAC Digital, the best SEO agency in Jaipur, Rajasthan with an in-depth comprehension of the local market, including its obstacles and prospects for enterprises.</p>
+            <p>SMAC Digital, the best SEO agency in Jaipur with an in-depth comprehension of the local market, including its obstacles and prospects for enterprises.</p>
           </article>
         </div>
         <div class="seo-lp-copy-block">

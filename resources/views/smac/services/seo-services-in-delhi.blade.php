@@ -28,19 +28,19 @@
 
     <section class="seo-lp-intro">
       <div class="wrap">
-        <p class="page-eyebrow dark">Delhi NCR · India</p>
-        <h2>SMAC Digital, The Best SEO Company In Delhi NCR</h2>
-        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing SEO Services in Delhi NCR. Here are some reasons:</p>
+        <p class="page-eyebrow dark">Delhi · India</p>
+        <h2>SMAC Digital, The Best SEO Company In Delhi</h2>
+        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing SEO Services in Delhi. Here are some reasons:</p>
         <div class="seo-lp-reason-grid">
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-experience.svg" alt="" width="52" height="52" loading="lazy">
             <h3>More Than 7 Years of Experience</h3>
-            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional SEO services in Delhi NCR. We’ve helped businesses of all sizes improve their online visibility, increase website traffic, and drive organic growth.</p>
+            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional SEO services in Delhi. We’ve helped businesses of all sizes improve their online visibility, increase website traffic, and drive organic growth.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-recognised.svg" alt="" width="52" height="52" loading="lazy">
             <h3>A Recognised Firm</h3>
-            <p>SMAC Digital is a recognized SEO company in Delhi NCR, known for delivering tailored digital solutions. Our expert team drives measurable results, ensuring your brand's visibility, engagement, and growth online.</p>
+            <p>SMAC Digital is a recognized SEO company in Delhi, known for delivering tailored digital solutions. Our expert team drives measurable results, ensuring your brand's visibility, engagement, and growth online.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-manager.svg" alt="" width="52" height="52" loading="lazy">
