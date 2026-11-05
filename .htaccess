@@ -51,6 +51,10 @@ ServerSignature Off
     RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
     RewriteRule ^(.*)$ - [F,L]
 
+    # Prevent direct access to /public/ folder in URL (strip /public/ and redirect cleanly)
+    RewriteCond %{THE_REQUEST} \s/public/([^\s?]*) [NC]
+    RewriteRule ^ https://%{HTTP_HOST}/%1 [R=301,L]
+
     # C. Rewrite Root Requests to /public
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteRule ^(.*)$ public/$1 [L]

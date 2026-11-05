@@ -1,8 +1,8 @@
 @extends('smac.layout')
 
-@section('title', $page->metatitle ?? 'SEO Agency in India | Local SEO Agency in India| SMAC Digital')
-@section('meta_description', $page->metadescription ?? 'Smac Digital is a top SEO agency in India and offers the best SEO services with a unique blend of technical expertise in this competitive sector.')
-@section('meta_keywords', $page->metakeywords ?? 'Search Engine Marketing Agency, SEO, Affordable Search Engine Optimization Services , Local SEO, SEO Agency in India , Local SEO Agency in India, Best SEO Agency in India')
+@section('title', 'SMAC Digital, The Best SEO Company In Pune ( Maharashtra )')
+@section('meta_description', 'SMAC Digital is the leading SEO company in Pune, Maharashtra delivering top-ranking organic search results, local SEO, and ROI-driven digital growth.')
+@section('meta_keywords', 'SEO Company in Pune, Best SEO Company in Pune, SEO Services in Pune, Local SEO Pune, SEO Agency in Pune Maharashtra, SMAC Digital Pune')
 
 @section('content')
 
@@ -28,19 +28,19 @@
 
     <section class="seo-lp-intro">
       <div class="wrap">
-        <p class="page-eyebrow dark">Delhi NCR · India</p>
-        <h2>SMAC Digital, The Best SEO Company In Delhi NCR</h2>
-        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing SEO Services in Delhi NCR. Here are some reasons:</p>
+        <p class="page-eyebrow dark">Pune · Maharashtra</p>
+        <h2>SMAC Digital, The Best SEO Company In Pune ( Maharashtra )</h2>
+        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing SEO Services in Pune and Maharashtra. Here are some reasons:</p>
         <div class="seo-lp-reason-grid">
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-experience.svg" alt="" width="52" height="52" loading="lazy">
             <h3>More Than 7 Years of Experience</h3>
-            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional SEO services in Delhi NCR. We’ve helped businesses of all sizes improve their online visibility, increase website traffic, and drive organic growth.</p>
+            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional SEO services in Pune. We’ve helped businesses of all sizes improve their online visibility, increase website traffic, and drive organic growth.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-recognised.svg" alt="" width="52" height="52" loading="lazy">
             <h3>A Recognised Firm</h3>
-            <p>SMAC Digital is a recognized SEO company in Delhi NCR, known for delivering tailored digital solutions. Our expert team drives measurable results, ensuring your brand's visibility, engagement, and growth online.</p>
+            <p>SMAC Digital is a recognized SEO company in Pune, known for delivering tailored digital solutions. Our expert team drives measurable results, ensuring your brand's visibility, engagement, and growth online.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-manager.svg" alt="" width="52" height="52" loading="lazy">
@@ -97,8 +97,8 @@
           </article>
         </div>
         <div class="seo-lp-copy-block">
-          <p>In the era of the fast-paced digital world, every business requires online visibility to outshine the market. Whether you’re a service provider or an e-commerce company, you need to work with the SEO services company in Delhi. There are many best SEO companies for small businesses, For instance, SMAC Digital. Do you want to use effective SEO tactics to get your company in front of the right audience? If so, partnering with the best SEO company in Delhi NCR can help you accomplish your marketing goals by improving your search engine ranking on major platforms like Google! We create a wide range of well-crafted, goal-oriented SEO solutions tailored to your company's requirements.</p>
-          <p>You can stay ahead of the game with the help of our creative and well-researched on-page, off-page, and technological optimisation tactics as well as our ongoing analysis, reporting, and modification. With a track record of success, SMAC Digital, the best SEO agency in Delhi NCR, is staffed by highly skilled and knowledgeable professionals from the sector.</p>
+          <p>In the era of the fast-paced digital world, every business requires online visibility to outshine the market. Whether you’re a service provider or an e-commerce company, you need to work with the best SEO services company in Pune. There are many best SEO companies for small businesses, For instance, SMAC Digital. Do you want to use effective SEO tactics to get your company in front of the right audience? If so, partnering with the best SEO company in Pune ( Maharashtra ) can help you accomplish your marketing goals by improving your search engine ranking on major platforms like Google! We create a wide range of well-crafted, goal-oriented SEO solutions tailored to your company's requirements.</p>
+          <p>You can stay ahead of the game with the help of our creative and well-researched on-page, off-page, and technological optimisation tactics as well as our ongoing analysis, reporting, and modification. With a track record of success, SMAC Digital, the best SEO agency in Pune, is staffed by highly skilled and knowledgeable professionals from the sector.</p>
           <a class="btn btn-primary" href="{{ url('/contact') }}">Book A Call</a>
         </div>
       </div>
@@ -107,7 +107,7 @@
     <section class="seo-lp-process">
       <div class="wrap">
         <h2>How Does Our SEO Campaign Process Work?</h2>
-        <p class="seo-lp-lead">Our success as the top SEO company in Delhi NCR is because of the steps and procedures we follow. Here's how our clearly defined campaign strategy operates:</p>
+        <p class="seo-lp-lead">Our success as the top SEO company in Pune is because of the steps and procedures we follow. Here's how our clearly defined campaign strategy operates:</p>
         <div class="seo-lp-process-grid">
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-process-requirements.svg" alt="" width="52" height="52" loading="lazy">
@@ -160,7 +160,7 @@
       <div class="wrap seo-lp-roi-grid">
         <div class="seo-lp-roi-copy">
           <h2>Maximize ROI with Our Proven Digital Marketing Tactics</h2>
-          <p>Our team of SEO specialists has extensive experience and offers the best SEO services in Delhi NCR. We use extensive SEO techniques, such as keyword research and analysis, on-page SEO, off-page SEO, local SEO, technical SEO, content strategy, analytics, and reporting, to help your website rank on Google.</p>
+          <p>Our team of SEO specialists has extensive experience and offers the best SEO services in Pune and across Maharashtra. We use extensive SEO techniques, such as keyword research and analysis, on-page SEO, off-page SEO, local SEO, technical SEO, content strategy, analytics, and reporting, to help your website rank on Google.</p>
           <p>To maintain your website at the top, we constantly assess and modify our techniques depending on the most recent trends and Google algorithm changes. We guarantee long-term and sustainable growth for your website. These figures demonstrate our breadth of experience—250+ satisfied clients, 4.5+ ratings, 320+ completed projects, and more than 7 years in the digital marketing agency. At SMAC Digital, we concentrate on white hat (or ethical) SEO techniques.</p>
           <p>SMAC defined as S-Social, M-Mobile, A-Analytics and C-Cloud are four elements changing the digital world. We chose this name to lead the way as the digital marketing sector expanded.</p>
           <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
@@ -208,7 +208,7 @@
       <div class="seo-lp-steps-pattern" aria-hidden="true"></div>
       <div class="wrap">
         <h2>Let’s Talk And Unlock Business Growth</h2>
-        <p class="seo-lp-lead">Unlock Your Website's Potential with result-driven SEO Company in Delhi NCR.</p>
+        <p class="seo-lp-lead">Unlock Your Website's Potential with result-driven SEO Company in Pune ( Maharashtra ).</p>
         <div class="seo-lp-steps-grid">
           <article class="seo-lp-step">
             <img src="/assets/seo-landing/call.png" alt="" width="88" height="88" loading="lazy">
@@ -234,13 +234,13 @@
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/organic-traffic.jpg" alt="Search engine optimization" width="480" height="280" loading="lazy">
             <h3>Search Engine Optimization - SEO</h3>
-            <p>Boost your digital marketing presence with SMAC Digital’s best SEO services in South Delhi. Our SEO experts in Delhi have years of experience competing in the toughest industries with success.</p>
+            <p>Boost your digital marketing presence with SMAC Digital’s best SEO services in Pune. Our SEO experts in Pune have years of experience competing in the toughest industries with success.</p>
             <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/keyword-rankings.jpg" alt="Web design and development" width="480" height="280" loading="lazy">
             <h3>Web Design And Development</h3>
-            <p>Get a beautifully designed website that achieves your goals. Our SEO agency in Delhi NCR boasts a team of design and development experts. It combines technical expertise and a robust design strategy to create powerful websites.</p>
+            <p>Get a beautifully designed website that achieves your goals. Our SEO agency in Pune boasts a team of design and development experts. It combines technical expertise and a robust design strategy to create powerful websites.</p>
             <a class="btn btn-primary" href="{{ url('/services/website-design-and-development') }}">Explore Service</a>
           </article>
           <article class="seo-lp-card">
@@ -252,7 +252,7 @@
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/flexible-packages.jpg" alt="Pay per click" width="480" height="280" loading="lazy">
             <h3>Pay-Per-Click</h3>
-            <p>SMAC Digital, the best SEO agency in Delhi NCR has PPC experts who ensure your website ranks for competitive keywords. We create a custom PPC strategy for your business that effectively drives traffic, leads, and sales.</p>
+            <p>SMAC Digital, the best SEO agency in Pune has PPC experts who ensure your website ranks for competitive keywords. We create a custom PPC strategy for your business that effectively drives traffic, leads, and sales.</p>
             <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
           </article>
           <article class="seo-lp-card">
@@ -274,8 +274,8 @@
     <section class="seo-lp-chosen">
       <div class="wrap seo-lp-chosen-grid">
         <div>
-          <h2>We Are The Most Chosen SEO Agency In Delhi NCR</h2>
-          <p>SMAC is not just a name! It is a mission that focuses on professionalism and supporting businesses on their growth journey. What is our customized approach to SEO in Delhi? Let’s talk about this!</p>
+          <h2>We Are The Most Chosen SEO Agency In Pune</h2>
+          <p>SMAC is not just a name! It is a mission that focuses on professionalism and supporting businesses on their growth journey. What is our customized approach to SEO in Pune? Let’s talk about this!</p>
           <p>The average time a Google searcher takes to click on a result is 14.6 seconds, according to statistics, which highlights the importance of increasing your website's exposure. SEO is no longer just about keywords in 2024! It's critical to prioritise usefulness and authenticity.</p>
           <p>Because search engine ranking is just the beginning, we put all the pieces together in a plan to create the best possible strategy for your company. Our all-encompassing strategy guarantees your business succeeds online.</p>
           <a class="btn btn-primary" href="{{ url('/contact') }}">Request a Consultation</a>
@@ -354,33 +354,33 @@
 
     <section class="seo-lp-why">
       <div class="wrap">
-        <h2>Why You Should Choose SMAC Digital As The Best SEO Company In Delhi NCR?</h2>
-        <p class="seo-lp-lead">Our SEO service in Delhi NCR is combined with the essential components to generate results, whether it is finding pertinent keywords to optimise product pages or utilising the knowledge of leading SEO businesses in Delhi. Our solutions, which prioritise the user's experience, are made to assist you in connecting with your audience and accomplishing your business objectives:</p>
+        <h2>Why You Should Choose SMAC Digital As The Best SEO Company In Pune ( Maharashtra )?</h2>
+        <p class="seo-lp-lead">Our SEO service in Pune is combined with the essential components to generate results, whether it is finding pertinent keywords to optimise product pages or utilising the knowledge of leading SEO businesses in Pune. Our solutions, which prioritise the user's experience, are made to assist you in connecting with your audience and accomplishing your business objectives:</p>
         <div class="seo-lp-why-grid">
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-custom.svg" alt="" width="48" height="48" loading="lazy">
             <h3>Customised Approach</h3>
-            <p>Our clients receive individualised and best SEO services in Delhi NCR from us, including competitor analysis, technical SEO audits, content strategy development, marketing research, and local SEO, among many other things.</p>
+            <p>Our clients receive individualised and best SEO services in Pune from us, including competitor analysis, technical SEO audits, content strategy development, marketing research, and local SEO, among many other things.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-team.svg" alt="" width="48" height="48" loading="lazy">
             <h3>Experienced Team</h3>
-            <p>We have teams made up of some of the most accomplished digital marketers and SEO experts in Delhi who have been in the industry for decades.</p>
+            <p>We have teams made up of some of the most accomplished digital marketers and SEO experts in Pune who have been in the industry for decades.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-results.svg" alt="" width="48" height="48" loading="lazy">
             <h3>Results Drive-In Approach</h3>
-            <p>Our SEO experts in Delhi take a results-driven approach, not just process-driven, with goals like ranking well in search results, generating more impressions and conversions, etc.</p>
+            <p>Our SEO experts in Pune take a results-driven approach, not just process-driven, with goals like ranking well in search results, generating more impressions and conversions, etc.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-price.svg" alt="" width="48" height="48" loading="lazy">
             <h3>Affordable Prices</h3>
-            <p>As an SEO services provider in Delhi, the reasonable and acceptable prices we charge for all of our SEO services ensure that our clients are satisfied with our work for years to come.</p>
+            <p>As an SEO services provider in Pune, the reasonable and acceptable prices we charge for all of our SEO services ensure that our clients are satisfied with our work for years to come.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-report.svg" alt="" width="48" height="48" loading="lazy">
             <h3>Transparent Reporting</h3>
-            <p>Transparent and frequent reporting on our client's website traffic and online presence is part of our best SEO services in Delhi NCR. We provide precise data representations and efficient procedures.</p>
+            <p>Transparent and frequent reporting on our client's website traffic and online presence is part of our best SEO services in Pune. We provide precise data representations and efficient procedures.</p>
           </article>
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-satisfaction.svg" alt="" width="48" height="48" loading="lazy">
@@ -400,11 +400,11 @@
           <article class="seo-lp-card">
             <img src="/assets/seo-landing/icons/icon-local.svg" alt="" width="48" height="48" loading="lazy">
             <h3>Local SEO Proficiency</h3>
-            <p>SMAC Digital, the best SEO agency in Delhi NCR and the best SEO agency in Noida with an in-depth comprehension of the local market, including its obstacles and prospects for enterprises.</p>
+            <p>SMAC Digital, the best SEO agency in Pune, Maharashtra with an in-depth comprehension of the local market, including its obstacles and prospects for enterprises.</p>
           </article>
         </div>
         <div class="seo-lp-copy-block">
-          <p>So, if you're searching for an SEO services provider in Delhi to do this challenging and time-consuming SEO task on your behalf? You may rely on the best SEO services in Delhi NCR, SMAC Digital's experts to make sure that your potential customers can always see your goods and services online well.</p>
+          <p>So, if you're searching for an SEO services provider in Pune to do this challenging and time-consuming SEO task on your behalf? You may rely on the best SEO services in Pune, SMAC Digital's experts to make sure that your potential customers can always see your goods and services online well.</p>
           <a class="btn btn-navy" href="{{ url('/contact') }}">Book A Call</a>
         </div>
       </div>

@@ -39,6 +39,8 @@ foreach ($seoLocationPages as $seoCitySlug) {
     Route::get('/' . $seoCitySlug, [SmacController::class, 'seoLandingPage'])->defaults('citySlug', $seoCitySlug)->name('seo.' . $seoCitySlug);
     Route::get('/' . $seoCitySlug . '/', [SmacController::class, 'seoLandingPage'])->defaults('citySlug', $seoCitySlug);
     Route::get('/' . $seoCitySlug . '.html', [SmacController::class, 'seoLandingPage'])->defaults('citySlug', $seoCitySlug);
+    Route::redirect('/public/' . $seoCitySlug, '/' . $seoCitySlug . '/', 301);
+    Route::redirect('/public/' . $seoCitySlug . '/', '/' . $seoCitySlug . '/', 301);
 }
 
 Route::get('/portfolios', [SmacController::class, 'portfolios'])->name('portfolios');

@@ -1,8 +1,8 @@
 @extends('smac.layout')
 
-@section('title', $page->metatitle ?? 'SEO Agency in India | Local SEO Agency in India| SMAC Digital')
-@section('meta_description', $page->metadescription ?? 'Smac Digital is a top SEO agency in India and offers the best SEO services with a unique blend of technical expertise in this competitive sector.')
-@section('meta_keywords', $page->metakeywords ?? 'Search Engine Marketing Agency, SEO, Affordable Search Engine Optimization Services , Local SEO, SEO Agency in India , Local SEO Agency in India, Best SEO Agency in India')
+@section('title', 'SMAC Digital, The Best SEO Company In Delhi NCR')
+@section('meta_description', 'SMAC Digital is the top SEO agency in Delhi NCR offering high-performance SEO services, local SEO, and technical search marketing to scale your brand.')
+@section('meta_keywords', 'SEO Company in Delhi NCR, Best SEO Company in Delhi, SEO Services in Delhi NCR, Local SEO Delhi, SEO Agency Delhi NCR, SMAC Digital Delhi')
 
 @section('content')
 
