@@ -88,6 +88,21 @@ foreach ($inboundLocationPages as $inboundCitySlug) {
     Route::redirect('/public/' . $inboundCitySlug . '/', '/' . $inboundCitySlug . '/', 301);
 }
 
+// Digital Media Planning Location Landing Pages (Identical content, design, and layout)
+$dmpLocationPages = [
+    'digital-media-planning-agency-in-jaipur',
+    'digital-media-planning-agency-in-delhi',
+    'digital-media-planning-agency-in-pune',
+    'digital-media-planning-agency-in-kolkata',
+];
+foreach ($dmpLocationPages as $dmpCitySlug) {
+    Route::get('/' . $dmpCitySlug, [SmacController::class, 'dmpLandingPage'])->defaults('citySlug', $dmpCitySlug)->name('dmp.' . $dmpCitySlug);
+    Route::get('/' . $dmpCitySlug . '/', [SmacController::class, 'dmpLandingPage'])->defaults('citySlug', $dmpCitySlug);
+    Route::get('/' . $dmpCitySlug . '.html', [SmacController::class, 'dmpLandingPage'])->defaults('citySlug', $dmpCitySlug);
+    Route::redirect('/public/' . $dmpCitySlug, '/' . $dmpCitySlug . '/', 301);
+    Route::redirect('/public/' . $dmpCitySlug . '/', '/' . $dmpCitySlug . '/', 301);
+}
+
 Route::get('/portfolios', [SmacController::class, 'portfolios'])->name('portfolios');
 Route::get('/portfolios.html', [SmacController::class, 'portfolios']);
 
