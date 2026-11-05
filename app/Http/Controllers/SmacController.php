@@ -88,6 +88,32 @@ class SmacController extends Controller
         abort(404, 'Service page not found');
     }
 
+    public function seoLandingPage($citySlug)
+    {
+        $validSlugs = [
+            'seo-services-in-jaipur',
+            'seo-services-in-delhi',
+            'seo-services-in-pune',
+            'seo-services-in-kolkata',
+        ];
+
+        $cleanSlug = trim(preg_replace('/\.html$/', '', (string)$citySlug), '/');
+        if (!in_array($cleanSlug, $validSlugs)) {
+            abort(404, 'Page not found');
+        }
+
+        $common = $this->getCommonData();
+        $page = CmsPage::where('slug', $cleanSlug)
+            ->orWhere('slug', "services/{$cleanSlug}")
+            ->first();
+
+        if (view()->exists("smac.services.{$cleanSlug}")) {
+            return view("smac.services.{$cleanSlug}", array_merge($common, compact('cleanSlug', 'page')));
+        }
+
+        return view('smac.services.search-engine-optimization', array_merge($common, compact('cleanSlug', 'page')));
+    }
+
     public function portfolios()
     {
         $common = $this->getCommonData();

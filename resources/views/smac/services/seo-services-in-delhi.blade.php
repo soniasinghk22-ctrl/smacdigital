@@ -1,0 +1,462 @@
+@extends('smac.layout')
+
+@section('title', $page->metatitle ?? 'SEO Agency in India | Local SEO Agency in India| SMAC Digital')
+@section('meta_description', $page->metadescription ?? 'Smac Digital is a top SEO agency in India and offers the best SEO services with a unique blend of technical expertise in this competitive sector.')
+@section('meta_keywords', $page->metakeywords ?? 'Search Engine Marketing Agency, SEO, Affordable Search Engine Optimization Services , Local SEO, SEO Agency in India , Local SEO Agency in India, Best SEO Agency in India')
+
+@section('content')
+
+
+    <section class="hero inner-hero" aria-labelledby="svc-hero-title">
+      <div class="hero-stage" aria-hidden="true">
+        <div class="hero-grid"></div>
+      </div>
+      <div class="wrap hero-copy">
+        <p class="pill">Search Engine Optimization</p>
+        <h1 id="svc-hero-title">
+          <span>Search Engine</span><br>
+          <em>Optimization</em>
+        </h1>
+        <p class="lede">SEO is the collection of tools and best practices that will help a website to rank higher in the search engine. A proper SEO collection will help to drive more traffic and ultimately more business for your clients.</p>
+        <div class="hero-actions">
+          <a class="btn btn-white" href="{{ url('/contact') }}">Make a Call Now</a>
+          <span class="or" aria-hidden="true">or</span>
+          <a class="btn btn-black" href="{{ url('/contact') }}">Get a free consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-intro">
+      <div class="wrap">
+        <p class="page-eyebrow dark">Delhi NCR · India</p>
+        <h2>SMAC Digital, The Best SEO Company In Delhi NCR</h2>
+        <p class="seo-lp-lead">There are many reasons why SMAC Digital is one of the best in providing SEO Services in Delhi NCR. Here are some reasons:</p>
+        <div class="seo-lp-reason-grid">
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-experience.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>More Than 7 Years of Experience</h3>
+            <p>At SMAC Digital, we pride ourselves on over 7 years of dedicated experience in providing exceptional SEO services in Delhi NCR. We’ve helped businesses of all sizes improve their online visibility, increase website traffic, and drive organic growth.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-recognised.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>A Recognised Firm</h3>
+            <p>SMAC Digital is a recognized SEO company in Delhi NCR, known for delivering tailored digital solutions. Our expert team drives measurable results, ensuring your brand's visibility, engagement, and growth online.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-manager.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Dedicated Project Manager</h3>
+            <p>At SMAC Digital, we assign a dedicated project manager to every client, ensuring personalized attention and seamless communication throughout your project. Your goals are our priority from start to finish.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-feedback.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Positive Feedback</h3>
+            <p>At SMAC Digital, we take pride in delivering exceptional SEO services, and the positive feedback from our clients reflects our commitment to excellence. Their satisfaction fuels our dedication to growth.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-tools.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Professional Tools Utilisation</h3>
+            <p>At SMAC Digital, we leverage cutting-edge professional SEO tools to deliver measurable results. Our team utilizes industry-leading software to optimize your website, improve rankings, and drive organic growth effectively.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-support.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>360 Support Services</h3>
+            <p>At SMAC Digital, we offer 360 Support Services to ensure your SEO campaigns run smoothly. From strategy to implementation and continuous optimization, our expert team provides round-the-clock assistance.</p>
+          </article>
+        </div>
+        <div class="seo-lp-center-cta">
+          <a class="btn btn-navy" href="{{ url('/contact') }}">Get A Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-results">
+      <div class="seo-lp-results-pattern" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="page-eyebrow">Proven outcomes</p>
+        <h2>Check Out Some Of Our SEO Results!</h2>
+        <div class="seo-lp-stats">
+          <article class="seo-lp-stat">
+            <img src="/assets/seo-landing/icons/icon-stat-world.svg" alt="" width="64" height="64" loading="lazy">
+            <strong>10%</strong>
+            <span>Countries Served</span>
+          </article>
+          <article class="seo-lp-stat">
+            <img src="/assets/seo-landing/icons/icon-stat-brands.svg" alt="" width="64" height="64" loading="lazy">
+            <strong>100+</strong>
+            <span>Brands Created</span>
+          </article>
+          <article class="seo-lp-stat">
+            <img src="/assets/seo-landing/icons/icon-stat-campaigns.svg" alt="" width="64" height="64" loading="lazy">
+            <strong>Over 300+</strong>
+            <span>Campaigns Delivered</span>
+          </article>
+          <article class="seo-lp-stat">
+            <img src="/assets/seo-landing/icons/icon-stat-leads.svg" alt="" width="64" height="64" loading="lazy">
+            <strong>Over 5 Million</strong>
+            <span>Leads Generated</span>
+          </article>
+        </div>
+        <div class="seo-lp-copy-block">
+          <p>In the era of the fast-paced digital world, every business requires online visibility to outshine the market. Whether you’re a service provider or an e-commerce company, you need to work with the SEO services company in Delhi. There are many best SEO companies for small businesses, For instance, SMAC Digital. Do you want to use effective SEO tactics to get your company in front of the right audience? If so, partnering with the best SEO company in Delhi NCR can help you accomplish your marketing goals by improving your search engine ranking on major platforms like Google! We create a wide range of well-crafted, goal-oriented SEO solutions tailored to your company's requirements.</p>
+          <p>You can stay ahead of the game with the help of our creative and well-researched on-page, off-page, and technological optimisation tactics as well as our ongoing analysis, reporting, and modification. With a track record of success, SMAC Digital, the best SEO agency in Delhi NCR, is staffed by highly skilled and knowledgeable professionals from the sector.</p>
+          <a class="btn btn-primary" href="{{ url('/contact') }}">Book A Call</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-process">
+      <div class="wrap">
+        <h2>How Does Our SEO Campaign Process Work?</h2>
+        <p class="seo-lp-lead">Our success as the top SEO company in Delhi NCR is because of the steps and procedures we follow. Here's how our clearly defined campaign strategy operates:</p>
+        <div class="seo-lp-process-grid">
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-requirements.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Project Requirements</h3>
+            <p>At SMAC Digital, we begin every campaign with a clear understanding of your project requirements. Our well-defined approach ensures tailored strategies, align with your business goals to deliver measurable success.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-analysis.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Website Analysis</h3>
+            <p>SMAC Digital's Website Analysis offers a comprehensive approach, identifying performance gaps, optimizing SEO strategies, and improving user experience. Our detailed audits ensure your website ranks higher and converts better.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-keyword.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Market And Keyword Research</h3>
+            <p>At SMAC Digital, our well-defined approach to campaign work begins with comprehensive market and keyword research. We analyze trends, competitors, and target audience behaviour to ensure optimized strategies that drive measurable results.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-onpage.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>On-Page SEO</h3>
+            <p>At SMAC Digital, our well-defined approach to on-page SEO ensures optimal website performance. We focus on content optimization, meta tags, keywords, and technical elements to boost rankings and enhance user experience.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-technical.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Technical SEO</h3>
+            <p>At SMAC Digital, we deliver exceptional results through a well-defined approach to campaign success. Our expert team focuses on Technical SEO, optimizing website structure, speed, and crawlability for top rankings.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-offpage.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Off-Page SEO</h3>
+            <p>At SMAC Digital, our well-defined off-page SEO approach amplifies your online presence through strategic link-building, content marketing, and social signals. We ensure increased authority, traffic, and search engine rankings.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-content.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>Content Marketing</h3>
+            <p>At SMAC Digital, our well-defined approach to content marketing ensures your campaigns achieve maximum impact. We craft tailored strategies, leveraging SEO-driven content to boost visibility, engagement, and brand authority.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-process-reporting.svg" alt="" width="52" height="52" loading="lazy">
+            <h3>SEO Reporting</h3>
+            <p>At SMAC Digital, we deliver transparent and detailed SEO reporting. Our well-defined approach tracks key metrics, analyzes performance, and provides actionable insights to optimise your campaigns for maximum results.</p>
+          </article>
+        </div>
+        <div class="seo-lp-center-cta">
+          <a class="btn btn-navy" href="{{ url('/contact') }}">Get A Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-roi">
+      <div class="wrap seo-lp-roi-grid">
+        <div class="seo-lp-roi-copy">
+          <h2>Maximize ROI with Our Proven Digital Marketing Tactics</h2>
+          <p>Our team of SEO specialists has extensive experience and offers the best SEO services in Delhi NCR. We use extensive SEO techniques, such as keyword research and analysis, on-page SEO, off-page SEO, local SEO, technical SEO, content strategy, analytics, and reporting, to help your website rank on Google.</p>
+          <p>To maintain your website at the top, we constantly assess and modify our techniques depending on the most recent trends and Google algorithm changes. We guarantee long-term and sustainable growth for your website. These figures demonstrate our breadth of experience—250+ satisfied clients, 4.5+ ratings, 320+ completed projects, and more than 7 years in the digital marketing agency. At SMAC Digital, we concentrate on white hat (or ethical) SEO techniques.</p>
+          <p>SMAC defined as S-Social, M-Mobile, A-Analytics and C-Cloud are four elements changing the digital world. We chose this name to lead the way as the digital marketing sector expanded.</p>
+          <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
+        </div>
+        <div class="seo-lp-roi-media">
+          <img src="/assets/seo-landing/delivers.jpg" alt="SEO results and growth" width="640" height="480" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-offer">
+      <div class="wrap">
+        <h2>Search Engine Optimization Services We Offer</h2>
+        <p class="seo-lp-lead"><strong>Want more traffic to your website?</strong><br>We know how to drive long-term growth by acquiring the top position every time someone searches for your product or service.</p>
+        <div class="seo-lp-offer-grid">
+          <article class="seo-lp-card seo-lp-offer-card">
+            <img src="/assets/seo-landing/serv-1.png" alt="" width="72" height="72" loading="lazy">
+            <h3>National SEO</h3>
+            <p>Boost your brand visibility nationwide with our top-notch National SEO services.</p>
+            <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
+          </article>
+          <article class="seo-lp-card seo-lp-offer-card">
+            <img src="/assets/seo-landing/cms-smac-1.png" alt="" width="72" height="72" loading="lazy">
+            <h3>Local SEO</h3>
+            <p>Boost your revenue at your offline sales channels or physical stores with our Local SEO.</p>
+            <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
+          </article>
+          <article class="seo-lp-card seo-lp-offer-card">
+            <img src="/assets/seo-landing/cms-smac-3.png" alt="" width="72" height="72" loading="lazy">
+            <h3>Small Business SEO</h3>
+            <p>Boost your small business growth with our expert SEO services for lasting success.</p>
+            <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
+          </article>
+          <article class="seo-lp-card seo-lp-offer-card">
+            <img src="/assets/seo-landing/cms-smac-4.png" alt="" width="72" height="72" loading="lazy">
+            <h3>E-commerce SEO</h3>
+            <p>Technical SEO audit and Google penalty recovery services that will boost your website and bring in more customers.</p>
+            <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-steps">
+      <div class="seo-lp-steps-pattern" aria-hidden="true"></div>
+      <div class="wrap">
+        <h2>Let’s Talk And Unlock Business Growth</h2>
+        <p class="seo-lp-lead">Unlock Your Website's Potential with result-driven SEO Company in Delhi NCR.</p>
+        <div class="seo-lp-steps-grid">
+          <article class="seo-lp-step">
+            <img src="/assets/seo-landing/call.png" alt="" width="88" height="88" loading="lazy">
+            <h3>1. Schedule A Call</h3>
+          </article>
+          <article class="seo-lp-step">
+            <img src="/assets/seo-landing/project.png" alt="" width="88" height="88" loading="lazy">
+            <h3>2. Confirm Your Project</h3>
+          </article>
+          <article class="seo-lp-step">
+            <img src="/assets/seo-landing/growing.png" alt="" width="88" height="88" loading="lazy">
+            <h3>3. Start Growing</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-bring">
+      <div class="wrap">
+        <h2>What Does SMAC Digital Bring To Client?</h2>
+        <p class="seo-lp-lead">At SMAC Digital, we assist our clients with the best Custom Online Marketing Solutions for Improved Branding and Customer Service. This includes some of these services.</p>
+        <div class="seo-lp-bring-grid">
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/organic-traffic.jpg" alt="Search engine optimization" width="480" height="280" loading="lazy">
+            <h3>Search Engine Optimization - SEO</h3>
+            <p>Boost your digital marketing presence with SMAC Digital’s best SEO services in South Delhi. Our SEO experts in Delhi have years of experience competing in the toughest industries with success.</p>
+            <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/keyword-rankings.jpg" alt="Web design and development" width="480" height="280" loading="lazy">
+            <h3>Web Design And Development</h3>
+            <p>Get a beautifully designed website that achieves your goals. Our SEO agency in Delhi NCR boasts a team of design and development experts. It combines technical expertise and a robust design strategy to create powerful websites.</p>
+            <a class="btn btn-primary" href="{{ url('/services/website-design-and-development') }}">Explore Service</a>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/quality-lead.jpg" alt="Social media marketing" width="480" height="280" loading="lazy">
+            <h3>Social Media Marketing</h3>
+            <p>Our social media experts can help build brand awareness, grow your online following, and improve conversion rates with a custom strategy tailored to fit your business goals.</p>
+            <a class="btn btn-primary" href="{{ url('/services/social-media-marketing') }}">Explore Service</a>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/flexible-packages.jpg" alt="Pay per click" width="480" height="280" loading="lazy">
+            <h3>Pay-Per-Click</h3>
+            <p>SMAC Digital, the best SEO agency in Delhi NCR has PPC experts who ensure your website ranks for competitive keywords. We create a custom PPC strategy for your business that effectively drives traffic, leads, and sales.</p>
+            <a class="btn btn-primary" href="{{ url('/contact') }}">Get A Quote</a>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/customized-strategy.jpg" alt="SEO content writing" width="480" height="280" loading="lazy">
+            <h3>SEO Content Writing</h3>
+            <p>Our team of writers develops and implements a growth-focused content strategy tailored to fit your business needs. We ensure the content we produce represents your brand well, connects with your audience and is optimized for search engines.</p>
+            <a class="btn btn-primary" href="{{ url('/services/content-marketing') }}">Explore Service</a>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/delivers.jpg" alt="Video production" width="480" height="280" loading="lazy">
+            <h3>Video Production</h3>
+            <p>We combine our extensive experience, creative excellence, and technical expertise. Our agency can handle projects of every scale and genre, including explainer videos, testimonials, product reviews, and event coverage.</p>
+            <a class="btn btn-primary" href="{{ url('/services/video-marketing') }}">Explore Service</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-chosen">
+      <div class="wrap seo-lp-chosen-grid">
+        <div>
+          <h2>We Are The Most Chosen SEO Agency In Delhi NCR</h2>
+          <p>SMAC is not just a name! It is a mission that focuses on professionalism and supporting businesses on their growth journey. What is our customized approach to SEO in Delhi? Let’s talk about this!</p>
+          <p>The average time a Google searcher takes to click on a result is 14.6 seconds, according to statistics, which highlights the importance of increasing your website's exposure. SEO is no longer just about keywords in 2024! It's critical to prioritise usefulness and authenticity.</p>
+          <p>Because search engine ranking is just the beginning, we put all the pieces together in a plan to create the best possible strategy for your company. Our all-encompassing strategy guarantees your business succeeds online.</p>
+          <a class="btn btn-primary" href="{{ url('/contact') }}">Request a Consultation</a>
+        </div>
+        <div class="seo-lp-chosen-media">
+          <img src="/assets/seo-landing/organic-traffic.jpg" alt="Organic search visibility" width="640" height="420" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-partners">
+      <div class="wrap">
+        <h2>Trusted Partnerships</h2>
+        <p class="seo-lp-lead">As the top SEO company in India, we take pride in having served clients across a variety of industries. Here are some of the major clients we've worked with:</p>
+        <ul class="seo-lp-logos" role="list">
+          <li><img src="/assets/clients/uber.png" alt="Uber" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/zee-news.png" alt="Zee News" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/lg.png" alt="LG" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/livguard.jpg" alt="Livguard" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/tumbledry.png" alt="Tumbledry" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/igmguru.png" alt="IGM Guru" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/glow.png" alt="Glow" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/sumit.png" alt="Sumit" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/tower.png" alt="Tower" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/navpack.png" alt="Navpack" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/ranthambhore.png" alt="Ranthambhore" width="120" height="48" loading="lazy"></li>
+          <li><img src="/assets/clients/ora.png" alt="ORA" width="120" height="48" loading="lazy"></li>
+        </ul>
+        <div class="seo-lp-center-cta">
+          <a class="btn btn-navy" href="{{ url('/portfolios') }}">See Our Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-reviews">
+      <div class="wrap">
+        <h2>Real success stories and unbiased review of our clients!</h2>
+        <div class="seo-lp-review-grid">
+          <article class="seo-lp-card">
+            <p>“SMAC Digital widened our customer base by the exact marketing plan we needed, and when they visit our website, it just catches their eyes. We truly thank them for their creative excellent work.”</p>
+            <strong>Affeem</strong>
+            <a class="btn btn-primary" href="{{ url('/testimonials') }}">Read More</a>
+          </article>
+          <article class="seo-lp-card">
+            <p>“We construct homes and SMAC Digital has built our website so perfectly that it showcases our projects to our valuable customers so clearly. Thanks to the whole team for helping us out.”</p>
+            <strong>Smart Home · Jaipur</strong>
+            <a class="btn btn-primary" href="{{ url('/testimonials') }}">Read More</a>
+          </article>
+          <article class="seo-lp-card">
+            <p>“Out of many options they have, people reach out to us for our products. All because of the expertise of SMAC Digital. They have designed our website so well and digital marketing was done perfectly for the right audience.”</p>
+            <strong>Livpure</strong>
+            <a class="btn btn-primary" href="{{ url('/testimonials') }}">Read More</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-toolkit">
+      <div class="wrap">
+        <h2>Our SEO Toolkit</h2>
+        <ul class="seo-lp-tools" role="list">
+          <li class="seo-lp-card"><img src="/assets/seo-landing/ahrefs-tools.png" alt="Ahrefs" width="140" height="60" loading="lazy"></li>
+          <li class="seo-lp-card"><img src="/assets/seo-landing/semrush-tool.png" alt="SEMrush" width="140" height="60" loading="lazy"></li>
+          <li class="seo-lp-card"><img src="/assets/seo-landing/moz-tools.png" alt="Moz" width="140" height="60" loading="lazy"></li>
+          <li class="seo-lp-card"><img src="/assets/seo-landing/screamingfrog-tools.png" alt="Screaming Frog" width="140" height="60" loading="lazy"></li>
+          <li class="seo-lp-card"><img src="/assets/seo-landing/google-analytic-tools.png" alt="Google Analytics" width="140" height="60" loading="lazy"></li>
+          <li class="seo-lp-card"><img src="/assets/seo-landing/search-console.png" alt="Search Console" width="140" height="60" loading="lazy"></li>
+          <li class="seo-lp-card"><img src="/assets/seo-landing/deepcrawl-tools.png" alt="DeepCrawl" width="140" height="60" loading="lazy"></li>
+          <li class="seo-lp-card"><img src="/assets/seo-landing/search-metrics.png" alt="Searchmetrics" width="140" height="60" loading="lazy"></li>
+        </ul>
+        <div class="seo-lp-center-cta">
+          <a class="btn btn-primary" href="{{ url('/contact') }}">Talk SEO Tools With Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-lp-why">
+      <div class="wrap">
+        <h2>Why You Should Choose SMAC Digital As The Best SEO Company In Delhi NCR?</h2>
+        <p class="seo-lp-lead">Our SEO service in Delhi NCR is combined with the essential components to generate results, whether it is finding pertinent keywords to optimise product pages or utilising the knowledge of leading SEO businesses in Delhi. Our solutions, which prioritise the user's experience, are made to assist you in connecting with your audience and accomplishing your business objectives:</p>
+        <div class="seo-lp-why-grid">
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-custom.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Customised Approach</h3>
+            <p>Our clients receive individualised and best SEO services in Delhi NCR from us, including competitor analysis, technical SEO audits, content strategy development, marketing research, and local SEO, among many other things.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-team.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Experienced Team</h3>
+            <p>We have teams made up of some of the most accomplished digital marketers and SEO experts in Delhi who have been in the industry for decades.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-results.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Results Drive-In Approach</h3>
+            <p>Our SEO experts in Delhi take a results-driven approach, not just process-driven, with goals like ranking well in search results, generating more impressions and conversions, etc.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-price.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Affordable Prices</h3>
+            <p>As an SEO services provider in Delhi, the reasonable and acceptable prices we charge for all of our SEO services ensure that our clients are satisfied with our work for years to come.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-report.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Transparent Reporting</h3>
+            <p>Transparent and frequent reporting on our client's website traffic and online presence is part of our best SEO services in Delhi NCR. We provide precise data representations and efficient procedures.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-satisfaction.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Client Satisfaction</h3>
+            <p>We are the best in the business since we have been offering SEO services for over 7 years and have a 100% client satisfaction rate.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-support.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Responsive Client Support</h3>
+            <p>Our committed, round-the-clock customer service team responds to our clients' questions in a timely, tailored, and efficient manner.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-insights.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Industry Perspectives</h3>
+            <p>With over 7 years of experience, every one of the professionals in our SEO and digital marketing teams can provide you with industry insights, including their competitors' SEO and marketing strategies.</p>
+          </article>
+          <article class="seo-lp-card">
+            <img src="/assets/seo-landing/icons/icon-local.svg" alt="" width="48" height="48" loading="lazy">
+            <h3>Local SEO Proficiency</h3>
+            <p>SMAC Digital, the best SEO agency in Delhi NCR and the best SEO agency in Noida with an in-depth comprehension of the local market, including its obstacles and prospects for enterprises.</p>
+          </article>
+        </div>
+        <div class="seo-lp-copy-block">
+          <p>So, if you're searching for an SEO services provider in Delhi to do this challenging and time-consuming SEO task on your behalf? You may rely on the best SEO services in Delhi NCR, SMAC Digital's experts to make sure that your potential customers can always see your goods and services online well.</p>
+          <a class="btn btn-navy" href="{{ url('/contact') }}">Book A Call</a>
+        </div>
+      </div>
+    </section>
+  
+    <section class="about-cta about-cta--red" aria-labelledby="seo-cta-title">
+      <div class="about-cta-pattern" aria-hidden="true"></div>
+      <div class="wrap about-cta-inner">
+        <div class="about-cta-copy">
+          <p class="pill">Next step</p>
+          <h2 id="seo-cta-title">
+            Improve the bottom line.
+            <em>Generate positive ROI.</em>
+          </h2>
+          <p>We work with you to scale with a performance-driven partner — strategy, creative, and media measured against real business outcomes.</p>
+          <div class="about-cta-actions">
+            <a class="btn btn-white" href="{{ url('/contact') }}">Get a free consultation</a>
+            <span class="or" aria-hidden="true">or</span>
+            <a class="btn btn-black" href="{{ url('/portfolios') }}">See the work</a>
+          </div>
+        </div>
+        <aside class="about-cta-panel about-cta-panel--creative">
+          <div class="about-cta-panel-glow" aria-hidden="true"></div>
+          <div class="about-cta-panel-top">
+            <span class="about-cta-live"><i></i> Available now</span>
+            <p class="about-cta-kicker">Prefer a direct call?</p>
+          </div>
+          <div class="about-cta-phones">
+            <a class="about-cta-phone" href="tel:+919582792638">
+              <span class="about-cta-phone-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg></span>
+              <span>
+                <small>Delhi NCR</small>
+                <strong>+91 95827 92638</strong>
+              </span>
+            </a>
+            <a class="about-cta-phone" href="tel:+919829069519">
+              <span class="about-cta-phone-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg></span>
+              <span>
+                <small>Jaipur</small>
+                <strong>+91 98290 69519</strong>
+              </span>
+            </a>
+          </div>
+          <a class="about-cta-wa" href="https://wa.me/919582792638" target="_blank" rel="noopener noreferrer">
+            <span class="about-cta-wa-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.4a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 13.92c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.42-.13-.95-.3-1.64-.59-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.27.64-.4 1.02-.4.12 0 .23 0 .33.01.3.01.45.03.65.5.24.58.82 2 .89 2.15.07.14.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.37-.41.49-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.54.73 1.8.86.27.13.44.2.51.31.06.11.06.64-.18 1.32z"/></svg></span>
+            <span>
+              <strong>WhatsApp the team</strong>
+              <small>Usually replies in minutes</small>
+            </span>
+          </a>
+        </aside>
+      </div>
+    </section>
+  
+@endsection

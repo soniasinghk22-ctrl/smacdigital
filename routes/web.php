@@ -28,6 +28,19 @@ Route::get('/service.html', [SmacController::class, 'services']);
 
 Route::get('/services/{slug}', [SmacController::class, 'serviceShow'])->name('services.show');
 
+// SEO Location Landing Pages (Identical content, design, and layout)
+$seoLocationPages = [
+    'seo-services-in-jaipur',
+    'seo-services-in-delhi',
+    'seo-services-in-pune',
+    'seo-services-in-kolkata',
+];
+foreach ($seoLocationPages as $seoCitySlug) {
+    Route::get('/' . $seoCitySlug, [SmacController::class, 'seoLandingPage'])->defaults('citySlug', $seoCitySlug)->name('seo.' . $seoCitySlug);
+    Route::get('/' . $seoCitySlug . '/', [SmacController::class, 'seoLandingPage'])->defaults('citySlug', $seoCitySlug);
+    Route::get('/' . $seoCitySlug . '.html', [SmacController::class, 'seoLandingPage'])->defaults('citySlug', $seoCitySlug);
+}
+
 Route::get('/portfolios', [SmacController::class, 'portfolios'])->name('portfolios');
 Route::get('/portfolios.html', [SmacController::class, 'portfolios']);
 
@@ -287,12 +300,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/{tab}', [AdminController::class, 'dashboard'])->name('admin.tab');
 });
 
-// Location Pages (AI Generated, structured as /{city}/{slug})
-Route::get('/{city}/{slug}', [HomeController::class, 'locationShow'])->name('location.show');
-
-// CMS catch-all route (placed at the end to prevent conflicts)
-Route::get('/{slug}', [HomeController::class, 'cmsPageShow'])->name('cms.show');
-
 // Dynamic Cache Clear Endpoint (Secure via Cloudflare R2 Secret Access Key)
 Route::get('/api/clear-cache', function(\Illuminate\Http\Request $request) {
     $setupKey = trim(\App\Models\SiteParameter::where('id', 'cloudflare_r2_secret_access_key')->value('value') ?? '');
@@ -306,4 +313,10 @@ Route::get('/api/clear-cache', function(\Illuminate\Http\Request $request) {
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
     return response()->json(['status' => 'success', 'message' => 'Caches cleared successfully!']);
 });
+
+// Location Pages (AI Generated, structured as /{city}/{slug})
+Route::get('/{city}/{slug}', [HomeController::class, 'locationShow'])->name('location.show');
+
+// CMS catch-all route (placed at the end to prevent conflicts)
+Route::get('/{slug}', [HomeController::class, 'cmsPageShow'])->name('cms.show');
 
