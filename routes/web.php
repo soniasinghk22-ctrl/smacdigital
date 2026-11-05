@@ -43,6 +43,21 @@ foreach ($seoLocationPages as $seoCitySlug) {
     Route::redirect('/public/' . $seoCitySlug . '/', '/' . $seoCitySlug . '/', 301);
 }
 
+// Social Media Marketing Location Landing Pages (Identical content, design, and layout)
+$smmLocationPages = [
+    'social-media-marketing-agency-in-jaipur',
+    'social-media-marketing-agency-in-delhi',
+    'social-media-marketing-agency-in-pune',
+    'social-media-marketing-agency-in-kolkata',
+];
+foreach ($smmLocationPages as $smmCitySlug) {
+    Route::get('/' . $smmCitySlug, [SmacController::class, 'smmLandingPage'])->defaults('citySlug', $smmCitySlug)->name('smm.' . $smmCitySlug);
+    Route::get('/' . $smmCitySlug . '/', [SmacController::class, 'smmLandingPage'])->defaults('citySlug', $smmCitySlug);
+    Route::get('/' . $smmCitySlug . '.html', [SmacController::class, 'smmLandingPage'])->defaults('citySlug', $smmCitySlug);
+    Route::redirect('/public/' . $smmCitySlug, '/' . $smmCitySlug . '/', 301);
+    Route::redirect('/public/' . $smmCitySlug . '/', '/' . $smmCitySlug . '/', 301);
+}
+
 Route::get('/portfolios', [SmacController::class, 'portfolios'])->name('portfolios');
 Route::get('/portfolios.html', [SmacController::class, 'portfolios']);
 

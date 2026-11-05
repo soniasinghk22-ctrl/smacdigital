@@ -114,6 +114,32 @@ class SmacController extends Controller
         return view('smac.services.search-engine-optimization', array_merge($common, compact('cleanSlug', 'page')));
     }
 
+    public function smmLandingPage($citySlug)
+    {
+        $validSlugs = [
+            'social-media-marketing-agency-in-jaipur',
+            'social-media-marketing-agency-in-delhi',
+            'social-media-marketing-agency-in-pune',
+            'social-media-marketing-agency-in-kolkata',
+        ];
+
+        $cleanSlug = trim(preg_replace('/\.html$/', '', (string)$citySlug), '/');
+        if (!in_array($cleanSlug, $validSlugs)) {
+            abort(404, 'Page not found');
+        }
+
+        $common = $this->getCommonData();
+        $page = CmsPage::where('slug', $cleanSlug)
+            ->orWhere('slug', "services/{$cleanSlug}")
+            ->first();
+
+        if (view()->exists("smac.services.{$cleanSlug}")) {
+            return view("smac.services.{$cleanSlug}", array_merge($common, compact('cleanSlug', 'page')));
+        }
+
+        return view('smac.services.social-media-marketing', array_merge($common, compact('cleanSlug', 'page')));
+    }
+
     public function portfolios()
     {
         $common = $this->getCommonData();
