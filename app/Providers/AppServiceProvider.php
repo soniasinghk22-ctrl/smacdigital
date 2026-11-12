@@ -38,42 +38,49 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function loadSharedViewData(): array
     {
-        $cached = Cache::get('view.share.all');
+        try {
+            $cached = Cache::get('view.share.all');
 
-        if (is_array($cached)
-            && isset($cached['site'], $cached['pageContents'])
-            && is_array($cached['site'])
-            && is_array($cached['pageContents'])
-            && is_array($cached['globalCollections'] ?? null)
-            && is_array($cached['globalMarbles'] ?? null)
-            && is_array($cached['globalSpecialists'] ?? null)
-            && is_array($cached['globalCategories'] ?? null)
-            && is_array($cached['globalLocations'] ?? null)
-        ) {
-            return [
-                'site' => $cached['site'],
-                'pageContents' => $cached['pageContents'],
-                'globalCollections' => \App\Models\Collection::hydrate($cached['globalCollections']),
-                'globalMarbles' => \App\Models\Marble::hydrate($cached['globalMarbles']),
-                'globalSpecialists' => \App\Models\TeamMember::hydrate($cached['globalSpecialists']),
-                'globalCategories' => \App\Models\Category::hydrate($cached['globalCategories']),
-                'globalLocations' => \App\Models\LocationPage::hydrate($cached['globalLocations']),
-            ];
+            if (is_array($cached)
+                && isset($cached['site'], $cached['pageContents'])
+                && is_array($cached['site'])
+                && is_array($cached['pageContents'])
+                && is_array($cached['globalCollections'] ?? null)
+                && is_array($cached['globalMarbles'] ?? null)
+                && is_array($cached['globalSpecialists'] ?? null)
+                && is_array($cached['globalCategories'] ?? null)
+                && is_array($cached['globalLocations'] ?? null)
+            ) {
+                return [
+                    'site' => $cached['site'],
+                    'pageContents' => $cached['pageContents'],
+                    'globalCollections' => \App\Models\Collection::hydrate($cached['globalCollections']),
+                    'globalMarbles' => \App\Models\Marble::hydrate($cached['globalMarbles']),
+                    'globalSpecialists' => \App\Models\TeamMember::hydrate($cached['globalSpecialists']),
+                    'globalCategories' => \App\Models\Category::hydrate($cached['globalCategories']),
+                    'globalLocations' => \App\Models\LocationPage::hydrate($cached['globalLocations']),
+                ];
+            }
+
+            Cache::forget('view.share.all');
+        } catch (\Throwable $e) {
+            return $this->fetchSharedViewData();
         }
 
-        // Drop corrupt / legacy cache payloads (e.g. serialized Eloquent objects)
-        Cache::forget('view.share.all');
-
         $fresh = $this->fetchSharedViewData();
-        Cache::put('view.share.all', [
-            'site' => $fresh['site'],
-            'pageContents' => $fresh['pageContents'],
-            'globalCollections' => $fresh['globalCollections']->toArray(),
-            'globalMarbles' => $fresh['globalMarbles']->toArray(),
-            'globalSpecialists' => $fresh['globalSpecialists']->toArray(),
-            'globalCategories' => $fresh['globalCategories']->toArray(),
-            'globalLocations' => $fresh['globalLocations']->toArray(),
-        ], 300);
+        try {
+            Cache::put('view.share.all', [
+                'site' => $fresh['site'],
+                'pageContents' => $fresh['pageContents'],
+                'globalCollections' => $fresh['globalCollections']->toArray(),
+                'globalMarbles' => $fresh['globalMarbles']->toArray(),
+                'globalSpecialists' => $fresh['globalSpecialists']->toArray(),
+                'globalCategories' => $fresh['globalCategories']->toArray(),
+                'globalLocations' => $fresh['globalLocations']->toArray(),
+            ], 300);
+        } catch (\Throwable $e) {
+            // Cache store unavailable
+        }
 
         return $fresh;
     }

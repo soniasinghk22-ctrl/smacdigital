@@ -46,6 +46,6 @@ User-agent: Cohere-ai
 Allow: /
 
 # Sitemaps & LLMO Directives
-Sitemap: https://www.stonehubindia.com/sitemap.xml
-Link: <https://www.stonehubindia.com/llms.txt>; rel="llms"
-Link: <https://www.stonehubindia.com/llms-full.txt>; rel="llms-full"
+Sitemap: https://www.smacdigital.com/sitemap.xml
+Link: <https://www.smacdigital.com/llms.txt>; rel="llms"
+Link: <https://www.smacdigital.com/llms-full.txt>; rel="llms-full"

@@ -143,9 +143,22 @@ Route::get('/application/{slug}', [HomeController::class, 'applicationShow'])->n
 Route::post('/application/consultation', [HomeController::class, 'applicationConsultationSubmit'])->name('application.consultation.submit');
 Route::redirect('/applications', '/application', 301);
 
-// Infrastructure Redirects
-Route::redirect('/stock-yard', '/infrastructure', 301);
-Route::redirect('/processing-unit', '/infrastructure', 301);
+// XML Sitemap Delivery Route
+Route::get('/sitemap.xml', function () {
+    $path = public_path('sitemap.xml');
+    if (!file_exists($path)) {
+        abort(404, 'Sitemap not found');
+    }
+    return response(file_get_contents($path), 200, [
+        'Content-Type' => 'application/xml; charset=UTF-8',
+        'Cache-Control' => 'public, max-age=3600',
+    ]);
+});
+
+// Infrastructure & Legacy Redirects
+Route::redirect('/stock-yard', '/', 301);
+Route::redirect('/processing-unit', '/', 301);
+Route::redirect('/infrastructure', '/', 301);
 Route::redirect('/clientele', '/testimonials', 301);
 
 // Enquiry Routes
@@ -159,8 +172,9 @@ Route::redirect('/articles', '/blogs', 301);
 Route::get('/article/{slug}', function($slug) {
     return redirect('/blogs/' . $slug, 301);
 });
-Route::redirect('/italian-marble-price', '/italian-marble-pricelist', 301);
-Route::redirect('/marble-price-list', '/italian-marble-pricelist', 301);
+Route::redirect('/italian-marble-pricelist', '/', 301);
+Route::redirect('/italian-marble-price', '/', 301);
+Route::redirect('/marble-price-list', '/', 301);
 Route::redirect('/website-map', '/sitemap.xml', 301);
 Route::redirect('/sitemap', '/sitemap.xml', 301);
 Route::redirect('/sitemap1.xml', '/sitemap.xml', 301);

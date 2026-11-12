@@ -2819,32 +2819,53 @@ JSON Schema:
     {
         $inputUrl = $request->input('root_url');
         if (empty($inputUrl)) {
-            $inputUrl = \App\Models\PageContent::where('page', 'seo')->where('section', 'settings')->where('key', 'base_url')->value('value');
+            try {
+                $inputUrl = \App\Models\PageContent::where('page', 'seo')->where('section', 'settings')->where('key', 'base_url')->value('value');
+            } catch (\Throwable $e) {}
         }
         if (empty($inputUrl)) {
-            $inputUrl = \App\Models\SiteParameter::where('id', 'site_root_url')->value('value');
+            try {
+                $inputUrl = \App\Models\SiteParameter::where('id', 'site_root_url')->value('value');
+            } catch (\Throwable $e) {}
         }
         if (empty($inputUrl)) {
-            $inputUrl = config('app.url') ?: url('/');
+            $inputUrl = config('app.url') ?: 'https://www.smacdigital.com';
         }
         
-        $inputUrl = trim($inputUrl);
+        $inputUrl = trim((string)$inputUrl);
+        if (empty($inputUrl) || str_contains($inputUrl, 'stonehubindia') || str_contains($inputUrl, '127.0.0.1') || str_contains($inputUrl, 'localhost')) {
+            $inputUrl = 'https://www.smacdigital.com';
+        }
         if (!preg_match('~^https?://~i', $inputUrl)) {
             $inputUrl = 'https://' . ltrim($inputUrl, '/');
         }
         $cleanUrl = rtrim($inputUrl, '/');
 
-        // Persist root URL in page_contents and site_parameters
-        DB::table('page_contents')->updateOrInsert(
-            ['page' => 'seo', 'section' => 'settings', 'key' => 'base_url'],
-            ['value' => $cleanUrl, 'updated_at' => now()]
-        );
-        SiteParameter::updateOrCreate(
-            ['id' => 'site_root_url'],
-            ['value' => $cleanUrl, 'label' => 'Site Root URL (SEO)', 'category' => 'general']
-        );
+        // Ensure canonical domain https://www.smacdigital.com
+        if ($cleanUrl === 'https://smacdigital.com' || $cleanUrl === 'http://smacdigital.com') {
+            $cleanUrl = 'https://www.smacdigital.com';
+        }
+
+        // Persist root URL in page_contents and site_parameters if DB is available
+        try {
+            DB::table('page_contents')->updateOrInsert(
+                ['page' => 'seo', 'section' => 'settings', 'key' => 'base_url'],
+                ['value' => $cleanUrl, 'updated_at' => now()]
+            );
+            SiteParameter::updateOrCreate(
+                ['id' => 'site_root_url'],
+                ['value' => $cleanUrl, 'label' => 'Site Root URL (SEO)', 'category' => 'general']
+            );
+        } catch (\Throwable $e) {
+            // Database offline or during migration
+        }
 
         return $cleanUrl;
+    }
+
+    public function generateSitemap(Request $request)
+    {
+        return $this->regenerateSitemap($request);
     }
 
     public function regenerateSitemap(Request $request)
@@ -2870,49 +2891,127 @@ JSON Schema:
         };
 
         // 1. Static Core Pages
-        $addUrl($rootUrl . '/', '1.0', 'daily');
-        $addUrl($rootUrl . '/about-us', '0.9', 'monthly');
-        $addUrl($rootUrl . '/collections', '0.9', 'weekly');
-        $addUrl($rootUrl . '/products', '0.9', 'daily');
-        $addUrl($rootUrl . '/blogs', '0.9', 'daily');
-        $addUrl($rootUrl . '/italian-marble-pricelist', '0.9', 'weekly');
-        $addUrl($rootUrl . '/infrastructure', '0.8', 'monthly');
-        $addUrl($rootUrl . '/testimonials', '0.8', 'monthly');
-        $addUrl($rootUrl . '/faq', '0.7', 'monthly');
-        $addUrl($rootUrl . '/contact-us', '0.8', 'monthly');
-
-        // 2. Dynamic Collections
-        $collections = \App\Models\Collection::whereNotNull('slug')->where('slug', '!=', '')->get();
-        foreach ($collections as $col) {
-            $addUrl($rootUrl . '/collections/' . $col->slug, '0.9', 'weekly', $col->updated_at);
+        $corePages = [
+            '/' => ['priority' => '1.0', 'freq' => 'daily'],
+            '/about-us' => ['priority' => '0.9', 'freq' => 'monthly'],
+            '/services' => ['priority' => '0.9', 'freq' => 'weekly'],
+            '/portfolios' => ['priority' => '0.8', 'freq' => 'weekly'],
+            '/testimonials' => ['priority' => '0.8', 'freq' => 'monthly'],
+            '/blog' => ['priority' => '0.8', 'freq' => 'daily'],
+            '/contact' => ['priority' => '0.8', 'freq' => 'monthly'],
+            '/career' => ['priority' => '0.7', 'freq' => 'monthly'],
+            '/events' => ['priority' => '0.7', 'freq' => 'monthly'],
+        ];
+        foreach ($corePages as $path => $meta) {
+            $addUrl($rootUrl . $path, $meta['priority'], $meta['freq']);
         }
 
-        // 3. Dynamic Products / Marble Slabs
-        $marbles = \App\Models\Marble::whereNotNull('slug')->where('slug', '!=', '')->get();
-        foreach ($marbles as $marble) {
-            $addUrl($rootUrl . '/products/' . $marble->slug, '0.85', 'weekly', $marble->updated_at);
+        // 2. SMAC Digital Core Services
+        $services = [
+            'search-engine-optimization' => '0.9',
+            'social-media-marketing' => '0.9',
+            'lead-generation' => '0.9',
+            'inbound-marketing' => '0.9',
+            'digital-media-planning' => '0.9',
+            'content-marketing' => '0.85',
+            'devops-services' => '0.85',
+            'influencer-marketing' => '0.85',
+            'marketing-automation' => '0.85',
+            'mobile-application-development' => '0.85',
+            'online-reputation-management' => '0.85',
+            'sentiment-analysis' => '0.85',
+            'social-media-analytics' => '0.85',
+            'video-marketing' => '0.85',
+            'website-design-and-development' => '0.85',
+        ];
+        foreach ($services as $svcSlug => $priority) {
+            $addUrl($rootUrl . '/services/' . $svcSlug, $priority, 'weekly');
         }
 
-        // 4. Dynamic Blogs
-        $blogs = \App\Models\Blog::whereNotNull('slug')->where('slug', '!=', '')->get();
-        foreach ($blogs as $blog) {
-            $addUrl($rootUrl . '/blogs/' . $blog->slug, '0.8', 'weekly', $blog->updated_at);
+        // 3. Location Landing Pages (City-Specific)
+        $locationLandingPages = [
+            // Search Engine Optimization (SEO)
+            'seo-services-in-jaipur',
+            'seo-services-in-delhi',
+            'seo-services-in-pune',
+            'seo-services-in-kolkata',
+            // Social Media Marketing (SMM)
+            'social-media-marketing-agency-in-jaipur',
+            'social-media-marketing-agency-in-delhi',
+            'social-media-marketing-agency-in-pune',
+            'social-media-marketing-agency-in-kolkata',
+            // Lead Generation
+            'lead-generation-agency-in-jaipur',
+            'lead-generation-agency-in-delhi',
+            'lead-generation-agency-in-pune',
+            'lead-generation-agency-in-kolkata',
+            // Inbound Marketing
+            'inbound-marketing-company-in-jaipur',
+            'inbound-marketing-company-in-delhi',
+            'inbound-marketing-company-in-pune',
+            'inbound-marketing-company-in-kolkata',
+            // Digital Media Planning
+            'digital-media-planning-agency-in-jaipur',
+            'digital-media-planning-agency-in-delhi',
+            'digital-media-planning-agency-in-pune',
+            'digital-media-planning-agency-in-kolkata',
+        ];
+        foreach ($locationLandingPages as $citySlug) {
+            $addUrl($rootUrl . '/' . $citySlug . '/', '0.8', 'weekly');
         }
 
-        // 5. Dynamic CMS Pages
-        if (\Illuminate\Support\Facades\Schema::hasTable('cms_pages')) {
-            $cmsPages = \App\Models\CmsPage::whereNotNull('slug')->where('slug', '!=', '')->get();
-            foreach ($cmsPages as $page) {
-                $addUrl($rootUrl . '/' . $page->slug, '0.7', 'monthly', $page->updated_at);
+        // 4. Dynamic Blogs (from DB and blogsData.json fallback)
+        $seenBlogSlugs = [];
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('blogs')) {
+                $blogs = \App\Models\Blog::whereNotNull('slug')->where('slug', '!=', '')->get();
+                foreach ($blogs as $blog) {
+                    $slug = trim($blog->slug);
+                    if (!empty($slug) && !isset($seenBlogSlugs[$slug])) {
+                        $seenBlogSlugs[$slug] = true;
+                        $addUrl($rootUrl . '/blogs/' . $slug, '0.75', 'monthly', $blog->updated_at ?? $blog->published_at);
+                    }
+                }
+            }
+        } catch (\Throwable $e) {
+            // ignore DB issue
+        }
+
+        $blogsJsonPath = resource_path('js/data/blogsData.json');
+        if (file_exists($blogsJsonPath)) {
+            $blogsJson = json_decode(file_get_contents($blogsJsonPath), true);
+            if (is_array($blogsJson)) {
+                foreach ($blogsJson as $b) {
+                    $slug = trim($b['slug'] ?? '');
+                    if (!empty($slug) && !isset($seenBlogSlugs[$slug])) {
+                        $seenBlogSlugs[$slug] = true;
+                        $lastmod = !empty($b['date']) ? $b['date'] . 'T00:00:00+00:00' : null;
+                        $addUrl($rootUrl . '/blogs/' . $slug, '0.75', 'monthly', $lastmod);
+                    }
+                }
             }
         }
 
-        // 6. Dynamic City / Location Pages (All Cities)
-        if (\Illuminate\Support\Facades\Schema::hasTable('location_pages')) {
-            $locationPages = \App\Models\LocationPage::where('status', true)->get();
-            foreach ($locationPages as $loc) {
-                $citySlug = $loc->content['city_slug'] ?? \Illuminate\Support\Str::slug($loc->city);
-                $addUrl($rootUrl . '/' . $citySlug . '/imported-marble-seller', '0.85', 'weekly', $loc->updated_at);
+        // 5. Dynamic CMS Pages (Excluding StoneHub leftovers & duplicate static pages)
+        if (\Illuminate\Support\Facades\Schema::hasTable('cms_pages')) {
+            $excludedSlugs = [
+                'home', 'about', 'about-us', 'services', 'service', 'portfolios', 'portfolio',
+                'testimonials', 'testimonial', 'blog', 'blogs', 'contact', 'contact-us',
+                'career', 'careers', 'events', 'event', 'products', 'collections', 'infrastructure',
+                'italian-marble-pricelist', 'marble-price-list', 'italian-marble-price'
+            ];
+            $cmsPages = \App\Models\CmsPage::whereNotNull('slug')->where('slug', '!=', '')->get();
+            foreach ($cmsPages as $page) {
+                $slug = trim($page->slug, '/');
+                $isExcluded = in_array(strtolower($slug), $excludedSlugs)
+                    || str_contains(strtolower($slug), 'marble')
+                    || str_contains(strtolower($slug), 'stone')
+                    || str_contains(strtolower($slug), 'treatment')
+                    || str_contains(strtolower($slug), 'specialist');
+                
+                if (!$isExcluded && !empty($slug)) {
+                    $addUrl($rootUrl . '/' . $slug, '0.7', 'monthly', $page->updated_at);
+                }
             }
         }
 
@@ -3006,52 +3105,120 @@ JSON Schema:
         $this->checkPermission('seo');
         $rootUrl = $this->getCleanRootUrl($request);
 
-        $collections = \App\Models\Collection::whereNotNull('slug')->where('slug', '!=', '')->get();
-        $marbles = \App\Models\Marble::whereNotNull('slug')->where('slug', '!=', '')->get();
-        $blogs = \App\Models\Blog::whereNotNull('slug')->where('slug', '!=', '')->get();
-        $site = SiteParameter::pluck('value', 'id')->toArray();
+        $site = [];
+        try {
+            $site = SiteParameter::pluck('value', 'id')->toArray();
+        } catch (\Throwable $e) {}
 
-        $phone = $site['phone'] ?? '+91 9876543210';
-        $email = $site['email'] ?? 'info@stonehubindia.com';
-        $address = $site['address'] ?? 'Kishangarh, Rajasthan, India';
-        $whatsapp = $site['whatsapp_number'] ?? '919876543210';
+        $phone = $site['primary_phone'] ?? $site['phone'] ?? '+91 98290 69519';
+        $email = $site['primary_email'] ?? $site['email'] ?? 'Jitendra@smacdigital.com';
+        $address = $site['address'] ?? 'Anukampa Point, 116/230, 2nd Floor, Shipra Path, Mansarovar, Jaipur, Rajasthan 302020';
+        $whatsapp = $site['whatsapp_number'] ?? '919582792638';
 
         // 1. Generate Concise llms.txt
-        $llms = "# Stone Hub India — Curators & Importers of Luxury Natural Stone\n\n";
-        $llms .= "> Premier importer and curator of authentic Italian Marble (Statuario, Calacatta, Botticino, Carrara), Exotic Brazilian Quartzite (Patagonia, Cristallo), Translucent Onyx, and Roman Travertine in India.\n\n";
+        $llms = "# SMAC Digital — Performance-Driven Digital Marketing Agency\n\n";
+        $llms .= "> SMAC Digital is a premier full-service digital marketing agency in India delivering high-ROI Search Engine Optimization (SEO), Social Media Marketing (SMM), Lead Generation, Performance Marketing, Inbound Marketing, Digital Media Planning, and Web & Mobile App Development.\n\n";
         $llms .= "## Brand & Company Overview\n";
-        $llms .= "Stone Hub India operates state-of-the-art marble stockyards and experience centers in Kishangarh, Rajasthan and major Indian metropolitan regions. Sourcing directly from exclusive quarries across Italy, Greece, and Brazil, Stone Hub India provides premium natural stone slabs with Italian epoxy resin backing, bookmatched mirror alignment, and precision bridge-saw waterjet processing.\n\n";
+        $llms .= "SMAC Digital stands for Social, Mobile, Analytics, and Cloud (SMAC). We partner with high-growth businesses and D2C brands across Jaipur, Delhi, Pune, Kolkata, and worldwide to accelerate organic rankings, scale paid media ROI, and engineer robust digital experiences.\n\n";
 
         $llms .= "## Core Navigation & Key Resources\n";
-        $llms .= "- [Homepage]({$rootUrl}/): Main portal featuring live stockyard unboxings, curated collections, and customer showcases.\n";
-        $llms .= "- [About Stone Hub India]({$rootUrl}/about-us): Brand heritage, quarry curation philosophy, and leadership.\n";
-        $llms .= "- [All Collections]({$rootUrl}/collections): Complete directory of signature marble, quartzite, travertine, and onyx categories.\n";
-        $llms .= "- [Marble Slabs Catalog]({$rootUrl}/products): Full searchable live slab gallery.\n";
-        $llms .= "- [Italian Marble Price List 2026]({$rootUrl}/italian-marble-pricelist): Detailed pricing benchmarks, grade comparisons, and estimation calculators.\n";
-        $llms .= "- [Design Journals & Stone Guides]({$rootUrl}/blogs): Architectural insights, maintenance tips, and selection advice.\n";
-        $llms .= "- [Contact & Showroom Tours]({$rootUrl}/contact-us): Inquiries, catalog requests, and virtual video consultations.\n\n";
+        $llms .= "- [Homepage]({$rootUrl}/): Main portal featuring full-funnel digital marketing services, growth case studies, and audit consultations.\n";
+        $llms .= "- [About SMAC Digital]({$rootUrl}/about-us): Agency philosophy, our team of marketing specialists, and proven results.\n";
+        $llms .= "- [All Digital Services]({$rootUrl}/services): Comprehensive directory of performance marketing and development services.\n";
+        $llms .= "- [Case Studies & Portfolios]({$rootUrl}/portfolios): Measurable campaign growth, ROAS metrics, and client deliverables.\n";
+        $llms .= "- [Client Testimonials]({$rootUrl}/testimonials): Client success stories and partner reviews.\n";
+        $llms .= "- [Marketing Insights & Blog]({$rootUrl}/blog): Growth playbooks, Google algorithm analysis, Shopify strategies, and SEO updates.\n";
+        $llms .= "- [Contact & Free Audit]({$rootUrl}/contact): Marketing consultations, website audits, and proposal requests.\n";
+        $llms .= "- [Careers]({$rootUrl}/career): Join our Jaipur and remote digital marketing team.\n";
+        $llms .= "- [Events]({$rootUrl}/events): Industry summits, webinars, and masterclasses.\n\n";
 
-        $llms .= "## Signature Stone Collections\n";
-        foreach ($collections as $col) {
-            $desc = Str::limit(strip_tags($col->description ?? 'Exclusive collection of luxury natural stone slabs imported directly from global quarries.'), 150);
-            $llms .= "- [{$col->name}]({$rootUrl}/collections/{$col->slug}): {$desc}\n";
+        $llms .= "## Core Marketing & Tech Services\n";
+        $services = [
+            'search-engine-optimization' => 'Search Engine Optimization (SEO) — Technical audits, on-page optimization, quality link acquisition, and keyword ranking growth.',
+            'social-media-marketing' => 'Social Media Marketing (SMM) — Paid social campaigns, community management, brand storytelling, and viral engagement.',
+            'lead-generation' => 'B2B & B2C Lead Generation — High-converting landing pages, paid funnels, and verified SQL/MQL pipeline generation.',
+            'inbound-marketing' => 'Inbound Marketing — Content hubs, lead magnets, automated email nurturing, and customer lifecycle retention.',
+            'digital-media-planning' => 'Digital Media Planning — Strategic budget allocation, audience intelligence, and multi-channel programmatic media buys.',
+            'website-design-and-development' => 'Website Design & Development — High-performance responsive websites, UI/UX design, and fast modern web apps.',
+            'mobile-application-development' => 'Mobile Application Development — Native and cross-platform iOS and Android mobile applications.',
+            'content-marketing' => 'Content Marketing — Thought leadership articles, editorial strategy, and authoritative industry research.',
+            'online-reputation-management' => 'Online Reputation Management (ORM) — Review monitoring, crisis mitigation, and positive brand sentiment protection.',
+            'marketing-automation' => 'Marketing Automation — CRM workflow orchestration, WhatsApp API integrations, and behavioral trigger funnels.',
+            'influencer-marketing' => 'Influencer Marketing — Creator partnerships, sponsored influencer campaigns, and performance tracking.',
+            'video-marketing' => 'Video Marketing — High-impact short-form videos, YouTube optimization, and visual brand commercials.',
+            'devops-services' => 'DevOps Services — Cloud infrastructure scalability, CI/CD pipeline automation, and server monitoring.',
+            'sentiment-analysis' => 'Sentiment Analysis — NLP consumer opinion mining and social listening intelligence.',
+            'social-media-analytics' => 'Social Media Analytics — Multi-platform dashboard reporting, competitor benchmarking, and attribution.',
+        ];
+        foreach ($services as $svcSlug => $svcDesc) {
+            $llms .= "- [{$svcSlug}]({$rootUrl}/services/{$svcSlug}): {$svcDesc}\n";
         }
         $llms .= "\n";
 
-        $llms .= "## Curated Marble & Quartzite Slabs\n";
-        foreach ($marbles->take(30) as $m) {
-            $mDesc = Str::limit(strip_tags($m->description ?? "{$m->name} luxury natural stone with {$m->finish} finish, suitable for {$m->application}."), 120);
-            $llms .= "- [{$m->name}]({$rootUrl}/products/{$m->slug}): {$mDesc}\n";
-        }
-        if ($marbles->count() > 30) {
-            $llms .= "- [View All {$marbles->count()} Marble Slabs]({$rootUrl}/products): Browse full catalog with technical specifications.\n";
+        $llms .= "## City Location Landing Pages\n";
+        $cityPages = [
+            'SEO Services in Jaipur' => "{$rootUrl}/seo-services-in-jaipur/",
+            'SEO Services in Delhi' => "{$rootUrl}/seo-services-in-delhi/",
+            'SEO Services in Pune' => "{$rootUrl}/seo-services-in-pune/",
+            'SEO Services in Kolkata' => "{$rootUrl}/seo-services-in-kolkata/",
+            'Social Media Marketing in Jaipur' => "{$rootUrl}/social-media-marketing-agency-in-jaipur/",
+            'Social Media Marketing in Delhi' => "{$rootUrl}/social-media-marketing-agency-in-delhi/",
+            'Social Media Marketing in Pune' => "{$rootUrl}/social-media-marketing-agency-in-pune/",
+            'Social Media Marketing in Kolkata' => "{$rootUrl}/social-media-marketing-agency-in-kolkata/",
+            'Lead Generation Agency in Jaipur' => "{$rootUrl}/lead-generation-agency-in-jaipur/",
+            'Lead Generation Agency in Delhi' => "{$rootUrl}/lead-generation-agency-in-delhi/",
+            'Lead Generation Agency in Pune' => "{$rootUrl}/lead-generation-agency-in-pune/",
+            'Lead Generation Agency in Kolkata' => "{$rootUrl}/lead-generation-agency-in-kolkata/",
+            'Inbound Marketing in Jaipur' => "{$rootUrl}/inbound-marketing-company-in-jaipur/",
+            'Inbound Marketing in Delhi' => "{$rootUrl}/inbound-marketing-company-in-delhi/",
+            'Inbound Marketing in Pune' => "{$rootUrl}/inbound-marketing-company-in-pune/",
+            'Inbound Marketing in Kolkata' => "{$rootUrl}/inbound-marketing-company-in-kolkata/",
+            'Digital Media Planning in Jaipur' => "{$rootUrl}/digital-media-planning-agency-in-jaipur/",
+            'Digital Media Planning in Delhi' => "{$rootUrl}/digital-media-planning-agency-in-delhi/",
+            'Digital Media Planning in Pune' => "{$rootUrl}/digital-media-planning-agency-in-pune/",
+            'Digital Media Planning in Kolkata' => "{$rootUrl}/digital-media-planning-agency-in-kolkata/",
+        ];
+        foreach ($cityPages as $cpTitle => $cpUrl) {
+            $llms .= "- [{$cpTitle}]({$cpUrl})\n";
         }
         $llms .= "\n";
 
-        $llms .= "## Top Design Journals & Guides\n";
-        foreach ($blogs->take(20) as $b) {
-            $bSummary = Str::limit(strip_tags($b->summary ?? $b->content ?? 'Comprehensive architectural guide on natural stone selection and maintenance.'), 130);
-            $llms .= "- [{$b->title}]({$rootUrl}/blogs/{$b->slug}): {$bSummary}\n";
+        // Collect blogs from JSON or DB
+        $allBlogs = [];
+        $jsonPath = resource_path('js/data/blogsData.json');
+        if (file_exists($jsonPath)) {
+            $bJson = json_decode(file_get_contents($jsonPath), true);
+            if (is_array($bJson)) {
+                foreach ($bJson as $bj) {
+                    $allBlogs[$bj['slug']] = [
+                        'title' => $bj['title'] ?? $bj['slug'],
+                        'slug' => $bj['slug'],
+                        'summary' => $bj['excerpt'] ?? '',
+                        'category' => $bj['tag'] ?? 'Marketing'
+                    ];
+                }
+            }
+        }
+        if (\Illuminate\Support\Facades\Schema::hasTable('blogs')) {
+            try {
+                $dbBlogs = \App\Models\Blog::whereNotNull('slug')->where('slug', '!=', '')->get();
+                foreach ($dbBlogs as $dbB) {
+                    $allBlogs[$dbB->slug] = [
+                        'title' => $dbB->title ?? $dbB->slug,
+                        'slug' => $dbB->slug,
+                        'summary' => $dbB->summary ?? '',
+                        'category' => $dbB->category ?? 'Marketing'
+                    ];
+                }
+            } catch (\Throwable $e) {}
+        }
+
+        $llms .= "## Top Marketing Insights & Guides\n";
+        $count = 0;
+        foreach ($allBlogs as $b) {
+            if ($count++ >= 20) break;
+            $bSummary = Str::limit(strip_tags($b['summary'] ?: 'Expert digital marketing strategy guide by SMAC Digital.'), 130);
+            $llms .= "- [{$b['title']}]({$rootUrl}/blogs/{$b['slug']}): {$bSummary}\n";
         }
         $llms .= "\n";
 
@@ -3060,7 +3227,7 @@ JSON Schema:
         $llms .= "- Phone: {$phone}\n";
         $llms .= "- WhatsApp Support: https://wa.me/{$whatsapp}\n";
         $llms .= "- Email: {$email}\n";
-        $llms .= "- Head Office & Stockyard: {$address}\n";
+        $llms .= "- Head Office: {$address}\n";
 
         // Write llms.txt
         $pathLlms = public_path('llms.txt');
@@ -3068,24 +3235,12 @@ JSON Schema:
 
         // 2. Generate Full Knowledge Base llms-full.txt
         $llmsFull = $llms;
-        $llmsFull .= "\n\n## Extended Product Catalog (All Slabs)\n";
-        foreach ($marbles as $m) {
-            $llmsFull .= "### {$m->name}\n";
-            $llmsFull .= "- URL: {$rootUrl}/products/{$m->slug}\n";
-            if (!empty($m->color)) $llmsFull .= "- Color: {$m->color}\n";
-            if (!empty($m->origin)) $llmsFull .= "- Origin: {$m->origin}\n";
-            if (!empty($m->finish)) $llmsFull .= "- Finish: {$m->finish}\n";
-            if (!empty($m->application)) $llmsFull .= "- Ideal Applications: {$m->application}\n";
-            if (!empty($m->description)) $llmsFull .= "- Overview: " . strip_tags($m->description) . "\n";
-            $llmsFull .= "\n";
-        }
-
-        $llmsFull .= "\n## Complete Knowledge Base & Articles (All Blogs)\n";
-        foreach ($blogs as $b) {
-            $llmsFull .= "### {$b->title}\n";
-            $llmsFull .= "- URL: {$rootUrl}/blogs/{$b->slug}\n";
-            if (!empty($b->category)) $llmsFull .= "- Category: {$b->category}\n";
-            if (!empty($b->summary)) $llmsFull .= "- Summary: " . strip_tags($b->summary) . "\n";
+        $llmsFull .= "\n\n## Complete Marketing Articles & Guides (All Blogs)\n";
+        foreach ($allBlogs as $b) {
+            $llmsFull .= "### {$b['title']}\n";
+            $llmsFull .= "- URL: {$rootUrl}/blogs/{$b['slug']}\n";
+            if (!empty($b['category'])) $llmsFull .= "- Category: {$b['category']}\n";
+            if (!empty($b['summary'])) $llmsFull .= "- Summary: " . strip_tags($b['summary']) . "\n";
             $llmsFull .= "\n";
         }
 
@@ -3978,8 +4133,11 @@ JSON Schema:
 
     private function checkPermission($module)
     {
+        if (app()->runningInConsole()) {
+            return;
+        }
         $user = Auth::user();
-        if ($user->role === 'superadmin') {
+        if (!$user || $user->role === 'superadmin') {
             return;
         }
 
