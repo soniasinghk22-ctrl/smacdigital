@@ -3386,13 +3386,30 @@
                                 <label for="blog_published_at">Publish Date</label>
                                 <input type="datetime-local" id="blog_published_at" name="published_at" class="form-control" value="{{ date('Y-m-d\TH:i') }}">
                             </div>
+                            <div class="form-group" style="grid-column: span 2;">
+                                <input type="hidden" name="remove_image" id="blog_remove_image" value="0">
+                                <div id="blog_current_image_container" style="display: none; margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+                                    <label style="display: block; font-size: 0.82rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Current Cover Image:</label>
+                                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                                        <img id="blog_current_image_img" src="" alt="Current Cover Image" style="max-height: 80px; max-width: 140px; border-radius: 6px; object-fit: cover; border: 1px solid rgba(255,255,255,0.15);">
+                                        <div>
+                                            <p id="blog_current_image_path" style="font-size: 0.8rem; color: #cbd5e1; word-break: break-all; margin: 0 0 0.4rem 0;"></p>
+                                            <button type="button" id="blog_remove_image_btn" onclick="removeBlogCoverImage()" class="btn-action delete" style="padding: 0.35rem 0.75rem; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 6px; cursor: pointer;">
+                                                <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i> Remove Cover Image
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p id="blog_image_removed_notice" style="display: none; color: #f87171; font-size: 0.8rem; margin: 0.4rem 0 0 0; font-weight: 500;">Cover image will be removed upon saving.</p>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="blog_image">Cover Image (Upload File)</label>
                                 <input type="file" id="blog_image" name="image" class="form-control" accept="image/*">
+                                <span style="font-size: 0.75rem; color: var(--admin-text-muted);">Upload JPG, PNG, WEBP, GIF, SVG (up to 10MB)</span>
                             </div>
                             <div class="form-group">
                                 <label for="blog_image_url">Or Paste Cover Image URL</label>
-                                <input type="text" id="blog_image_url" name="image_url" class="form-control" placeholder="https://images.drsumitz.com/cover.webp">
+                                <input type="text" id="blog_image_url" name="image_url" class="form-control" placeholder="https://example.com/cover.webp">
                             </div>
                         </div>
                         <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--accent-teal);">SEO Metadata (Optional)</h4>
@@ -6672,6 +6689,20 @@
             return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
         }
 
+        function removeBlogCoverImage() {
+            document.getElementById('blog_remove_image').value = '1';
+            const imgInput = document.getElementById('blog_image');
+            if (imgInput) imgInput.value = '';
+            const urlInput = document.getElementById('blog_image_url');
+            if (urlInput) urlInput.value = '';
+            const img = document.getElementById('blog_current_image_img');
+            if (img) img.style.opacity = '0.3';
+            const notice = document.getElementById('blog_image_removed_notice');
+            if (notice) notice.style.display = 'block';
+            const rmBtn = document.getElementById('blog_remove_image_btn');
+            if (rmBtn) rmBtn.style.display = 'none';
+        }
+
         // Blog Edit functions via dynamic AJAX
         function editBlog(id) {
             document.getElementById('blog-form-title-text').innerText = 'Loading Blog details...';
@@ -6706,8 +6737,36 @@
                         document.getElementById('blog_content').value = data.content || '';
                     }
                     document.getElementById('blog-submit-btn').innerText = 'Update Blog Article';
-                    document.getElementById('blog_image_url').value = (data.image_path && (data.image_path.startsWith('http') || data.image_path.startsWith('//'))) ? data.image_path : '';
+
+                    // Reset cover image controls
+                    document.getElementById('blog_remove_image').value = '0';
+                    const imgInput = document.getElementById('blog_image');
+                    if (imgInput) imgInput.value = '';
+                    const notice = document.getElementById('blog_image_removed_notice');
+                    if (notice) notice.style.display = 'none';
+                    const rmBtn = document.getElementById('blog_remove_image_btn');
+                    if (rmBtn) rmBtn.style.display = 'inline-flex';
+                    const img = document.getElementById('blog_current_image_img');
+                    if (img) img.style.opacity = '1';
+
+                    const currentImgContainer = document.getElementById('blog_current_image_container');
+                    if (data.image_path) {
+                        const displayUrl = data.image_display || data.image_path;
+                        if (img) img.src = displayUrl;
+                        const pathEl = document.getElementById('blog_current_image_path');
+                        if (pathEl) pathEl.innerText = data.image_path;
+                        if (currentImgContainer) currentImgContainer.style.display = 'block';
+                        document.getElementById('blog_image_url').value = (data.image_path.startsWith('http') || data.image_path.startsWith('//')) ? data.image_path : '';
+                    } else {
+                        if (currentImgContainer) currentImgContainer.style.display = 'none';
+                        if (img) img.src = '';
+                        const pathEl = document.getElementById('blog_current_image_path');
+                        if (pathEl) pathEl.innerText = '';
+                        document.getElementById('blog_image_url').value = '';
+                    }
+
                     document.getElementById('blog-cancel-btn').style.display = 'inline-block';
+                    if (window.lucide) { lucide.createIcons(); }
                     
                     document.getElementById('blog-form-container').scrollIntoView({ behavior: 'smooth' });
                 })
@@ -6734,7 +6793,18 @@
             document.getElementById('blog_metatitle').value = '';
             document.getElementById('blog_metadescription').value = '';
             document.getElementById('blog_metakeywords').value = '';
+            document.getElementById('blog_remove_image').value = '0';
+            const imgInput = document.getElementById('blog_image');
+            if (imgInput) imgInput.value = '';
             document.getElementById('blog_image_url').value = '';
+            const currentImgContainer = document.getElementById('blog_current_image_container');
+            if (currentImgContainer) currentImgContainer.style.display = 'none';
+            const img = document.getElementById('blog_current_image_img');
+            if (img) { img.src = ''; img.style.opacity = '1'; }
+            const pathEl = document.getElementById('blog_current_image_path');
+            if (pathEl) pathEl.innerText = '';
+            const notice = document.getElementById('blog_image_removed_notice');
+            if (notice) notice.style.display = 'none';
             if (blogEditor) {
                 blogEditor.setData('');
             } else {
@@ -6743,6 +6813,24 @@
             document.getElementById('blog-submit-btn').innerText = 'Publish Blog Article';
             document.getElementById('blog-cancel-btn').style.display = 'none';
         }
+
+        // Listener to cancel remove flag if new file selected
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogImageInput = document.getElementById('blog_image');
+            if (blogImageInput) {
+                blogImageInput.addEventListener('change', function() {
+                    if (this.files && this.files.length > 0) {
+                        document.getElementById('blog_remove_image').value = '0';
+                        const notice = document.getElementById('blog_image_removed_notice');
+                        if (notice) notice.style.display = 'none';
+                        const rmBtn = document.getElementById('blog_remove_image_btn');
+                        if (rmBtn) rmBtn.style.display = 'inline-flex';
+                        const img = document.getElementById('blog_current_image_img');
+                        if (img) img.style.opacity = '1';
+                    }
+                });
+            }
+        });
 
 
         // HTML escaping helper

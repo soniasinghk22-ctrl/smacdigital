@@ -41,12 +41,11 @@
       <div class="page-blog-grid">
         @foreach($blogs as $blog)
         <a class="page-blog-card" href="{{ url('/blogs/' . $blog->slug) }}">
+          @if(!empty($blog->image_path))
           <span class="page-blog-card-media">
-            @php
-              $imgSrc = $blog->image_path ? asset($blog->image_path) : asset('assets/blog/d2c-shopify.png');
-            @endphp
-            <img src="{{ $imgSrc }}" alt="{{ $blog->title }}" width="640" height="400" loading="lazy" onerror="this.onerror=null;this.src='{{ asset('assets/blog/d2c-shopify.png') }}';">
+            <img src="{{ site_image($blog->image_path) }}" alt="{{ $blog->title }}" width="640" height="400" loading="lazy">
           </span>
+          @endif
           <span class="page-blog-card-body">
             <span class="page-blog-card-meta">
               <em>{{ $blog->category ?? 'Digital Marketing' }}</em>

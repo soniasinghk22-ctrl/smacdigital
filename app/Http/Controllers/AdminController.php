@@ -633,6 +633,7 @@ class AdminController extends Controller
             'summary' => $blog->summary,
             'content' => $blog->content,
             'image_path' => $blog->image_path,
+            'image_display' => $blog->image_path ? site_image($blog->image_path) : null,
             'schema_markup' => $blog->schema_markup,
             'metatitle' => $blog->metatitle,
             'metadescription' => $blog->metadescription,
@@ -649,7 +650,7 @@ class AdminController extends Controller
             'category' => 'required|string|max:255',
             'summary' => 'required|string',
             'content' => 'required|string',
-            'image' => 'nullable|image|max:5000',
+            'image' => 'nullable|image|max:10240',
             'image_url' => 'nullable|string',
             'slug' => 'nullable|string|max:255|unique:blogs,slug',
             'schema_markup' => 'nullable|string',
@@ -666,9 +667,17 @@ class AdminController extends Controller
 
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $this->uploadAndConvertToWebP($request->file('image'), 'blog');
+            $file = $request->file('image');
+            $targetDir = public_path('uploads/blogs');
+            if (!file_exists($targetDir)) {
+                @mkdir($targetDir, 0755, true);
+            }
+            $extension = $file->getClientOriginalExtension() ?: 'jpg';
+            $filename = time() . '_' . uniqid() . '.' . $extension;
+            $file->move($targetDir, $filename);
+            $imagePath = '/uploads/blogs/' . $filename;
         } elseif ($request->filled('image_url')) {
-            $imagePath = $request->input('image_url');
+            $imagePath = trim($request->input('image_url'));
         }
 
         \App\Models\Blog::create([
@@ -698,7 +707,7 @@ class AdminController extends Controller
             'category' => 'required|string|max:255',
             'summary' => 'required|string',
             'content' => 'required|string',
-            'image' => 'nullable|image|max:5000',
+            'image' => 'nullable|image|max:10240',
             'image_url' => 'nullable|string',
             'slug' => 'required|string|max:255|unique:blogs,slug,' . $id,
             'schema_markup' => 'nullable|string',
@@ -710,13 +719,26 @@ class AdminController extends Controller
         $blog = \App\Models\Blog::findOrFail($id);
 
         $imagePath = $blog->image_path;
-        if ($request->hasFile('image')) {
-            if ($blog->image_path && !str_starts_with($blog->image_path, 'http') && !str_starts_with($blog->image_path, '//')) {
-                Storage::disk('public')->delete($blog->image_path);
+        if ($request->boolean('remove_image')) {
+            if ($blog->image_path && str_starts_with($blog->image_path, '/uploads/blogs/')) {
+                @unlink(public_path(ltrim($blog->image_path, '/')));
             }
-            $imagePath = $this->uploadAndConvertToWebP($request->file('image'), 'blog');
-        } elseif ($request->has('image_url')) {
-            $imagePath = $request->input('image_url');
+            $imagePath = null;
+        } elseif ($request->hasFile('image')) {
+            if ($blog->image_path && str_starts_with($blog->image_path, '/uploads/blogs/')) {
+                @unlink(public_path(ltrim($blog->image_path, '/')));
+            }
+            $file = $request->file('image');
+            $targetDir = public_path('uploads/blogs');
+            if (!file_exists($targetDir)) {
+                @mkdir($targetDir, 0755, true);
+            }
+            $extension = $file->getClientOriginalExtension() ?: 'jpg';
+            $filename = time() . '_' . uniqid() . '.' . $extension;
+            $file->move($targetDir, $filename);
+            $imagePath = '/uploads/blogs/' . $filename;
+        } elseif ($request->filled('image_url')) {
+            $imagePath = trim($request->input('image_url'));
         }
 
         $blog->update([
@@ -743,7 +765,9 @@ class AdminController extends Controller
     {
         $this->checkPermission('blogs');
         $blog = \App\Models\Blog::findOrFail($id);
-        if ($blog->image_path) {
+        if ($blog->image_path && str_starts_with($blog->image_path, '/uploads/blogs/')) {
+            @unlink(public_path(ltrim($blog->image_path, '/')));
+        } elseif ($blog->image_path) {
             Storage::disk('public')->delete($blog->image_path);
         }
         $blog->delete();

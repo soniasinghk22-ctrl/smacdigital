@@ -834,7 +834,9 @@
             @php $featured = $latestBlogs->first(); $rest = $latestBlogs->slice(1, 2); @endphp
             <article class="blog-featured">
               <a href="{{ url('/blogs/' . $featured->slug) }}">
-                <img src="{{ $featured->image_path ? asset($featured->image_path) : asset('assets/blog/lead-generation.jpg') }}" alt="{{ $featured->title }}" width="900" height="700" onerror="this.onerror=null;this.src='{{ asset('assets/blog/lead-generation.jpg') }}';">
+                @if(!empty($featured->image_path))
+                <img src="{{ site_image($featured->image_path) }}" alt="{{ $featured->title }}" width="900" height="700">
+                @endif
                 <div class="blog-featured-overlay">
                   <h3>{{ $featured->title }}</h3>
                   <p class="blog-meta">

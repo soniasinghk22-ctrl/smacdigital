@@ -4,7 +4,9 @@
 @section('meta_description', $blog->metadescription ?: (Str::limit(strip_tags($blog->summary ?: $blog->content), 160)))
 @section('meta_keywords', $blog->metakeywords ?: ($blog->category . ', SMAC Digital, Digital Marketing'))
 @section('og_type', 'article')
-@section('og_image', $blog->image_path ? asset($blog->image_path) : asset('assets/blog/d2c-shopify.png'))
+@if(!empty($blog->image_path))
+@section('og_image', site_image($blog->image_path))
+@endif
 
 @section('extra_head')
 @if(!empty($blog->schema_markup))
@@ -16,7 +18,9 @@
   "@@type": "BlogPosting",
   "headline": "{{ addslashes($blog->title) }}",
   "description": "{{ addslashes(Str::limit(strip_tags($blog->summary ?: $blog->content), 160)) }}",
-  "image": "{{ $blog->image_path ? asset($blog->image_path) : asset('assets/blog/d2c-shopify.png') }}",
+  @if(!empty($blog->image_path))
+  "image": "{{ site_image($blog->image_path) }}",
+  @endif
   "datePublished": "{{ $blog->published_at ? $blog->published_at->toIso8601String() : $blog->created_at->toIso8601String() }}",
   "dateModified": "{{ $blog->updated_at ? $blog->updated_at->toIso8601String() : $blog->created_at->toIso8601String() }}",
   "author": {
@@ -66,7 +70,7 @@
   <div class="wrap blog-detail-inner">
     @if(!empty($blog->image_path))
     <figure class="blog-detail-cover media-reveal">
-      <img src="{{ asset($blog->image_path) }}" alt="{{ $blog->title }}" width="1200" height="720" loading="eager" onerror="this.onerror=null;this.src='{{ asset('assets/blog/d2c-shopify.png') }}';">
+      <img src="{{ site_image($blog->image_path) }}" alt="{{ $blog->title }}" width="1200" height="720" loading="eager">
     </figure>
     @endif
 
@@ -91,9 +95,11 @@
     <div class="page-blog-grid">
       @foreach($relatedBlogs as $rel)
       <a class="page-blog-card" href="{{ url('/blogs/' . $rel->slug) }}">
+        @if(!empty($rel->image_path))
         <span class="page-blog-card-media">
-          <img src="{{ $rel->image_path ? asset($rel->image_path) : asset('assets/blog/d2c-shopify.png') }}" alt="{{ $rel->title }}" width="640" height="400" loading="lazy" onerror="this.onerror=null;this.src='{{ asset('assets/blog/d2c-shopify.png') }}';">
+          <img src="{{ site_image($rel->image_path) }}" alt="{{ $rel->title }}" width="640" height="400" loading="lazy">
         </span>
+        @endif
         <span class="page-blog-card-body">
           <span class="page-blog-card-meta">
             <em>{{ $rel->category ?? 'Digital Marketing' }}</em>
