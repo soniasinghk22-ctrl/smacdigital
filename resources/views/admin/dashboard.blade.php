@@ -1314,6 +1314,12 @@
                     <span>{{ session('error') }}</span>
                 </div>
             @endif
+            @if(isset($errors) && $errors->any())
+                <div class="alert-success" style="background-color: rgba(255,107,107,0.1); border-color: rgba(255,107,107,0.3); color: #ff6b6b;">
+                    <i data-lucide="alert-circle"></i>
+                    <span>{{ $errors->first() }}</span>
+                </div>
+            @endif
 
             <!-- 1. GENERAL & CONTACT SETTINGS TAB -->
             <div class="tab-panel @if($activeTab === 'general') active @endif" id="tab-general">
@@ -6814,12 +6820,26 @@
             document.getElementById('blog-cancel-btn').style.display = 'none';
         }
 
-        // Listener to cancel remove flag if new file selected
+        // Listener to cancel remove flag if new file selected or URL typed
         document.addEventListener('DOMContentLoaded', function() {
             const blogImageInput = document.getElementById('blog_image');
             if (blogImageInput) {
                 blogImageInput.addEventListener('change', function() {
                     if (this.files && this.files.length > 0) {
+                        document.getElementById('blog_remove_image').value = '0';
+                        const notice = document.getElementById('blog_image_removed_notice');
+                        if (notice) notice.style.display = 'none';
+                        const rmBtn = document.getElementById('blog_remove_image_btn');
+                        if (rmBtn) rmBtn.style.display = 'inline-flex';
+                        const img = document.getElementById('blog_current_image_img');
+                        if (img) img.style.opacity = '1';
+                    }
+                });
+            }
+            const blogUrlInput = document.getElementById('blog_image_url');
+            if (blogUrlInput) {
+                blogUrlInput.addEventListener('input', function() {
+                    if (this.value.trim().length > 0) {
                         document.getElementById('blog_remove_image').value = '0';
                         const notice = document.getElementById('blog_image_removed_notice');
                         if (notice) notice.style.display = 'none';

@@ -650,7 +650,7 @@ class AdminController extends Controller
             'category' => 'required|string|max:255',
             'summary' => 'required|string',
             'content' => 'required|string',
-            'image' => 'nullable|image|max:10240',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:20480',
             'image_url' => 'nullable|string',
             'slug' => 'nullable|string|max:255|unique:blogs,slug',
             'schema_markup' => 'nullable|string',
@@ -668,14 +668,19 @@ class AdminController extends Controller
         $imagePath = null;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $targetDir = public_path('uploads/blogs');
-            if (!file_exists($targetDir)) {
-                @mkdir($targetDir, 0755, true);
+            if ($file && $file->isValid()) {
+                $targetDir = public_path('uploads/blogs');
+                if (!file_exists($targetDir)) {
+                    @mkdir($targetDir, 0755, true);
+                }
+                $extension = strtolower($file->getClientOriginalExtension() ?: $file->guessExtension() ?: 'jpg');
+                $filename = time() . '_' . uniqid() . '.' . $extension;
+                $file->move($targetDir, $filename);
+                @chmod($targetDir . '/' . $filename, 0644);
+                $imagePath = '/uploads/blogs/' . $filename;
+            } else {
+                return redirect()->back()->withInput()->with('error', 'The uploaded image file is invalid or too large. Please try a different image.');
             }
-            $extension = $file->getClientOriginalExtension() ?: 'jpg';
-            $filename = time() . '_' . uniqid() . '.' . $extension;
-            $file->move($targetDir, $filename);
-            $imagePath = '/uploads/blogs/' . $filename;
         } elseif ($request->filled('image_url')) {
             $imagePath = trim($request->input('image_url'));
         }
@@ -707,7 +712,7 @@ class AdminController extends Controller
             'category' => 'required|string|max:255',
             'summary' => 'required|string',
             'content' => 'required|string',
-            'image' => 'nullable|image|max:10240',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:20480',
             'image_url' => 'nullable|string',
             'slug' => 'required|string|max:255|unique:blogs,slug,' . $id,
             'schema_markup' => 'nullable|string',
@@ -719,26 +724,37 @@ class AdminController extends Controller
         $blog = \App\Models\Blog::findOrFail($id);
 
         $imagePath = $blog->image_path;
-        if ($request->boolean('remove_image')) {
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file && $file->isValid()) {
+                if ($blog->image_path && str_starts_with($blog->image_path, '/uploads/blogs/')) {
+                    @unlink(public_path(ltrim($blog->image_path, '/')));
+                }
+                $targetDir = public_path('uploads/blogs');
+                if (!file_exists($targetDir)) {
+                    @mkdir($targetDir, 0755, true);
+                }
+                $extension = strtolower($file->getClientOriginalExtension() ?: $file->guessExtension() ?: 'jpg');
+                $filename = time() . '_' . uniqid() . '.' . $extension;
+                $file->move($targetDir, $filename);
+                @chmod($targetDir . '/' . $filename, 0644);
+                $imagePath = '/uploads/blogs/' . $filename;
+            } else {
+                return redirect()->back()->withInput()->with('error', 'The uploaded image file is invalid or too large. Please try a different image.');
+            }
+        } elseif ($request->filled('image_url')) {
+            if ($blog->image_path && str_starts_with($blog->image_path, '/uploads/blogs/')) {
+                @unlink(public_path(ltrim($blog->image_path, '/')));
+            }
+            $imagePath = trim($request->input('image_url'));
+        } elseif ($request->boolean('remove_image')) {
             if ($blog->image_path && str_starts_with($blog->image_path, '/uploads/blogs/')) {
                 @unlink(public_path(ltrim($blog->image_path, '/')));
             }
             $imagePath = null;
-        } elseif ($request->hasFile('image')) {
-            if ($blog->image_path && str_starts_with($blog->image_path, '/uploads/blogs/')) {
-                @unlink(public_path(ltrim($blog->image_path, '/')));
-            }
-            $file = $request->file('image');
-            $targetDir = public_path('uploads/blogs');
-            if (!file_exists($targetDir)) {
-                @mkdir($targetDir, 0755, true);
-            }
-            $extension = $file->getClientOriginalExtension() ?: 'jpg';
-            $filename = time() . '_' . uniqid() . '.' . $extension;
-            $file->move($targetDir, $filename);
-            $imagePath = '/uploads/blogs/' . $filename;
-        } elseif ($request->filled('image_url')) {
-            $imagePath = trim($request->input('image_url'));
+        } elseif ($blog->image_path && (str_starts_with($blog->image_path, 'http://') || str_starts_with($blog->image_path, 'https://') || str_starts_with($blog->image_path, '//')) && !$request->filled('image_url')) {
+            $imagePath = null;
         }
 
         $blog->update([

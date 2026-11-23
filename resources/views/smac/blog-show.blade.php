@@ -89,23 +89,9 @@
 
 <article class="page-section blog-detail">
   <div class="wrap blog-detail-inner">
-    @php
-      $cat = strtolower($blog->category ?? '');
-      $detailFallback = asset('assets/blog/lead-generation.jpg');
-      if (str_contains($cat, 'social')) {
-          $detailFallback = asset('assets/blog/smm-jaipur.jpg');
-      } elseif (str_contains($cat, 'seo')) {
-          $detailFallback = asset('assets/blog/google-update-2026.png');
-      } elseif (str_contains($cat, 'ecommerce') || str_contains($cat, 'shopify') || str_contains($cat, 'd2c')) {
-          $detailFallback = asset('assets/blog/d2c-shopify.png');
-      } elseif (str_contains($cat, 'app') || str_contains($cat, 'mobile')) {
-          $detailFallback = asset('assets/blog/app.jpg');
-      }
-      $detailImg = !empty($blog->image_path) ? site_image($blog->image_path) : $detailFallback;
-    @endphp
-    @if(!empty($blog->image_path) || !empty($detailImg))
+    @if(!empty($blog->image_path))
     <figure class="blog-detail-cover">
-      <img src="{{ $detailImg }}" alt="{{ $blog->title }}" loading="eager" onerror="this.onerror=null;this.src='{{ $detailFallback }}';">
+      <img src="{{ site_image($blog->image_path) }}" alt="{{ $blog->title }}" loading="eager">
     </figure>
     @endif
 
