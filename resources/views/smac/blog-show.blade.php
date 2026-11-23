@@ -9,6 +9,27 @@
 @endif
 
 @section('extra_head')
+<style>
+.blog-detail-cover {
+  margin: 0 0 1.75rem;
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: auto !important;
+}
+.blog-detail-cover img {
+  width: 100%;
+  height: auto !important;
+  max-width: 100%;
+  display: block;
+  object-fit: contain !important;
+  border-radius: 24px;
+  transform: none !important;
+  animation: none !important;
+}
+</style>
 @if(!empty($blog->schema_markup))
   {!! $blog->schema_markup !!}
 @else
@@ -69,8 +90,8 @@
 <article class="page-section blog-detail">
   <div class="wrap blog-detail-inner">
     @if(!empty($blog->image_path))
-    <figure class="blog-detail-cover media-reveal">
-      <img src="{{ site_image($blog->image_path) }}" alt="{{ $blog->title }}" width="1200" height="720" loading="eager">
+    <figure class="blog-detail-cover">
+      <img src="{{ site_image($blog->image_path) }}" alt="{{ $blog->title }}" loading="eager">
     </figure>
     @endif
 
