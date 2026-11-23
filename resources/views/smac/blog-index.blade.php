@@ -40,12 +40,24 @@
     @else
       <div class="page-blog-grid">
         @foreach($blogs as $blog)
+        @php
+          $cat = strtolower($blog->category ?? '');
+          $cardFallback = asset('assets/blog/lead-generation.jpg');
+          if (str_contains($cat, 'social')) {
+              $cardFallback = asset('assets/blog/smm-jaipur.jpg');
+          } elseif (str_contains($cat, 'seo')) {
+              $cardFallback = asset('assets/blog/google-update-2026.png');
+          } elseif (str_contains($cat, 'ecommerce') || str_contains($cat, 'shopify') || str_contains($cat, 'd2c')) {
+              $cardFallback = asset('assets/blog/d2c-shopify.png');
+          } elseif (str_contains($cat, 'app') || str_contains($cat, 'mobile')) {
+              $cardFallback = asset('assets/blog/app.jpg');
+          }
+          $cardImg = !empty($blog->image_path) ? site_image($blog->image_path) : $cardFallback;
+        @endphp
         <a class="page-blog-card" href="{{ url('/blogs/' . $blog->slug) }}">
-          @if(!empty($blog->image_path))
           <span class="page-blog-card-media">
-            <img src="{{ site_image($blog->image_path) }}" alt="{{ $blog->title }}" width="640" height="400" loading="lazy">
+            <img src="{{ $cardImg }}" alt="{{ $blog->title }}" width="640" height="400" loading="lazy" onerror="this.onerror=null;this.src='{{ $cardFallback }}';">
           </span>
-          @endif
           <span class="page-blog-card-body">
             <span class="page-blog-card-meta">
               <em>{{ $blog->category ?? 'Digital Marketing' }}</em>

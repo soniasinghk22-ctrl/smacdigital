@@ -8,11 +8,36 @@ if (!function_exists('site_image')) {
         if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://') || str_starts_with($path, '//')) {
             return $path;
         }
-        $path = ltrim($path, '/');
-        if (str_starts_with($path, 'assets/') || str_starts_with($path, 'uploads/') || str_starts_with($path, 'images/') || str_starts_with($path, 'storage/')) {
-            return asset($path);
+        $clean = ltrim($path, '/');
+
+        // Check if file exists directly in public folder
+        if (file_exists(public_path($clean))) {
+            return asset($clean);
         }
-        return asset('storage/' . $path);
+
+        // Handle storage symlink fallback
+        if (str_starts_with($clean, 'storage/')) {
+            $sub = substr($clean, 8);
+            if (file_exists(storage_path('app/public/' . $sub))) {
+                return asset($clean);
+            }
+            if (file_exists(public_path('uploads/blogs/' . basename($clean)))) {
+                return asset('uploads/blogs/' . basename($clean));
+            }
+        }
+
+        // Handle uploads/blogs fallback to assets/blog
+        if (str_starts_with($clean, 'uploads/blogs/')) {
+            $base = basename($clean);
+            if (file_exists(public_path('assets/blog/' . $base))) {
+                return asset('assets/blog/' . $base);
+            }
+        }
+
+        if (str_starts_with($clean, 'assets/') || str_starts_with($clean, 'uploads/') || str_starts_with($clean, 'images/') || str_starts_with($clean, 'storage/')) {
+            return asset($clean);
+        }
+        return asset('storage/' . $clean);
     }
 }
 
