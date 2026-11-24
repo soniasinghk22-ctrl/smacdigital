@@ -127,6 +127,10 @@ Route::redirect('/careers', '/career', 301);
 Route::get('/events', [SmacController::class, 'events'])->name('events');
 Route::get('/events.html', [SmacController::class, 'events']);
 
+Route::get('/privacy-policy', [SmacController::class, 'privacyPolicy'])->name('privacy.policy');
+Route::get('/privacy-policy/', [SmacController::class, 'privacyPolicy']);
+Route::get('/privacy-policy.html', [SmacController::class, 'privacyPolicy']);
+
 Route::post('/save-lead', [App\Http\Controllers\Api\PublicApiController::class, 'submitLead']);
 Route::post('/contact/submit', [App\Http\Controllers\Api\PublicApiController::class, 'submitLead'])->name('contact.submit');
 

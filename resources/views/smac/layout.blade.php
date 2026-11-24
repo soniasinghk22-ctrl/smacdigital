@@ -346,7 +346,7 @@
       </div>
 
       <div class="footer-col footer-area-links">
-        <h2>{{ $footerContents['headings']['col2'] ?? 'Quick Links' }}</h2>
+        <h2>{{ $footerContents['headings']['col2'] ?? 'Company' }}</h2>
         <ul>
           @if(isset($footerMenus['footer_col2']) && $footerMenus['footer_col2']->isNotEmpty())
             @foreach($footerMenus['footer_col2'] as $fItem)
@@ -361,6 +361,7 @@
             <li><a href="{{ url('/contact') }}">Contact</a></li>
             <li><a href="{{ url('/events') }}">Events</a></li>
             <li><a href="{{ url('/career') }}">Career</a></li>
+            <li><a href="{{ url('/privacy-policy') }}">Privacy Policy</a></li>
           @endif
         </ul>
       </div>

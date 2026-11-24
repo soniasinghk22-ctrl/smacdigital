@@ -7,6 +7,7 @@ use App\Models\SiteParameter;
 use App\Models\Testimonial;
 use App\Models\Blog;
 use App\Models\MenuItem;
+use App\Models\CmsPage;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
@@ -163,5 +164,30 @@ class SmacDigitalCmsSeeder extends Seeder
                 ]
             );
         }
+
+        // 6. Footer Menu Items (Company / footer_col2)
+        MenuItem::updateOrCreate(
+            [
+                'menu_type' => 'footer_col2',
+                'url' => '/privacy-policy'
+            ],
+            [
+                'title' => 'Privacy Policy',
+                'sort_order' => 7,
+                'is_active' => true
+            ]
+        );
+
+        // 7. Privacy Policy CMS Page
+        CmsPage::updateOrCreate(
+            ['slug' => 'privacy-policy'],
+            [
+                'title' => 'Privacy Policy',
+                'metatitle' => 'Privacy Policy | SMAC Digital',
+                'metadescription' => 'Read the Privacy Policy of SMAC Digital to understand how we collect, use, store, and protect your personal and business information.',
+                'metakeywords' => 'Privacy Policy, SMAC Digital Privacy, Terms and Privacy',
+                'status' => true
+            ]
+        );
     }
 }

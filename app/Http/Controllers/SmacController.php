@@ -338,4 +338,12 @@ class SmacController extends Controller
 
         return view('smac.events', array_merge($common, compact('page', 'eventsContents')));
     }
+
+    public function privacyPolicy()
+    {
+        $common = $this->getCommonData();
+        $page = CmsPage::where('slug', 'privacy-policy')->first();
+
+        return view('smac.privacy-policy', array_merge($common, compact('page')));
+    }
 }
